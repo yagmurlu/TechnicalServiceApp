@@ -66,6 +66,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj">
+      <Project>{CB7F5C43-0FCE-4D29-898D-93EF0667A41D}</Project>
+      <Name>DataAccessLayer</Name>
+    </ProjectReference>
     <ProjectReference Include="..\EntityLayer\EntityLayer.csproj">
       <Project>{65B45808-7526-4E67-80E7-C673925F839C}</Project>
       <Name>EntityLayer</Name>

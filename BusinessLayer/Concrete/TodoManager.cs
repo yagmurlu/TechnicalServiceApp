@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Abstract;
+using DataAccessLayer.Abstract;
 using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -10,29 +11,34 @@ namespace BusinessLayer.Concrete
 {
     public class TodoManager : ITodoService
     {
+        ITodoDal _todoDal;
+        public TodoManager(ITodoDal todoDal)
+        {
+            _todoDal = todoDal;
+        }
         public Todo GetById(int id)
         {
-            throw new NotImplementedException();
+            return _todoDal.Get(x => x.TodoId == id);
         }
 
         public List<Todo> GetList()
         {
-            throw new NotImplementedException();
+            return _todoDal.List();
         }
 
         public void TodoAddBL(Todo todo)
         {
-            throw new NotImplementedException();
+             _todoDal.Insert(todo);
         }
 
         public void TodoDelete(Todo todo)
         {
-            throw new NotImplementedException();
+            _todoDal.Delete(todo);
         }
 
         public void TodoUpdate(Todo todo)
         {
-            throw new NotImplementedException();
+            _todoDal.Update(todo);
         }
     }
 }
