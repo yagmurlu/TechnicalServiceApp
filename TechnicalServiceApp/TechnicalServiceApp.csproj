@@ -162,6 +162,7 @@
     <Content Include="admin_panel\web\images\i4.png" />
     <Content Include="admin_panel\web\images\img1.png" />
     <Content Include="admin_panel\web\images\lock.png" />
+    <Content Include="admin_panel\web\images\profile.png" />
     <Content Include="admin_panel\web\images\tick.png" />
     <Content Include="admin_panel\web\images\user.png" />
     <Content Include="admin_panel\web\inbox.html" />
@@ -236,9 +237,10 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
-    <Content Include="Views\User\GetListUser.cshtml" />
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\GetListAdmin.cshtml" />
+    <Content Include="Views\User\GetListUser.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

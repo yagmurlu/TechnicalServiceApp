@@ -36,7 +36,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
     <link href="~/admin_panel/web/css/animate.css" rel="stylesheet" type="text/css" media="all">
     <script src="~/admin_panel/web/js/wow.min.js"></script>
     <script>
-		 new WOW().init();
+        new WOW().init();
     </script>
     <!--//end-animate-->
     <!-- Metis Menu -->
@@ -53,79 +53,31 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                 <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
                     <ul class="nav" id="side-menu">
                         <li>
-                            <a href="~/admin_panel/web/index.html"><i class="fa fa-home nav_icon"></i>Ana Sayfa</a>
+                            <a href="#"><i class="fa fa-home nav_icon"></i>Ana Sayfa</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-cogs nav_icon"></i>Yapılacaklar <span class="nav-badge">12</span></a>
-                            @*<ul class="nav nav-second-level collapse">
-                                <li>
-                                    <a href="~/admin_panel/web/grids.html">Mesajlar</a>
-                                </li>
-                                <li>
-                                    <a href="~/admin_panel/web/media.html">Media Objects</a>
-                                </li>
-                            </ul>*@
-                            <!-- /nav-second-level -->
-                        </li>
-                        <li class="">
-                            <a href="#"><i class="fa fa-book nav_icon"></i>Kullanıcılar </a>
-                            @*<ul class="nav nav-second-level collapse">
-                                <li>
-                                    <a href="~/admin_panel/web/general.html">General<span class="nav-badge-btm">08</span></a>
-                                </li>
-                                <li>
-                                    <a href="~/admin_panel/web/typography.html">Typography</a>
-                                </li>
-                            </ul>*@
-                            <!-- /nav-second-level -->
-                        </li>
-                        <li>
-                            <a href="~/admin_panel/web/widgets.html"><i class="fa fa-th-large nav_icon"></i>Widgets <span class="nav-badge-btm">08</span></a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-envelope nav_icon"></i>Mesajlar<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level collapse">
                                 <li>
-                                    <a href="~/admin_panel/web/inbox.html">Gelen Mesaj <span class="nav-badge-btm">05</span></a>
+                                    <a href="#">Gelen Mesaj <span class="nav-badge-btm">05</span></a>
                                 </li>
                                 <li>
-                                    <a href="~/admin_panel/web/compose.html">Mesaj Oluştur</a>
+                                    <a href="#">Mesaj Oluştur</a>
                                 </li>
                             </ul>
                             <!-- //nav-second-level -->
                         </li>
-                        <li>
-                            <a href="~/admin_panel/web/tables.html"><i class="fa fa-table nav_icon"></i>Adminler </a>
+                        <li class="">
+                            <a href="/User/GetListUser/"><i class="fa fa-book nav_icon"></i>Kullanıcılar </a>
                         </li>
-                        <!--<li>
-                            <a href="#"><i class="fa fa-check-square-o nav_icon"></i>Forms<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level collapse">
-                                <li>
-                                    <a href="~/admin_panel/web/forms.html">Basic Forms <span class="nav-badge-btm">07</span></a>
-                                </li>
-                                <li>
-                                    <a href="~/admin_panel/web/validation.html">Validation</a>
-                                </li>
-                            </ul>-->
-                            <!-- //nav-second-level -->
-                        <!--</li>-->
-                        <!--<li>
-                            <a href="#"><i class="fa fa-file-text-o nav_icon"></i>Pages<span class="nav-badge-btm">02</span><span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level collapse">
-                                <li>
-                                    <a href="~/admin_panel/web/login.html">Login</a>
-                                </li>
-                                <li>
-                                    <a href="~/admin_panel/web/signup.html">SignUp</a>
-                                </li>
-                                <li>
-                                    <a href="~/admin_panel/web/blank-page.html">Blank Page</a>
-                                </li>
-                            </ul>-->
-                            <!-- //nav-second-level -->
-                        <!--</li>-->
                         <li>
-                            <a href="~/admin_panel/web/charts.html" class="chart-nav"></a>
+                            <a href="/Admin/GetListAdmin/"><i class="fa fa-table nav_icon"></i>Adminler </a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-th-large nav_icon"></i>Rapor <span class="nav-badge-btm">08</span></a>
                         </li>
                     </ul>
                     <div class="clearfix"> </div>
@@ -142,7 +94,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                 <!--toggle button end-->
                 <!--logo -->
                 <div class="logo">
-                    <a href="~/admin_panel/web/index.html">
+                    <a href="#">
                         <h1>NEÜ</h1>
                         <span>Admin</span>
                     </a>
@@ -347,43 +299,33 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
         </div>
         <!-- //header-ends -->
         <!-- main content start-->
-        <div id="page-wrapper">
-            <div class="main-page">
-                <h3 class="title1">Blank Page</h3>
-                <div class="blank-page widget-shadow scroll" id="style-2 div1">
-                    <p>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic
-                        It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here.
-                    </p>
-                </div>
-            </div>
-        </div>
+
         @RenderBody()
         <!--footer-->
         <div class="footer">
-            <p>&copy; 2016 Novus Admin Panel. All Rights Reserved | Design by <a href="https://w3layouts.com/" target="_blank">w3layouts</a></p>
+            <p>&copy;@DateTime.Now.Year Tüm Hakları Saklıdır.</p>
         </div>
         <!--//footer-->
     </div>
     <!-- Classie -->
     <script src="~/admin_panel/web/js/classie.js"></script>
     <script>
-			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
-				showLeftPush = document.getElementById( 'showLeftPush' ),
-				body = document.body;
+        var menuLeft = document.getElementById('cbp-spmenu-s1'),
+            showLeftPush = document.getElementById('showLeftPush'),
+            body = document.body;
 
-			showLeftPush.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( body, 'cbp-spmenu-push-toright' );
-				classie.toggle( menuLeft, 'cbp-spmenu-open' );
-				disableOther( 'showLeftPush' );
-			};
+        showLeftPush.onclick = function () {
+            classie.toggle(this, 'active');
+            classie.toggle(body, 'cbp-spmenu-push-toright');
+            classie.toggle(menuLeft, 'cbp-spmenu-open');
+            disableOther('showLeftPush');
+        };
 
-			function disableOther( button ) {
-				if( button !== 'showLeftPush' ) {
-					classie.toggle( showLeftPush, 'disabled' );
-				}
-			}
+        function disableOther(button) {
+            if (button !== 'showLeftPush') {
+                classie.toggle(showLeftPush, 'disabled');
+            }
+        }
     </script>
     <!--scrolling js-->
     <script src="~/admin_panel/web/js/jquery.nicescroll.js"></script>

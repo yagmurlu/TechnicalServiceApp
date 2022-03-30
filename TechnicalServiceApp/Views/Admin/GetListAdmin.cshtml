@@ -1,12 +1,12 @@
 ﻿@using EntityLayer.Concrete
-@model List<User>
+@model List<Admin>
+
 @{
-    ViewBag.Title = "GetListUser";
+    ViewBag.Title = "GetListAdmin";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
 <body class="cbp-spmenu-push">
-
     <div class="main-content">
         <div id="page-wrapper">
             <div class="main-page">
@@ -16,10 +16,10 @@
                         <div class="col-md-4 profile widget-shadow">
                             <h4 class="title3">Profile</h4>
                             <div class="profile-top">
-                              
+                                
                                 <img src="~/admin_panel/web/images/profile.png" />
-                                <h4>@item.UserName @item.UserSurname</h4>
-                                <h5>@item.UserAbout</h5>
+                                <h4>@item.AdminName @item.AdminSurname</h4>
+                                <h5>Admin</h5>
                             </div>
                             <div class="profile-text">
                                 <div class="profile-row">
@@ -27,7 +27,7 @@
                                         <i class="fa fa-envelope profile-icon"></i>
                                     </div>
                                     <div class="profile-right">
-                                        <h4>@item.UserMail</h4>
+                                        <h4>@item.AdminMail</h4>
                                         <p>Email</p>
                                     </div>
                                     <div class="clearfix"> </div>
@@ -46,7 +46,6 @@
                         </div>
                     }
                 </div>
-
             </div>
         </div>
     </div>
