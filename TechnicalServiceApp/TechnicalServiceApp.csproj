@@ -241,11 +241,12 @@
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Admin\GetListAdmin.cshtml" />
     <Content Include="Views\User\GetListUser.cshtml" />
+    <Content Include="Views\Contact\Inbox.cshtml" />
+    <Content Include="Views\Contact\Sendbox.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\Contact\" />
     <Folder Include="Views\Todo\" />
   </ItemGroup>
   <ItemGroup>

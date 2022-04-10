@@ -1,4 +1,7 @@
-﻿using System;
+﻿using BusinessLayer.Concrete;
+using BusinessLayer.ValidationRules;
+using DataAccessLayer.EntityFramework;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,9 +12,19 @@ namespace TechnicalServiceApp.Controllers
     public class ContactController : Controller
     {
         // GET: Contact
-        public ActionResult Index()
+        ContactManager contactManager = new ContactManager(new EfContactDal());
+        ContactValidator contactValidator = new ContactValidator();
+        public ActionResult Inbox()
         {
-            return View();
+            string p = (string)Session["AdminMail"];
+            var messageList = contactManager.GetListInbox(p);
+            return View(messageList);
+        }
+        public ActionResult Sendbox()
+        {
+            string p = (string)Session["AdminMail"];
+            var messageList = contactManager.GetListInbox(p);
+            return View(messageList);
         }
     }
 }

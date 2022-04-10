@@ -16,6 +16,21 @@ namespace BusinessLayer.Concrete
         {
             _contactDal = contactDal;
         }
+
+        public Contact GetById(int id)
+        {
+            return _contactDal.Get(x => x.ContactId == id);
+        }
+
+        public List<Contact> GetListInbox(string session)
+        {
+            return _contactDal.List(x => x.RecevierMail == session);//alıcı
+        }
+
+        public List<Contact> GetListSendbox(string session)
+        {
+            return _contactDal.List(x => x.SenderMail == session); //gönderen
+        }
         public void ContactAddBL(Contact contact)
         {
             _contactDal.Insert(contact);
@@ -31,14 +46,6 @@ namespace BusinessLayer.Concrete
             _contactDal.Update(contact);
         }
 
-        public Contact GetById(int id)
-        {
-            return _contactDal.Get(x => x.ContactId == id);
-        }
-
-        public List<Contact> GetList()
-        {
-            return _contactDal.List();
-        }
+        
     }
 }
