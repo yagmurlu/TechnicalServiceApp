@@ -46,6 +46,34 @@ namespace BusinessLayer.Concrete
             _contactDal.Update(contact);
         }
 
-        
+        public List<Contact> GetReadList(string session)
+        {
+            return _contactDal.List(x => x.IsRead == true && x.RecevierMail == session);
+        }
+
+        public List<Contact> GetUnReadList(string session)
+        {
+            return _contactDal.List(x => x.RecevierMail == session && x.IsRead == false);
+        }
+
+        public List<Contact> IsDraft(string session)
+        {
+            return _contactDal.List(x => x.IsDraft == true && x.SenderMail == session);
+        }
+
+        public List<Contact> GetListDraft(string session)
+        {
+            return _contactDal.List(x => x.IsDraft == true && x.SenderMail == session);
+        }
+
+        public List<Contact> GetListTrash()
+        {
+            return _contactDal.List(x => x.Trash == true);
+        }
+
+        public List<Contact> GetListSpam(string session)
+        {
+            return _contactDal.List(x => x.IsSpam == true && x.RecevierMail == session);
+        }
     }
 }

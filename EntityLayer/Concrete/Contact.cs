@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 
 namespace EntityLayer.Concrete
 {
@@ -17,9 +18,13 @@ namespace EntityLayer.Concrete
         public string RecevierMail { get; set; } //Alıcı
         [StringLength(50)]
         public string Heading { get; set; } // Konu Başlığı
-        [StringLength(500)]
+        [AllowHtml]
         public string Contents { get; set; } // Mesaj İçeriği
         public DateTime ContactDate { get; set; } //Mesaj Gönderim Tarihi
+        public bool IsDraft { get; set; }
+        public bool Trash { get; set; }
+        public bool IsRead { get; set; }
+        public bool IsSpam { get; set; }
         public int UserId { get; set; }
         public virtual User User { get; set; }
         public ICollection<Todo> Todos { get; set; } // İlişkilendirme

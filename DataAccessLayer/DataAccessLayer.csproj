@@ -74,6 +74,10 @@
     <Compile Include="Migrations\202203181046064__user_contact_relation.designer.cs">
       <DependentUpon>202203181046064__user_contact_relation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202204111450094__contact_draft_trash_spam_read.cs" />
+    <Compile Include="Migrations\202204111450094__contact_draft_trash_spam_read.designer.cs">
+      <DependentUpon>202204111450094__contact_draft_trash_spam_read.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -96,6 +100,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202203181046064__user_contact_relation.resx">
       <DependentUpon>202203181046064__user_contact_relation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204111450094__contact_draft_trash_spam_read.resx">
+      <DependentUpon>202204111450094__contact_draft_trash_spam_read.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
