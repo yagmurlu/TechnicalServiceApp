@@ -28,6 +28,38 @@ namespace TechnicalServiceApp.Controllers
             var messageList = contactManager.GetListInbox(p);
             return View(messageList);
         }
+        public PartialViewResult ContactPartial()
+        {
+            string p = (string)Session["AdminUserName"];
+            var contact = contactManager.GetList().Count();
+            ViewBag.contact = contact;
+
+            var sendMail = contactManager.GetListSendbox(p).Count();
+            ViewBag.sendMail = sendMail;
+
+            var receiverMail = contactManager.GetListInbox(p).Count();
+            ViewBag.receiverMail = receiverMail;
+
+            var draftMail = contactManager.GetListDraft(p).Count();
+            ViewBag.draftMail = draftMail;
+            var trashMail = contactManager.GetListTrash().Count();
+            ViewBag.trashMail = trashMail;
+
+            var readMessage = contactManager.GetReadList(p).Count();
+            ViewBag.readMessage = readMessage;
+
+            var unreadMessage = contactManager.GetUnReadList(p).Count();
+            ViewBag.unreadMessage = unreadMessage;
+            var spamMail = contactManager.GetListSpam(p).Count();
+            ViewBag.spamMail = spamMail;
+
+            return PartialView();
+        }
+        [HttpGet]
+        public ActionResult NewMessage()
+        {
+            return View();
+        }
         [HttpPost, ValidateInput(false)]
         public ActionResult NewMessage(Contact p, string menuName)
         {
@@ -98,6 +130,12 @@ namespace TechnicalServiceApp.Controllers
             }
             contactManager.ContactUpdate(contactValue);
             return RedirectToAction("Inbox");
+        }
+        
+        public ActionResult GetMessageDetails(int id)
+        {
+            var contactValues = contactManager.GetById(id);
+            return PartialView(contactValues);
         }
     }
 }

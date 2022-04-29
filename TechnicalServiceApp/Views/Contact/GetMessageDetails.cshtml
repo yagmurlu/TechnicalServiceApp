@@ -1,0 +1,13 @@
+﻿
+@model EntityLayer.Concrete.Contact
+
+<div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+
+    <div class="mail-body">
+        <p>@Html.DisplayFor(x => x.Contents)</p>
+        <form>
+            <input type="text" placeholder="Cevap yaz..." required="">
+            <input type="submit" value="Gönder">
+        </form>
+    </div>
+</div>

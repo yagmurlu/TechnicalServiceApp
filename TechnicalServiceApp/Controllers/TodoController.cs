@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BusinessLayer.Concrete;
+using DataAccessLayer.EntityFramework;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,9 +11,11 @@ namespace TechnicalServiceApp.Controllers
     public class TodoController : Controller
     {
         // GET: Todo
+        TodoManager todoManager = new TodoManager(new EfTodoDal());
         public ActionResult Index()
         {
-            return View();
+            var todoValues = todoManager.GetList();
+            return View(todoValues);
         }
     }
 }

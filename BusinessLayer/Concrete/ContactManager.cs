@@ -21,15 +21,19 @@ namespace BusinessLayer.Concrete
         {
             return _contactDal.Get(x => x.ContactId == id);
         }
+        public List<Contact> GetList()
+        {
+            return _contactDal.List();
+        }
 
         public List<Contact> GetListInbox(string session)
         {
-            return _contactDal.List(x => x.RecevierMail == session);//alıcı
+            return _contactDal.List(x => x.RecevierMail == "aleyna@gmail.com");//alıcı
         }
 
         public List<Contact> GetListSendbox(string session)
         {
-            return _contactDal.List(x => x.SenderMail == session); //gönderen
+            return _contactDal.List(x => x.SenderMail == "yagmur@gmail.com"); //gönderen
         }
         public void ContactAddBL(Contact contact)
         {

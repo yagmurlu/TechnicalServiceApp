@@ -10,6 +10,7 @@ namespace BusinessLayer.Abstract
     public interface IContactService
     {
         Contact GetById(int id);
+        List<Contact> GetList();
         List<Contact> GetListInbox(string session);
         List<Contact> GetListSendbox(string session);
         List<Contact> GetReadList(string session);//okundu

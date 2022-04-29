@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "NewMessage";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<!DOCTYPE HTML>
+<html>
+<body class="cbp-spmenu-push">
+    <div class="main-content">
+        <!-- main content start-->
+        <div id="page-wrapper">
+            <div class="main-page compose">
+                @Html.Partial("ContactPartial", "Contact")
+                <div class="col-md-8 compose-right widget-shadow">
+                    <div class="panel-default">
+                        <div class="panel-heading">
+                            Mesaj Oluştur
+                        </div>
+                        <div class="panel-body">
+                            <form class="com-mail">
+                                <input type="text" class="form-control1 control3" placeholder="Alıcı :">
+                                <input type="text" class="form-control1 control3" placeholder="Konu :">
+                                <textarea rows="6" class="form-control1 control2" placeholder="Mesaj :"></textarea>
+                                <div class="form-group">
+                                    <div class="btn btn-default btn-file">
+                                        <i class="fa fa-paperclip"></i> Ekle
+                                        <input type="file" name="attachment">
+                                    </div>
+                                    <p class="help-block">Max. 32MB</p>
+                                </div>
+                                <input type="submit" value="Gönder">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"> </div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

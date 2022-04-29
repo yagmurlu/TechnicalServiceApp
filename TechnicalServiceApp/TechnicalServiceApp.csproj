@@ -245,12 +245,15 @@
     <Content Include="Views\Admin\GetListAdmin.cshtml" />
     <Content Include="Views\User\GetListUser.cshtml" />
     <Content Include="Views\Contact\Inbox.cshtml" />
+    <Content Include="Views\Contact\NewMessage.cshtml" />
+    <Content Include="Views\Contact\ContactPartial.cshtml" />
     <Content Include="Views\Contact\Sendbox.cshtml" />
+    <Content Include="Views\Contact\GetMessageDetails.cshtml" />
+    <Content Include="Views\Todo\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\Todo\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
