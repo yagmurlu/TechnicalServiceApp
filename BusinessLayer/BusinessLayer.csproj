@@ -63,7 +63,7 @@
     <Compile Include="Concrete\TodoManager.cs" />
     <Compile Include="Concrete\UserManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ValidationRules\AbstractValidatör.cs" />
+    <Compile Include="ValidationRules\AdminValidator.cs" />
     <Compile Include="ValidationRules\ContactValidator.cs" />
   </ItemGroup>
   <ItemGroup>

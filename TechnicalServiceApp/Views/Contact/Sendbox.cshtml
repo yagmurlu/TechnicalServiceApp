@@ -16,15 +16,15 @@
         <div id="page-wrapper">
             <h3 class="title1"> </h3>
             <div class="main-page compose">
-                @Html.Partial("ContactPartial", "Contact")
-                <div class="col-md-12 compose-right widget-shadow">
+                @Html.Action("ContactPartial", "Contact")
+                <div class="col-md-12 compose-right widget-shadow"style="background-color: #6164C1; text-align: center;padding-bottom:50px">
                     <div class="panel-default">
 
 
                         <div class="inbox-page">
 
-                            <div class="panel-heading">
-                                Gelen Mesajlar
+                            <div class="panel-heading"style="color:white;font-size:20px">
+                                Gönderilen Mesajlar
                             </div>
                             <div class="inbox-row widget-shadow">
                                 @foreach (var item in Model)
@@ -34,7 +34,7 @@
                                     <div class="mail mail-name"><h6>@item.RecevierMail</h6></div>
                                     <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
                                         <div class="mail">
-                                            <a href="/Contact/GetMessageDetails/@item.ContactId">
+                                            <a href="/Contact/GetSendboxMessageDetails/@item.ContactId">
                                                 <p>@item.Heading </p>
                                         </div>
                                     </a>

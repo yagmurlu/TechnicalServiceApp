@@ -24,9 +24,7 @@ namespace EntityLayer.Concrete
         public bool IsDraft { get; set; }
         public bool Trash { get; set; }
         public bool IsRead { get; set; }
-        public bool IsSpam { get; set; }
-        public int UserId { get; set; }
-        public virtual User User { get; set; }
+        public bool IsSpam { get; set; } 
         public ICollection<Todo> Todos { get; set; } // İlişkilendirme
 
     }

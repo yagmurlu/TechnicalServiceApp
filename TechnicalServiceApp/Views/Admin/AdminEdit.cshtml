@@ -1,0 +1,51 @@
+﻿@model EntityLayer.Concrete.Admin
+@{
+    ViewBag.Title = "AdminEdit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div id="page-wrapper">
+    <div class="main-page">
+        <div class="tables">
+            <div class="panel-body widget-shadow">
+                <h4>AYARLAR</h4>
+                @using (Html.BeginForm("AdminEdit", "Admin", FormMethod.Post))
+                {
+            <div class="form-group">
+                @Html.HiddenFor(x => x.AdminId, new { @class = "form-control" })
+                @Html.Label("Adı")
+                @Html.TextBoxFor(x => x.AdminName, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.AdminName, "", new { @style = "color: red " })
+                <br />
+                @Html.Label("Soyadı")
+                @Html.TextBoxFor(x => x.AdminSurname, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.AdminSurname, "", new { @style = "color: red " })
+                <br />
+                @Html.Label("Mail")
+                @Html.TextBoxFor(x => x.AdminMail, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.AdminMail, "", new { @style = "color: red " })
+                <br />
+                @*@Html.HiddenFor("Mevcut Parola: ")*@
+                @Html.HiddenFor(x => x.AdminPassword, new { @class = "form-control" })
+                @*@Html.ValidationMessageFor(x => x.AdminPassword, "", new { @style = "color: red " })
+                <br />
+                @Html.Label("Yeni Parola: ")
+                @Html.PasswordFor(x => x.AdminPassword, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.AdminPassword, "", new { @style = "color: red " })*@
+                
+                @Html.Label("Profil Fotoğrafı")
+                @Html.TextBoxFor(x => x.AdminImage, new { @class = "form-control" })
+                <br />
+                <div class="btn btn-default btn-file">
+                    <input type="file" name="attachment">
+                </div>
+                <br />
+                <br />
+                <button class="btn btn-success">Güncelle</button>
+            </div>
+
+                }
+            </div>
+        </div>
+    </div>
+</div>

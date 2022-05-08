@@ -16,23 +16,16 @@
         <div id="page-wrapper">
             <h3 class="title1"> </h3>
             <div class="main-page compose">
-
+                <div class="panel-heading">
+                    Yapılacaklar
+                </div>
                 <div class="col-md-12 compose widget-shadow">
                     <div class="panel-default">
-
-
                         <div class="inbox-page">
-
-                            <div class="panel-heading">
-                                Yapılacaklar
-                            </div>
                             <div class="card-body p-0">
                                 <table class="table table-striped projects">
                                     <thead>
                                         <tr>
-                                            <th style="width: 1%">
-                                                #
-                                            </th>
                                             <th style="width: 20%" class="text-center">
                                                 Gönderen
                                             </th>
@@ -52,16 +45,12 @@
                                     {
                                         <tr>
                                             <td>
-                                                @item.TodoId
-                                            </td>
-                                            <td>
                                                 <ul class="list-inline">
                                                     <li class="list-inline-item">
-
                                                         <div class="user_img">
-                                                            <img style="width:130px;height:30px" alt="Avatar" src="@item.Contact.User.UserImage">
+                                                            @*<img style="width:130px;height:30px" alt="Avatar" src="@item.Contact." >*@
                                                         </div>
-                                                        <b style="position:absolute" ;class="text-align:center">  @item.Contact.User.UserName @item.Contact.User.UserSurname</b>
+                                                        <b style="position:absolute" ;class="text-align:center">@item.Contact.SenderMail</b>
 
                                                     </li>
                                                 </ul>
@@ -85,10 +74,15 @@
                                                     </i>
                                                     Yapıldı
                                                 </a>
-                                                <a class="btn btn-danger btn-sm" href="/WriterPanelContent/AddContent/@item">
+                                                <a class="btn btn-primary btn-sm" href="/WriterPanelContent/AddContent/@item">
                                                     <i class="fas fa-pencil-alt">
                                                     </i>
                                                     Devam Ediyor
+                                                </a>
+                                                <a class="btn btn-danger btn-sm" href="/WriterPanelContent/AddContent/@item">
+                                                    <i class="fas fa-pencil-alt">
+                                                    </i>
+                                                    İptal
                                                 </a>
                                             </td>
 

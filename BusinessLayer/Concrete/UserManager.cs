@@ -39,6 +39,10 @@ namespace BusinessLayer.Concrete
         public void UserUpdate(User user)
         {
             _userDal.Update(user);
+        }  
+        public List<User> GetListInfoUser(string session)
+        {
+            return _userDal.List(x => x.UserMail == "yagmur@gmail.com");
         }
     }
 }

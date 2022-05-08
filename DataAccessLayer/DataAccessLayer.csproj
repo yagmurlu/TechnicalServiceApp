@@ -78,6 +78,18 @@
     <Compile Include="Migrations\202204111450094__contact_draft_trash_spam_read.designer.cs">
       <DependentUpon>202204111450094__contact_draft_trash_spam_read.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202204292318201_delete_userId_contact_iliski.cs" />
+    <Compile Include="Migrations\202204292318201_delete_userId_contact_iliski.designer.cs">
+      <DependentUpon>202204292318201_delete_userId_contact_iliski.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202205062238368__add_adminImage.cs" />
+    <Compile Include="Migrations\202205062238368__add_adminImage.designer.cs">
+      <DependentUpon>202205062238368__add_adminImage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202205062242376__adminImage_isim_degisti.cs" />
+    <Compile Include="Migrations\202205062242376__adminImage_isim_degisti.designer.cs">
+      <DependentUpon>202205062242376__adminImage_isim_degisti.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -103,6 +115,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202204111450094__contact_draft_trash_spam_read.resx">
       <DependentUpon>202204111450094__contact_draft_trash_spam_read.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204292318201_delete_userId_contact_iliski.resx">
+      <DependentUpon>202204292318201_delete_userId_contact_iliski.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205062238368__add_adminImage.resx">
+      <DependentUpon>202205062238368__add_adminImage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205062242376__adminImage_isim_degisti.resx">
+      <DependentUpon>202205062242376__adminImage_isim_degisti.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

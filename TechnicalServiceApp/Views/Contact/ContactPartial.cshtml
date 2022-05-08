@@ -1,12 +1,13 @@
-﻿<div class="col-md-4 compose-left">
+﻿
+<div class="col-md-4 compose-left">
     <div class="folder widget-shadow">
         <ul>
-            <li class="head">Menü</li>
-            <li><a href="/Contact/Inbox/"><i class="fa fa-inbox"></i>Gelen Mesaj <span>@ViewBag.receiverMail</span></a></li>
+            <li class="head" style="background-color: #6164C1;color:white">Menü</li>
+            <li><a href="/Contact/Inbox/"><i class="fa fa-inbox"></i>Gelen Mesaj <span>@ViewBag.receiverMail </span></a></li>
             <li><a href="/Contact/Sendbox/"><i class="fa fa fa-envelope-o"></i>Gönderilen Mesaj </a></li>
-            <li><a href="#"><i class="fa fa-file-text-o"></i>Taslaklar <span>03</span></a> </li>
-            <li><a href="#"><i class="fa fa-flag-o"></i>Spam </a></li>
-            <li><a href="#"><i class="fa fa-trash-o"></i>Çöp Kutusu</a></li>
+            <li><a href="#"><i class="fa fa-file-text-o"></i>Taslaklar <span>@ViewBag.draftMail</span></a> </li>
+            <li><a href="#"><i class="fa fa-flag-o"></i>Spam <span>@ViewBag.spamMail</span></a> </li>
+            <li><a href="#"><i class="fa fa-trash-o"></i>Çöp Kutusu <span>@ViewBag.trashMail</span></a></li>
         </ul>
     </div>
 

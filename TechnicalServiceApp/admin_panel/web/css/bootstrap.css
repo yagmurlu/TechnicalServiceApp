@@ -3170,10 +3170,10 @@ fieldset[disabled] .btn-success.active {
   background-color: #5cb85c;
   border-color: #4cae4c;
 }
-.btn-success .badge {
-  color: #5cb85c;
-  background-color: #fff;
-}
+    .btn-success .badge {
+        color: #d90d0d;
+        background-color: #fff;
+    }
 .btn-info {
   color: #fff;
   background-color: #5bc0de;
@@ -3450,7 +3450,7 @@ tbody.collapse.in {
           box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
 }
 .dropdown-menu.pull-right {
-  right: 0;
+  right: auto;
   left: auto;
 }
 .dropdown-menu .divider {

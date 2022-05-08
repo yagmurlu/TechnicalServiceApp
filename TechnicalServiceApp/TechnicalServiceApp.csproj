@@ -248,8 +248,14 @@
     <Content Include="Views\Contact\NewMessage.cshtml" />
     <Content Include="Views\Contact\ContactPartial.cshtml" />
     <Content Include="Views\Contact\Sendbox.cshtml" />
-    <Content Include="Views\Contact\GetMessageDetails.cshtml" />
     <Content Include="Views\Todo\Index.cshtml" />
+    <Content Include="Views\Contact\GetInboxMessageDetails.cshtml" />
+    <Content Include="Views\Contact\GetSendboxMessageDetails.cshtml" />
+    <Content Include="Views\Contact\AdminContactTopMenu.cshtml" />
+    <Content Include="Views\Admin\AdminInfoTopMenu.cshtml" />
+    <Content Include="Views\Admin\AdminSettings.cshtml" />
+    <Content Include="Views\Admin\AdminProfile.cshtml" />
+    <Content Include="Views\Admin\AdminEdit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

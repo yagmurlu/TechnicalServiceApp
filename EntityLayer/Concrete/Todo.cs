@@ -16,5 +16,6 @@ namespace EntityLayer.Concrete
         public bool Wait { get; set; } // beklemede ve ya silme olabilir.
         public int ContactId { get; set; }
         public virtual Contact Contact { get; set; }
+
     }
 }

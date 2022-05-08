@@ -15,6 +15,7 @@ namespace TechnicalServiceApp.Controllers
     {
         // GET: Contact
         ContactManager contactManager = new ContactManager(new EfContactDal());
+        
         ContactValidator contactValidator = new ContactValidator();
         public ActionResult Inbox()
         {
@@ -30,19 +31,19 @@ namespace TechnicalServiceApp.Controllers
         }
         public PartialViewResult ContactPartial()
         {
-            string p = (string)Session["AdminUserName"];
+            string p = (string)Session["AdminMail"];
             var contact = contactManager.GetList().Count();
             ViewBag.contact = contact;
 
             var sendMail = contactManager.GetListSendbox(p).Count();
             ViewBag.sendMail = sendMail;
 
-            var receiverMail = contactManager.GetListInbox(p).Count();
-            ViewBag.receiverMail = receiverMail;
+            var receiverMail = contactManager.GetListInbox(p);
+            ViewBag.receiverMail = receiverMail.Count();
 
-            var draftMail = contactManager.GetListDraft(p).Count();
+            var draftMail = contactManager.GetListDraft(p).Count();//taslak
             ViewBag.draftMail = draftMail;
-            var trashMail = contactManager.GetListTrash().Count();
+            var trashMail = contactManager.GetListTrash().Count();//çöp
             ViewBag.trashMail = trashMail;
 
             var readMessage = contactManager.GetReadList(p).Count();
@@ -50,20 +51,29 @@ namespace TechnicalServiceApp.Controllers
 
             var unreadMessage = contactManager.GetUnReadList(p).Count();
             ViewBag.unreadMessage = unreadMessage;
-            var spamMail = contactManager.GetListSpam(p).Count();
+            var spamMail = contactManager.GetListSpam(p).Count();//spam
             ViewBag.spamMail = spamMail;
 
             return PartialView();
         }
+        public ActionResult AdminContactTopMenu()
+        {
+            string p = (string)Session["AdminMail"];
+            var messageList = contactManager.GetListInbox(p);
+            
+            ViewBag.messageList = messageList.Count();
+            return PartialView(messageList);
+        }
+        
         [HttpGet]
         public ActionResult NewMessage()
         {
             return View();
         }
-        [HttpPost, ValidateInput(false)]
+        [HttpPost]
         public ActionResult NewMessage(Contact p, string menuName)
         {
-            string session = (string)Session["AdminUserName"];
+            string session = (string)Session["AdminMail"];
             ValidationResult results =contactValidator.Validate(p);
             if (menuName == "send")
             {
@@ -108,7 +118,7 @@ namespace TechnicalServiceApp.Controllers
         }
         public ActionResult DraftMessages()
         {
-            string session = (string)Session["AdminUserName"];
+            string session = (string)Session["AdminMail"];
             var result = contactManager.IsDraft(session);
             return View(result);
         }
@@ -132,10 +142,15 @@ namespace TechnicalServiceApp.Controllers
             return RedirectToAction("Inbox");
         }
         
-        public ActionResult GetMessageDetails(int id)
+        public ActionResult GetInboxMessageDetails(int id) //Inbox Details
         {
             var contactValues = contactManager.GetById(id);
             return PartialView(contactValues);
+        }
+        public ActionResult GetSendboxMessageDetails(int id) //Sendbox Details
+        {
+            var sendValues = contactManager.GetById(id);
+            return PartialView(sendValues);
         }
     }
 }

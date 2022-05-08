@@ -14,6 +14,6 @@ namespace BusinessLayer.Abstract
         void UserAddBL(User user);
         void UserDelete(User user);
         void UserUpdate(User user);
-
+        List<User> GetListInfoUser(string session);
     }
 }

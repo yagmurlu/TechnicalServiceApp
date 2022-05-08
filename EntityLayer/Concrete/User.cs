@@ -23,6 +23,5 @@ namespace EntityLayer.Concrete
         public string UserMail { get; set; }
         [StringLength(20)]
         public string UserPassword { get; set; }
-        public ICollection<Contact> Contacts { get; set; }
     }
 }

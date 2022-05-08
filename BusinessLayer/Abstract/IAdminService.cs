@@ -14,5 +14,6 @@ namespace BusinessLayer.Abstract
         void AdminAddBL(Admin admin);
         void AdminDelete(Admin admin);
         void AdminUpdate(Admin admin);
+        List<Admin> GetListInfoAdmin(string session);
     }
 }

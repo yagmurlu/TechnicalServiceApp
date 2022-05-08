@@ -1,0 +1,35 @@
+﻿@using EntityLayer.Concrete
+@model List<Admin>
+
+<div class="profile_details">
+    <ul>
+        <li class="dropdown profile_details_drop">
+            @foreach (var item in Model)
+            {
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+
+                    <div class="profile_img">
+                        <span class="prfil-img"><img src=@item.AdminImage style="width:50px;height:50px" alt=""> </span>
+                        <div class="user-name">
+
+                            <p>@item.AdminName @item.AdminSurname</p>
+
+                            @*<p>@Html.DisplayFor(x=>x.AdminMail)</p>*@
+                            <span>Admin</span>
+                        </div>
+                        <i class="fa fa-angle-down lnr"></i>
+                        <i class="fa fa-angle-up lnr"></i>
+                        <div class="clearfix"></div>
+                    </div>
+
+                </a>
+                <ul class="dropdown-menu drp-mnu">
+                    <li> <a href="/Admin/AdminEdit/@item.AdminId"><i class="fa fa-cog"></i> Ayarlar</a> </li>
+                    <li> <a href="/Admin/AdminProfile/"><i class="fa fa-user"></i> Profil</a> </li>
+                    <li> <a href="#"><i class="fa fa-sign-out"></i> Çıkış</a> </li>
+                </ul>
+            }
+        </li>
+        </ul>
+    </div>
+

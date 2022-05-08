@@ -1,0 +1,42 @@
+﻿@using EntityLayer.Concrete
+@model List<Contact>
+
+<div class="profile_details_left">
+    <!--notifications of menu start -->
+
+    <ul class="nofitications-dropdown">
+        <li class="dropdown head-dpdn">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-envelope"></i><span class="badge red">@ViewBag.messageList</span></a>
+            <ul class="dropdown-menu">
+                <li>
+                    <div class="notification_header"style="background-color: #6164C1">
+                        <h3 style="font-size: 15px; text-align: center;color:white ">Mesajlar</h3>
+                    </div>
+                </li>
+
+                <li>
+                    <a href="#">
+
+                        <div class="notification_desc">
+                            @foreach (var item in Model)
+                            {
+                                <p><b>@item.Heading</b></p>
+                                <p><span>@item.SenderMail</span></p>
+                            }
+                        </div>
+                        <div class="clearfix"></div>
+                    </a>
+                </li>
+
+                <li>
+                    <div class="notification_bottom" style="background-color:#808080">
+                        <a href="/Contact/Inbox/" style="color:white">Tüm Mesajları Gör</a>
+                    </div>
+                </li>
+            </ul>
+        </li>
+
+    </ul>
+
+    <div class="clearfix"> </div>
+</div>

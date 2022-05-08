@@ -13,11 +13,11 @@
                 <div class="elements  row">
                     @foreach (var item in Model)
                     {
-                        <div class="col-md-4 profile widget-shadow">
+                        <div class="col-md-4 profile widget-shadow" style="margin-left: 5px; margin-bottom: 5px">
                             <h4 class="title3">Profile</h4>
                             <div class="profile-top">
                                 
-                                <img src="~/admin_panel/web/images/profile.png" />
+                                <img src=@item.AdminImage style="width:70px;height:70px" />
                                 <h4>@item.AdminName @item.AdminSurname</h4>
                                 <h5>Admin</h5>
                             </div>

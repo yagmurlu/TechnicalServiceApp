@@ -23,7 +23,7 @@ namespace BusinessLayer.Concrete
 
         public void AdminDelete(Admin admin)
         {
-            _adminDal.Delete(admin);
+            _adminDal.Update(admin);
         }
 
         public void AdminUpdate(Admin admin)
@@ -39,6 +39,10 @@ namespace BusinessLayer.Concrete
         public List<Admin> GetList()
         {
            return _adminDal.List();
+        }
+        public List<Admin> GetListInfoAdmin(string session)
+        {
+            return _adminDal.List(x => x.AdminMail == "aleyna@gmail.com");
         }
     }
 }
