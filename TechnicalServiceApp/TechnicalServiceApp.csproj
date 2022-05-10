@@ -132,6 +132,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
+    <Compile Include="Controllers\ErrorPageController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TodoController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -202,6 +203,13 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="errorPage\web\css\style.css" />
+    <Content Include="errorPage\web\images\banner.jpg" />
+    <Content Include="errorPage\web\images\owl.gif" />
+    <Content Include="errorPage\web\index.html" />
+    <Content Include="errorPage\web\js\demo-2.js" />
+    <Content Include="errorPage\web\js\rAF.js" />
+    <Content Include="errorPage\web\w3layouts-License.txt" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -257,6 +265,7 @@
     <Content Include="Views\Admin\AdminProfile.cshtml" />
     <Content Include="Views\Admin\AdminEdit.cshtml" />
     <Content Include="Views\Admin\ChangePassword.cshtml" />
+    <Content Include="Views\ErrorPage\Page404.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
