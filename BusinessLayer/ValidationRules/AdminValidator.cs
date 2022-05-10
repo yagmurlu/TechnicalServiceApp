@@ -18,6 +18,7 @@ namespace BusinessLayer.ValidationRules
             RuleFor(x => x.AdminName).MaximumLength(50).WithMessage("Maximum 50 karakter!");
             RuleFor(x => x.AdminSurname).MaximumLength(50).WithMessage("Maximum 50 karakter!");
             RuleFor(x => x.AdminPassword).NotEmpty().WithMessage("Boş Geçilemez!");
+            RuleFor(x => x.AdminNewPassword).NotEmpty().WithMessage("Boş Geçilemez!");
             RuleFor(x => x.AdminMail).NotEmpty().WithMessage("Boş Geçilemez!");
            
         }

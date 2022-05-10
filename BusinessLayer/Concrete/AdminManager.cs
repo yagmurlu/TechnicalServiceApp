@@ -12,6 +12,7 @@ namespace BusinessLayer.Concrete
     public class AdminManager : IAdminService
     {
         IAdminDal _adminDal;
+      
         public AdminManager(IAdminDal adminDal)
         {
             _adminDal = adminDal;

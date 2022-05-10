@@ -12,44 +12,46 @@
                 <h4 style="text-align:center"><b>Profil Bilgileri</b></h4>
                 @foreach (var item in Model)
                 {
-                <img src=@item.AdminImage style="width:200px;height:200px;margin-left:5em;margin-bottom:5em" />
-                <table style="float:right;margin-right:30em">
-                    <thead>
-                        <tr>
-                            <td>
-                                <br />
-                                <b>Ad - Soyad: </b>@item.AdminName @item.AdminSurname
-                                <br />
-                                <br />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <b>Mail: </b> @item.AdminMail
-                                <br />
-                                <br />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <b>Yetki Durumu: </b>
-                            </td>
-                        </tr>
+                    <img src=@item.AdminImage style="width:200px;height:200px;margin-left:5em;margin-bottom:5em" />
+                    <table style="float:right;margin-right:30em">
+                        <thead>
+                            <tr>
+                                <td>
+                                    <br />
+                                    <b>Ad - Soyad: </b>@item.AdminName @item.AdminSurname
+                                    <br />
+                                    <br />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <b>Mail: </b> @item.AdminMail
+                                    <br />
+                                    <br />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <b>Yetki Durumu: </b>
+                                </td>
+                            </tr>
 
-                    </thead>
+                        </thead>
 
-                </table>
+                    </table>
+
+                    <div style="margin-bottom: 15px; position: relative; margin-left: 460px; margin-right: 20px">
+                        <button type="submit" value="send" class="btn btn-primary">
+                            <a href="/Admin/ChangePassword/@item.AdminId" style="color:inherit">Şifre Değiştir</a>
+                        </button>
+                    </div>
+                    <div style="margin-bottom:15px;position:relative;margin-left:460px">
+                        <button type="submit" value="send" class="btn btn-success">
+                            <a href="/Admin/AdminEdit/@item.AdminId" style="color:inherit">Düzenle</a>
+                        </button>
+                    </div>
+                    
                 }
-                <div style="margin-bottom: 15px; position: relative; margin-left: 460px; float: left;margin-right:20px">
-                    <button type="submit" value="send" class="btn btn-primary">
-                        <i>Şifre Değiştir</i>
-                    </button>
-                </div>
-                <div style="margin-bottom:15px;position:relative;margin-left:460px">
-                    <button type="submit" value="send" class="btn btn-success">
-                        <a href="/Admin/AdminEdit/" style="color:inherit">Düzenle</a>
-                    </button> 
-                </div>
             </div>
             
         </div>

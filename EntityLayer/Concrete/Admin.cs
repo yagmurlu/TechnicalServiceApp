@@ -21,6 +21,8 @@ namespace EntityLayer.Concrete
         public string AdminMail { get; set; }
         [StringLength(20)]
         public string AdminPassword { get; set; }
+        [StringLength(20)]
+        public string AdminNewPassword { get; set; }
     }
 }
 
