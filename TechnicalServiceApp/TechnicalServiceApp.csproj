@@ -134,6 +134,7 @@
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\ErrorPageController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\TodoController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
@@ -142,6 +143,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AdminLogin\web\css\font-awesome.css" />
+    <Content Include="AdminLogin\web\css\style.css" />
+    <Content Include="AdminLogin\web\fonts\fontawesome-webfont.svg" />
+    <Content Include="AdminLogin\web\images\1.jpg" />
+    <Content Include="AdminLogin\web\index.html" />
+    <Content Include="AdminLogin\web\js\superplaceholder.js" />
+    <Content Include="AdminLogin\web\w3layouts-License.txt" />
     <Content Include="admin_panel\web\blank-page.html" />
     <Content Include="admin_panel\web\charts.html" />
     <Content Include="admin_panel\web\compose.html" />
@@ -222,6 +230,11 @@
     <Content Include="admin_panel\web\fonts\FontAwesome.otf" />
     <Content Include="admin_panel\web\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="admin_panel\web\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="AdminLogin\web\fonts\fontawesome-webfont.eot" />
+    <Content Include="AdminLogin\web\fonts\fontawesome-webfont.ttf" />
+    <Content Include="AdminLogin\web\fonts\fontawesome-webfont.woff" />
+    <Content Include="AdminLogin\web\fonts\fontawesome-webfont.woff2" />
+    <Content Include="AdminLogin\web\fonts\FontAwesome.otf" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -233,6 +246,18 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="UserLogin\web\css\font-awesome.css" />
+    <Content Include="UserLogin\web\css\monthly.css" />
+    <Content Include="UserLogin\web\css\style.css" />
+    <Content Include="UserLogin\web\fonts\fontawesome-webfont.svg" />
+    <Content Include="UserLogin\web\images\bg.jpg" />
+    <Content Include="UserLogin\web\images\bgp.jpg" />
+    <Content Include="UserLogin\web\images\pro.jpg" />
+    <Content Include="UserLogin\web\images\tick.png" />
+    <Content Include="UserLogin\web\index.html" />
+    <Content Include="UserLogin\web\js\jquery-2.1.4.min.js" />
+    <Content Include="UserLogin\web\js\monthly.js" />
+    <Content Include="UserLogin\web\w3layouts-License.txt" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -266,6 +291,16 @@
     <Content Include="Views\Admin\AdminEdit.cshtml" />
     <Content Include="Views\Admin\ChangePassword.cshtml" />
     <Content Include="Views\ErrorPage\Page404.cshtml" />
+    <Content Include="UserLogin\web\fonts\fontawesome-webfont.eot" />
+    <Content Include="UserLogin\web\fonts\fontawesome-webfont.ttf" />
+    <Content Include="UserLogin\web\fonts\fontawesome-webfont.woff" />
+    <Content Include="UserLogin\web\fonts\fontawesome-webfont.woff2" />
+    <Content Include="UserLogin\web\fonts\FontAwesome.otf" />
+    <Content Include="UserLogin\web\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="UserLogin\web\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="UserLogin\web\images\Thumbs.db" />
+    <Content Include="Views\Login\AdminLogin.cshtml" />
+    <Content Include="Views\Login\UserLogin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

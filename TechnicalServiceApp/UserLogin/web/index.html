@@ -1,0 +1,143 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>Classy User UI Kit a Responsive Widget Template :: w3layouts</title>
+<!-- Meta tag Keywords -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Classy User Ui Kit Responsive Widget,Login form widgets, Sign up Web forms , Login signup Responsive web form,Flat Pricing table,Flat Drop downs,Registration Forms,News letter Forms,Elements" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- Meta tag Keywords -->
+
+<!-- css files -->
+<link rel="stylesheet" href="css/style.css" type="text/css" media="all" /> <!-- Style-CSS --> 
+<link rel="stylesheet" href="css/monthly.css">	<!-- Calender-CSS -->
+<link rel="stylesheet" href="css/font-awesome.css"> <!-- Font-Awesome-Icons-CSS -->
+<!-- //css files -->
+
+<!-- online-fonts -->
+<link href="//fonts.googleapis.com/css?family=Philosopher:400,400i,700,700i&amp;subset=cyrillic" rel="stylesheet">
+<!-- //online-fonts -->
+
+</head>
+<body>
+	<h1 class="agile-head">Classy User Ui Kit</h1>
+	<div class="agile-wi">
+		<!-- logIn Form -->
+		<div class="signin-form">
+			<form id="signin" action="#" method="post">
+				<h3>login Now</h3>
+				<p>User Name </p>
+				<input type="text" name="User Name" placeholder="" required=""/>
+				<p>Password</p>
+				<input type="password" name="Password" placeholder="" required=""/>	 
+				<input type="checkbox" id="brand" name="checkbox" value="">
+				<label for="brand"><span></span> Remember me ?</label> 
+				<div class="signin-agileits-bottom"> 
+					<p><a href="#">Forgot password ?</a></p>    
+				</div> 
+				<div class="clear"> </div>
+				<input type="submit" name="submit" value="Login">
+				<div class="social-icons">
+					<ul>  
+						<li><a href="#"><span class="icons"><i class="fa fa-facebook" aria-hidden="true"></i></span><span class="text">Facebook</span></a></li> 
+						<li class="twt"><a href="#"><span class="icons"><i class="fa fa-twitter" aria-hidden="true"></i></span><span class="text">Twitter</span></a></li>  
+					</ul> 
+					<div class="clear"> </div>
+				</div>	
+			</form>
+		</div>       
+		<!-- //logIn Form -->
+		
+		<!-- Profile-form -->
+			<div class="top-grids">
+				<div class="profile-agile">
+					<h2>Profile Widget</h2>
+					<div class="profile-w3">
+						<img src="images/bgp.jpg" alt="">
+					</div>
+					<div class="w3layouts"> 
+						<img src="images/pro.jpg" alt=" " />
+						<h3>Lisa Kristina</h3>
+						<label class="line"></label>
+						<p>Maecenas khnt loream. </p>
+					</div>
+					<div class="agileits-w3layouts">
+						<div class="w3l">
+							<h4>280</h4>
+							<h5>Followers</h5>
+						</div>
+						<div class="w3-agile">
+							<h4>475</h4>
+							<h5>Following</h5>
+						</div>
+						<div class="clear"></div>
+					</div>
+				</div>
+			</div>
+			<!-- //Profile-form -->
+		<!-- calendar -->
+		<div class="top-grids-3">
+			<div class="w3l-calendar-left w3-agile-width">
+				<h3>Calendar</h3>
+				<div class="calendar-heading">
+									
+				</div>
+				<div class="monthly" id="mycalendar"></div>
+			</div>
+		</div>
+		<div class="clear"></div> 
+	<!-- //calendar -->
+
+		<!-- copyright -->
+		<div class="copyright">
+			<p> © 2017 Classy User UI Kit . All rights reserved | Design by <a href="http://w3layouts.com">W3layouts</a></p>
+		</div>
+		<!-- //copyright -->
+</div>
+	
+	<!-- js -->
+		<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+
+	<!-- calendar -->
+	<script type="text/javascript" src="js/monthly.js"></script>
+	<script type="text/javascript">
+		$(window).load( function() {
+
+			$('#mycalendar').monthly({
+				mode: 'event',
+				
+			});
+
+			$('#mycalendar2').monthly({
+				mode: 'picker',
+				target: '#mytarget',
+				setWidth: '250px',
+				startHidden: true,
+				showTrigger: '#mytarget',
+				stylePast: true,
+				disablePast: true
+			});
+
+		switch(window.location.protocol) {
+		case 'http:':
+		case 'https:':
+		// running on a server, should be good.
+		break;
+		case 'file:':
+		alert('Just a heads-up, events will not work when run locally.');
+		}
+
+		});
+	</script>
+	<!-- //calendar -->		
+	<!-- //js -->	
+</body>
+</html>

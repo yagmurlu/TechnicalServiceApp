@@ -1,0 +1,75 @@
+﻿
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Giriş</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Tiny Ui Login Form template Responsive, Login form web template,Flat Pricing tables,Flat Drop downs  Sign up Web Templates, Flat Web Templates, Login sign up Responsive web template, SmartPhone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- Custom Theme files -->
+    <link href="~/AdminLogin/web/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/AdminLogin/web/css/font-awesome.css" rel="stylesheet">		<!-- font-awesome icons -->
+    <!-- //Custom Theme files -->
+    <!-- web font -->
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'><!--web font-->
+    <!-- //web font -->
+</head>
+<body>
+    <!-- main -->
+    <div class="main-agileits">
+        <h1>Admin Giriş</h1>
+        <div class="mainw3-agileinfo">
+            <!-- login form -->
+            <div class="login-form">
+                @using (Html.BeginForm("AdminLogin", "Login", FormMethod.Post))
+                {
+                    <div class="login-agileits-top">
+
+
+                        <p>Mail Adresi </p>
+                        <input id="input1" type="text" class="name" name="AdminMail" placeholder="Username" required="" />
+                        <p>Şifre</p>
+                        <input id="input2" type="password" class="password" name="AdminPassword" placeholder=".........." required="" />
+                        <label class="anim">
+                            <input type="checkbox" class="checkbox">
+                            <span> Beni Hatırla?</span>
+                        </label>
+                        <input type="submit" value="Giriş">
+                    </div>
+                    <div class="login-agileits-bottom">
+                        <h6><a href="#">Şifreni Unuttun Mu?</a></h6>
+                    </div>
+
+                }
+            </div>
+        </div>
+    </div>
+    <!-- //main -->
+
+    <!-- js -->
+    <script src="~/AdminLogin/web/js/superplaceholder.js"></script>
+    <script>
+	superplaceholder({
+			el: input1,
+			sentences: ['ornek@mail.com' ],
+			options: {
+				loop: true,
+				startOnFocus: false
+			}
+		})
+		superplaceholder({
+			el: input2,
+			sentences: [ '.........', '.....', '.....' ],
+			options: {
+				loop: true,
+				startOnFocus: false
+			}
+		})
+    </script>
+    <!-- //js -->
+</body>
+</html>
