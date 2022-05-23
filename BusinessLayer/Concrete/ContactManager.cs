@@ -28,12 +28,12 @@ namespace BusinessLayer.Concrete
 
         public List<Contact> GetListInbox(string session)
         {
-            return _contactDal.List(x => x.RecevierMail == "aleyna@gmail.com");//alıcı
+            return _contactDal.List(x => x.RecevierMail == session);//alıcı
         }
 
         public List<Contact> GetListSendbox(string session)
         {
-            return _contactDal.List(x => x.SenderMail == "yagmur@gmail.com"); //gönderen
+            return _contactDal.List(x => x.SenderMail == session); //gönderen
         }
         public void ContactAddBL(Contact contact)
         {

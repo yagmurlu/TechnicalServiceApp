@@ -11,24 +11,29 @@ using System.Web.Mvc;
 
 namespace TechnicalServiceApp.Controllers
 {
+    [Authorize]
+   
     public class ContactController : Controller
     {
         // GET: Contact
         ContactManager contactManager = new ContactManager(new EfContactDal());
         
         ContactValidator contactValidator = new ContactValidator();
+      
         public ActionResult Inbox()
         {
             string p = (string)Session["AdminMail"];
             var messageList = contactManager.GetListInbox(p);
             return View(messageList);
         }
+     
         public ActionResult Sendbox()
         {
             string p = (string)Session["AdminMail"];
             var messageList = contactManager.GetListInbox(p);
             return View(messageList);
         }
+      
         public PartialViewResult ContactPartial()
         {
             string p = (string)Session["AdminMail"];
@@ -56,6 +61,7 @@ namespace TechnicalServiceApp.Controllers
 
             return PartialView();
         }
+  
         public ActionResult AdminContactTopMenu()
         {
             string p = (string)Session["AdminMail"];
@@ -64,13 +70,22 @@ namespace TechnicalServiceApp.Controllers
             ViewBag.messageList = messageList.Count();
             return PartialView(messageList);
         }
-        
+        public ActionResult UserContactTopMenu()
+        {
+            string p = (string)Session["UserMail"];
+            var messageList = contactManager.GetListInbox(p);
+
+            ViewBag.messageList = messageList.Count();
+            return PartialView(messageList);
+        }
         [HttpGet]
+
         public ActionResult NewMessage()
         {
             return View();
         }
         [HttpPost]
+  
         public ActionResult NewMessage(Contact p, string menuName)
         {
             string session = (string)Session["AdminMail"];
@@ -116,6 +131,7 @@ namespace TechnicalServiceApp.Controllers
             }
             return View();
         }
+
         public ActionResult DraftMessages()
         {
             string session = (string)Session["AdminMail"];

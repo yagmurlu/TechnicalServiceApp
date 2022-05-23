@@ -13,7 +13,8 @@
         <div id="page-wrapper">
             <div class="main-page compose">
                 @Html.Action("ContactPartial", "Contact")
-                <div class="col-md-8 compose-right widget-shadow" >
+        
+                <div class="col-md-8 compose-right widget-shadow">
                     @using (Html.BeginForm("NewMessage", "Contact", FormMethod.Post))
                     {
 
@@ -25,8 +26,8 @@
                                 <form class="com-mail">
 
                                     @*<input type="text" class="form-control1 control3" placeholder="Alıcı :">
-        <input type="text" class="form-control1 control3" placeholder="Konu :" >
-        <textarea rows="6" class="form-control1 control2" placeholder="Mesaj :"></textarea>*@
+                            <input type="text" class="form-control1 control3" placeholder="Konu :" >
+                            <textarea rows="6" class="form-control1 control2" placeholder="Mesaj :"></textarea>*@
 
                                     <div class="form-group">
                                         @Html.Label("Alıcı:")
@@ -40,7 +41,7 @@
                                     </div>
                                     <div class="form-group">
                                         @Html.Label("Mesajınız:")
-                                        <textarea  name="Contents" class="form-control1 control2" style="height: 200px; direction:ltr">
+                                        <textarea name="Contents" class="form-control1 control2" style="height: 200px; direction:ltr">
                                        
                                         </textarea>
                                     </div>
@@ -53,7 +54,7 @@
                                         </div>
                                         <p class="help-block">Max. 32MB</p>
                                     </div>
-                                    
+
 
                                     <button type="submit" name="menuName" value="send" class="btn btn-success">
                                         <i class="fas fa-envelope">Gönder</i>

@@ -43,7 +43,7 @@ namespace BusinessLayer.Concrete
         }
         public List<Admin> GetListInfoAdmin(string session)
         {
-            return _adminDal.List(x => x.AdminMail == "aleyna@gmail.com");
+            return _adminDal.List(x => x.AdminMail == session);
         }
     }
 }

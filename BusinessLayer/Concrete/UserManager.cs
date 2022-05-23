@@ -42,7 +42,7 @@ namespace BusinessLayer.Concrete
         }  
         public List<User> GetListInfoUser(string session)
         {
-            return _userDal.List(x => x.UserMail == "yagmur@gmail.com");
+            return _userDal.List(x => x.UserMail == session);
         }
     }
 }

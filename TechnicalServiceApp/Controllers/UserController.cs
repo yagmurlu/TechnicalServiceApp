@@ -17,10 +17,16 @@ namespace TechnicalServiceApp.Controllers
         {
             return View();
         }
-        public ActionResult GetListUser()
+        public ActionResult GetListUser()// Admin panelinde tüm kullanıcıları gösterir.
         {
             var userValues = userManager.GetList();
             return View(userValues);
+        }
+        public ActionResult UserInfoTopMenu()
+        {
+            string p = (string)Session["UserMail"];
+            var userInfo = userManager.GetListInfoUser(p);
+            return PartialView(userInfo);
         }
     }
 }

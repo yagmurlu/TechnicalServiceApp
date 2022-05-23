@@ -17,7 +17,7 @@ namespace TechnicalServiceApp.Controllers
         // GET: Admin
         AdminManager adminManager = new AdminManager(new EfAdminDal());
         AdminValidator validations = new AdminValidator();
-       
+
         public ActionResult Index()
         {
             return View();
@@ -33,12 +33,7 @@ namespace TechnicalServiceApp.Controllers
             var adminInfo = adminManager.GetListInfoAdmin(p);
             return PartialView(adminInfo);
         }
-        public ActionResult AdminSettings()
-        {
-            string p = (string)Session["AdminMail"];
-            var adminSettings = adminManager.GetListInfoAdmin(p);
-            return View(adminSettings);
-        }
+    
         public ActionResult AdminProfile()
         {
             string p = (string)Session["AdminMail"];
@@ -88,7 +83,7 @@ namespace TechnicalServiceApp.Controllers
             ValidationResult results = validations.Validate(admin);
             using (Context db = new Context())
             {
-                var detail = db.Admins.Where(x => x.AdminPassword == admin.AdminPassword && x.AdminMail == admin.AdminMail && x.AdminNewPassword !=admin.AdminNewPassword ).FirstOrDefault();
+                var detail = db.Admins.Where(x => x.AdminPassword == admin.AdminPassword && x.AdminMail == admin.AdminMail && x.AdminNewPassword != admin.AdminNewPassword).FirstOrDefault();
 
 
                 if (detail != null)
@@ -111,6 +106,5 @@ namespace TechnicalServiceApp.Controllers
             }
             return View(admin);
         }
-
     }
 }

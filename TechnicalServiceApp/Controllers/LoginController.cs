@@ -5,9 +5,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace TechnicalServiceApp.Controllers
 {
+    [AllowAnonymous]
     public class LoginController : Controller
     {
         // GET: Login
@@ -24,6 +26,8 @@ namespace TechnicalServiceApp.Controllers
               && x.AdminPassword == login.AdminPassword);
             if (adminUserInfo!=null)
             {
+                FormsAuthentication.SetAuthCookie(adminUserInfo.AdminMail,false);
+                Session["AdminMail"] = adminUserInfo.AdminMail;
                 return RedirectToAction("AdminProfile", "Admin");
             }
             else
@@ -45,13 +49,27 @@ namespace TechnicalServiceApp.Controllers
               && x.UserPassword == login.UserPassword);
             if (userInfo != null)
             {
-                return RedirectToAction("UserProfile", "Login");
+                FormsAuthentication.SetAuthCookie(userInfo.UserMail, false);
+                Session["UserMail"] = userInfo.UserMail;
+                return RedirectToAction("Index", "User");
             }
             else
             {
                 return RedirectToAction("UserLogin", "Login");
             }
 
+        }
+        public ActionResult AdminLogOut()
+        {
+            FormsAuthentication.SignOut();
+            Session.Abandon();
+            return RedirectToAction("AdminLogin", "Login");
+        }
+        public ActionResult UserLogOut()
+        {
+            FormsAuthentication.SignOut();
+            Session.Abandon();
+            return RedirectToAction("UserLogin", "Login");
         }
 
     }
