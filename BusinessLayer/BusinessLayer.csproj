@@ -65,6 +65,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ValidationRules\AdminValidator.cs" />
     <Compile Include="ValidationRules\ContactValidator.cs" />
+    <Compile Include="ValidationRules\UserValidator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -1,0 +1,55 @@
+﻿@model EntityLayer.Concrete.User
+
+@{
+    ViewBag.Title = "UserEdit";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+<div class="xs">
+    <h3 style="text-align:center">Profil Düzenle</h3>
+
+    <div class="well1 white">
+        @using (Html.BeginForm("UserEdit", "User", FormMethod.Post))
+        {
+
+            <div class="form-group">
+
+                @Html.HiddenFor(x => x.UserId, new { @class = "form-control" })
+                <label class="control-label">Kullanıcı Adı</label>
+                @Html.TextBoxFor(x => x.UserName, new { @class = "form-control1 ng-invalid ng-invalid-required ng-touched" })
+                @Html.ValidationMessageFor(x => x.UserName, "", new { @style = "color: red " })
+                <br />
+                <label class="control-label">Kullanıcı Soyadı</label>
+                @Html.TextBoxFor(x => x.UserSurname, new { @class = "form-control1 ng-invalid ng-invalid-required ng-touched" })
+                @Html.ValidationMessageFor(x => x.UserSurname, "", new { @style = "color: red " })
+                <br />
+                <label class="control-label">Mail</label>
+                @Html.TextBoxFor(x => x.UserMail, new { @class = "form-control1 ng-invalid ng-valid-email ng-invalid-required ng-touched" })
+                @Html.ValidationMessageFor(x => x.UserMail, "", new { @style = "color: red " })
+                <br />
+                <label class="control-label">Hakkında</label>
+                @Html.TextBoxFor(x => x.UserAbout, new { @class = "form-control1 ng-invalid ng-invalid-required ng-touched" })
+                @Html.ValidationMessageFor(x => x.UserAbout, "", new { @style = "color: red " })
+                <br />
+                @*@Html.HiddenFor("Mevcut Parola: ")*@
+                @Html.HiddenFor(x => x.UserPassword, new { @class = "form-control" })
+                @Html.HiddenFor(x => x.UserPassword, new { @class = "form-control" })
+
+
+                <label class="control-label">Profil Resmi</label>
+                @Html.TextBoxFor(x => x.UserImage, new { @class = "form-control1 ng-invalid ng-invalid-required ng-touched" })
+                <br />
+                <br />
+                <div class="btn btn-default btn-file">
+                    <input type="file" name="attachment">
+                </div>
+                <br />
+                <br />
+                <button type="submit" class="btn btn-primary">Güncelle</button>
+            </div>
+
+
+        }
+    </div>
+
+</div>
+

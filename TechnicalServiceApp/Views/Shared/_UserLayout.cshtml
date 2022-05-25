@@ -51,7 +51,7 @@
                 @Html.Action("UserContactTopMenu", "Contact")
                 @Html.Action("UserInfoTopMenu", "User")
 
-               
+
             </ul>
             <form class="navbar-form navbar-right">
                 <input type="text" class="form-control" value="Ara..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Ara...';}">
@@ -61,7 +61,7 @@
                     <ul class="nav" id="side-menu">
 
                         <li>
-                            <a href="#"><i class="fa fa-user fa-fw nav_icon"></i>Profil</a>
+                            <a href="/User/UserProfile/"><i class="fa fa-user fa-fw nav_icon"></i>Profil</a>
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
@@ -76,7 +76,7 @@
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
-
+                        @Html.Action("UserSettingsLayoutPartial", "User")
 
                         <li>
                             <a href="/Login/UserLogOut/"><i class="fa fa-sign-out fa-fw nav_icon"></i>Çıkış</a>
@@ -91,16 +91,17 @@
         <div id="page-wrapper">
             <div class="graphs">
 
-           
+
                 <div class="span_11">
-           
+
                     <div class="col-md-6 col_5">
                         <div id="chart_container">
-                          
+
                         </div>
                     </div>
                     <div class="clearfix"> </div>
                 </div>
+                @RenderBody()
                 <div class="copy">
                     <p>&copy;@DateTime.Now.Year Tüm Hakları Saklıdır.</p>
                 </div>
@@ -108,7 +109,7 @@
         </div>
         <!-- /#page-wrapper -->
     </div>
-    @RenderBody()
+
     <!-- /#wrapper -->
     <!-- Bootstrap Core JavaScript -->
     <script src="~/Themes/userPanel/web/js/bootstrap.min.js"></script>

@@ -1,0 +1,64 @@
+﻿@using EntityLayer.Concrete
+@model List<User>
+@{
+    ViewBag.Title = "UserProfile";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<div class="xs">
+    <div class="well1 white">
+        @foreach (var item in Model)
+        {
+            <h3 style="text-align:center">Profil Bilgileri</h3>
+            <div class="form-group">
+                <img src=@item.UserImage style="width:200px;height:200px;margin-left:5em;margin-bottom:5em" />
+                <table style="float:right;margin-right:30em">
+                    <thead>
+                        <tr>
+                            <td>
+                                <br />
+                                <b>Ad - Soyad: </b>@item.UserName @item.UserSurname
+                                <br />
+                                <br />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <b>Mail: </b> @item.UserMail
+                                <br />
+                                <br />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <b>Hakkında: </b> @item.UserAbout
+                                <br />
+                                <br />
+                            </td>
+                        </tr>
+
+                    </thead>
+
+                </table>
+
+                <div style="margin-bottom: 15px; position: relative; margin-left: 460px; margin-right: 20px">
+                    <button type="submit" value="send" class="btn btn-primary">
+                        <a href="/User/UserChangePassword/@item.UserId" style="color:inherit">Şifre Değiştir</a>
+                    </button>
+                </div>
+                <div style="margin-bottom:15px;position:relative;margin-left:460px">
+                    <button type="submit" value="send" class="btn btn-success">
+                        <a href="/User/UserEdit/@item.UserId" style="color:inherit">Düzenle</a>
+                    </button>
+                </div>
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+            </div>
+        }
+      
+    </div>
+    </div>
+

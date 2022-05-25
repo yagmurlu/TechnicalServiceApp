@@ -51,7 +51,7 @@ namespace TechnicalServiceApp.Controllers
             {
                 FormsAuthentication.SetAuthCookie(userInfo.UserMail, false);
                 Session["UserMail"] = userInfo.UserMail;
-                return RedirectToAction("Index", "User");
+                return RedirectToAction("UserProfile", "User");
             }
             else
             {

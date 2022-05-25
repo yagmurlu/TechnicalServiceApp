@@ -98,6 +98,14 @@
     <Compile Include="Migrations\202205100043269__son.designer.cs">
       <DependentUpon>202205100043269__son.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202205252039196__user_newPassword.cs" />
+    <Compile Include="Migrations\202205252039196__user_newPassword.designer.cs">
+      <DependentUpon>202205252039196__user_newPassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202205252041221__user_newPassword2.cs" />
+    <Compile Include="Migrations\202205252041221__user_newPassword2.designer.cs">
+      <DependentUpon>202205252041221__user_newPassword2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -138,6 +146,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202205100043269__son.resx">
       <DependentUpon>202205100043269__son.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205252039196__user_newPassword.resx">
+      <DependentUpon>202205252039196__user_newPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205252041221__user_newPassword2.resx">
+      <DependentUpon>202205252041221__user_newPassword2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

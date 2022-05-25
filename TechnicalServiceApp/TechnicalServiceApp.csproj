@@ -365,6 +365,10 @@
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\Contact\UserContactTopMenu.cshtml" />
     <Content Include="Views\User\UserInfoTopMenu.cshtml" />
+    <Content Include="Views\User\UserProfile.cshtml" />
+    <Content Include="Views\User\UserEdit.cshtml" />
+    <Content Include="Views\User\UserSettingsLayoutPartial.cshtml" />
+    <Content Include="Views\User\UserChangePassword.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
