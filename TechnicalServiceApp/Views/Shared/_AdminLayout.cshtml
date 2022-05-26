@@ -78,9 +78,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         <li>
                             <a href="#"><i class="fa fa-th-large nav_icon"></i>Rapor</a>
                         </li>
-                        <li>
-                            <a href="/Admin/AdminEdit/"><i class="fa fa-cog nav_icon"></i>Ayarlar</a>
-                        </li>
+                        @Html.Action("AdminSettingsLayoutPartial", "Admin")
                         <li>
                             <a href="/Login/AdminLogOut/"><i class="fa fa-sign-out nav_icon"></i>Çıkış</a>
                         </li>

@@ -41,7 +41,7 @@ namespace TechnicalServiceApp.Controllers
             return View(adminProfile);
         }
         [HttpGet]
-        public ActionResult AdminEdit(int id = 1)
+        public ActionResult AdminEdit(int id)
         {
             var adminEdit = adminManager.GetById(id);
             return View(adminEdit);
@@ -67,7 +67,7 @@ namespace TechnicalServiceApp.Controllers
         }
 
         [HttpGet]
-        public ActionResult ChangePassword(int id = 1)
+        public ActionResult ChangePassword(int id)
         {
             var pass = adminManager.GetById(id);
             return View(pass);
@@ -83,7 +83,7 @@ namespace TechnicalServiceApp.Controllers
             ValidationResult results = validations.Validate(admin);
             using (Context db = new Context())
             {
-                var detail = db.Admins.Where(x => x.AdminPassword == admin.AdminPassword && x.AdminMail == admin.AdminMail && x.AdminNewPassword != admin.AdminNewPassword).FirstOrDefault();
+                var detail = db.Admins.Where(x => x.AdminPassword == admin.AdminPassword && x.AdminMail == admin.AdminMail && x.AdminNewPassword != admin.AdminNewPassword &&admin.AdminNewPassword!=null).FirstOrDefault();
 
 
                 if (detail != null)
@@ -91,6 +91,7 @@ namespace TechnicalServiceApp.Controllers
                     detail.AdminPassword = admin.AdminNewPassword;
                     db.SaveChanges();
                     ViewBag.Message = "Şifre Güncelleme Başarılı!";
+                    return RedirectToAction("AdminProfile");
                 }
                 else
                 {
@@ -98,13 +99,19 @@ namespace TechnicalServiceApp.Controllers
                     {
                         ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
                     }
-                    ViewBag.Message = " Hata Oluştu!";
+                    ViewBag.Message = " Tekrar Deneyiniz!";
                 }
 
 
 
             }
             return View(admin);
+        }
+        public ActionResult AdminSettingsLayoutPartial()
+        {
+            string p = (string)Session["AdminMail"];
+            var adminInfo = adminManager.GetListInfoAdmin(p);
+            return PartialView(adminInfo);
         }
     }
 }

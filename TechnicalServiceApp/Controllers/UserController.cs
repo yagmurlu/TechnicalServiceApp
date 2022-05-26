@@ -87,7 +87,7 @@ namespace TechnicalServiceApp.Controllers
             ValidationResult results = userValidator.Validate(user);
             using (Context db = new Context())
             {
-                var detail = db.Users.Where(x => x.UserPassword == user.UserPassword && x.UserMail == user.UserMail && x.UserNewPassword != user.UserNewPassword).FirstOrDefault();
+                var detail = db.Users.Where(x => x.UserPassword == user.UserPassword && x.UserMail == user.UserMail && x.UserNewPassword != user.UserNewPassword && user.UserNewPassword!=null).FirstOrDefault();
 
 
                 if (detail != null)
@@ -95,6 +95,7 @@ namespace TechnicalServiceApp.Controllers
                     detail.UserPassword = user.UserNewPassword;
                     db.SaveChanges();
                     ViewBag.Message = "Şifre Güncelleme Başarılı!";
+                    return RedirectToAction("UserProfile");
                 }
                 else
                 {
@@ -102,7 +103,7 @@ namespace TechnicalServiceApp.Controllers
                     {
                         ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
                     }
-                    ViewBag.Message = " Hata Oluştu!";
+                    ViewBag.Message = "Tekrar Deneyiniz!";
                 }
             }
             return View(user);

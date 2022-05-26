@@ -1,0 +1,11 @@
+﻿
+@using EntityLayer.Concrete
+@model List<Admin>
+
+@foreach (var item in Model)
+{
+    <li>
+        <a href="/Admin/AdminEdit/@item.AdminId"><i class="fa fa-user fa-fw nav_icon"></i>Ayarlar</a>
+        <!-- /.nav-second-level -->
+    </li>
+}

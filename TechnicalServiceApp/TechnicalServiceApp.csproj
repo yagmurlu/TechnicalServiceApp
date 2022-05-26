@@ -369,6 +369,7 @@
     <Content Include="Views\User\UserEdit.cshtml" />
     <Content Include="Views\User\UserSettingsLayoutPartial.cshtml" />
     <Content Include="Views\User\UserChangePassword.cshtml" />
+    <Content Include="Views\Admin\AdminSettingsLayoutPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

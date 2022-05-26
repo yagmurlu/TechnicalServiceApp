@@ -106,6 +106,10 @@
     <Compile Include="Migrations\202205252041221__user_newPassword2.designer.cs">
       <DependentUpon>202205252041221__user_newPassword2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202205261019021_newPassUpdate.cs" />
+    <Compile Include="Migrations\202205261019021_newPassUpdate.designer.cs">
+      <DependentUpon>202205261019021_newPassUpdate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -152,6 +156,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202205252041221__user_newPassword2.resx">
       <DependentUpon>202205252041221__user_newPassword2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205261019021_newPassUpdate.resx">
+      <DependentUpon>202205261019021_newPassUpdate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
