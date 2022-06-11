@@ -11,6 +11,7 @@ namespace BusinessLayer.Abstract
     {
         Contact GetById(int id);
         List<Contact> GetList();
+        List<Contact> GetListContent(string p);
         List<Contact> GetListInbox(string session);
         List<Contact> GetListSendbox(string session);
         List<Contact> GetReadList(string session);//okundu

@@ -74,6 +74,8 @@
   <ItemGroup>
     <Compile Include="Concrete\Admin.cs" />
     <Compile Include="Concrete\Contact.cs" />
+    <Compile Include="Concrete\Mail.cs" />
+    <Compile Include="Concrete\Role.cs" />
     <Compile Include="Concrete\Todo.cs" />
     <Compile Include="Concrete\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

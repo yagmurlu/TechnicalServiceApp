@@ -1,0 +1,114 @@
+﻿@model EntityLayer.Concrete.User
+@{
+    Layout = null;
+}
+
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <title>Kullanıcı Kayıt</title>
+    <!-- Meta tag Keywords -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content=" " />
+    <script type="application/x-javascript">
+         addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+        function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- Meta tag Keywords -->
+    <!-- css files -->
+    <link rel="stylesheet" href="~/Themes/UserLogin/web/css/style.css" type="text/css" media="all" /> <!-- Style-CSS -->
+    <link rel="stylesheet" href="~/Themes/UserLogin/web/css/monthly.css">	<!-- Calender-CSS -->
+    <link rel="stylesheet" href="~/Themes/UserLogin/web/css/font-awesome.css"> <!-- Font-Awesome-Icons-CSS -->
+    <!-- //css files -->
+    <!-- online-fonts -->
+    <link href="//fonts.googleapis.com/css?family=Philosopher:400,400i,700,700i&amp;subset=cyrillic" rel="stylesheet">
+    <!-- //online-fonts -->
+    <style>
+        .Color {
+            color: white;
+            font-size:20px;
+            text-align:left;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="agile-wi">
+
+        <!-- //logIn Form -->
+
+        <div class="signin-form" style="position: absolute; top: 25%; left: 35%; margin: -25px 0 0 -25px; ">
+            @using (Html.BeginForm("UserRegister", "Register", FormMethod.Post))
+            {
+                <h3>Kullanıcı Kayıt Ekranı</h3>
+                <p>İsim</p>
+                <input type="text" name="UserName" required="" />
+                <p>Soyisim</p>
+                <input type="text" name="UserSurname" required="" />
+                <p>Kullanıcı Mail</p>
+                <input type="text" name="UserMail" placeholder="ornek@mail.com" required="" />
+                <p>Şifre</p>
+                <input type="password" name="UserPassword" required="" />
+                <input type="checkbox" id="brand" name="checkbox" value="">
+
+                <br />
+                <br />
+                <div class="Color">
+
+                    @Html.Label("Yetki:", new { @class = "Color" })
+                    
+                    @Html.DropDownListFor(x => x.RoleId, new List<SelectListItem>() {
+                      new SelectListItem() {
+                          Text = "Kullanıcı",
+                          Value = "2"
+                      } })
+                </div>
+                <br />
+                <br />
+                <div class="clear"> </div>
+                <input type="submit" name="submit" value="KAYIT OL">
+
+            }
+
+        </div>
+
+    </div>
+
+    <!-- js -->
+    <script type="text/javascript" src="~/Themes/UserLogin/web/js/jquery-2.1.4.min.js"></script>
+
+    <!-- calendar -->
+    <script type="text/javascript" src="~/Themes/UserLogin/web/js/monthly.js"></script>
+    <script type="text/javascript">
+        $(window).load(function () {
+
+            $('#mycalendar').monthly({
+                mode: 'event',
+
+            });
+
+            $('#mycalendar2').monthly({
+                mode: 'picker',
+                target: '#mytarget',
+                setWidth: '250px',
+                startHidden: true,
+                showTrigger: '#mytarget',
+                stylePast: true,
+                disablePast: true
+            });
+
+            switch (window.location.protocol) {
+                case 'http:':
+                case 'https:':
+                    // running on a server, should be good.
+                    break;
+                case 'file:':
+                    alert('Just a heads-up, events will not work when run locally.');
+            }
+
+        });
+    </script>
+    <!-- //calendar -->
+    <!-- //js -->
+</body>
+</html>

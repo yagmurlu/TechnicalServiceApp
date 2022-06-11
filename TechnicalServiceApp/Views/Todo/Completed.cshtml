@@ -1,0 +1,62 @@
+﻿@model EntityLayer.Concrete.Todo
+@{
+    ViewBag.Title = "Completed";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<!DOCTYPE HTML>
+<html>
+<body class="cbp-spmenu-push">
+    <div class="main-content">
+        <!-- main content start-->
+        <div id="page-wrapper">
+            <div class="main-page compose">
+                
+
+                <div class="col-md-8 compose-right widget-shadow">
+                    @using (Html.BeginForm("Completed", "Todo", FormMethod.Post))
+                    {
+
+                        <div class="panel-default">
+                            <div class="panel-heading" style="background-color: #6164C1;font-size:15.5px;color:white">
+                                Mesaj iletildi
+                            </div>
+                            <div class="panel-body">
+                                <form class="com-mail">
+
+                                    @*<input type="text" class="form-control1 control3" placeholder="Alıcı :">
+                                        <input type="text" class="form-control1 control3" placeholder="Konu :" >
+                                        <textarea rows="6" class="form-control1 control2" placeholder="Mesaj :"></textarea>*@
+
+                                    <div class="form-group">
+                                       
+                                        @Html.HiddenFor(x => x.Contact.RecevierMail, new { @class = "form-control1 control3" })
+                                    
+                                    </div>
+                                    <div class="form-group">
+                                       
+                                        @Html.HiddenFor(x => x.Contact.Heading, new { @class = "form-control1 control3" })
+                                        
+                                    </div>
+                                    <div class="form-group">
+                                        
+                                        <textarea name="Contents" class="form-control1 control2" style="height: 200px; direction:ltr">
+                                       
+                                        </textarea>
+                                    </div>
+
+                                    
+                                </form>
+                            </div>
+                        </div>
+                    }
+                </div>
+                <div class="clearfix"> </div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

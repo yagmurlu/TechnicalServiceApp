@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataAccessLayer.Concrete;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -24,6 +25,13 @@ namespace TechnicalServiceApp.Controllers
         {
             ViewBag.Message = "Your contact page.";
 
+            return View();
+        }
+        [AllowAnonymous]
+        [HttpGet]
+        public ActionResult HomePage()
+        {
+           
             return View();
         }
     }

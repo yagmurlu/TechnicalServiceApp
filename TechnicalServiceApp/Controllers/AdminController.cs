@@ -7,11 +7,14 @@ using FluentValidation.Results;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI.WebControls;
 
 namespace TechnicalServiceApp.Controllers
 {
+    [Authorize]
     public class AdminController : Controller
     {
         // GET: Admin
@@ -22,18 +25,20 @@ namespace TechnicalServiceApp.Controllers
         {
             return View();
         }
+        
         public ActionResult GetListAdmin()
         {
             var adminValues = adminManager.GetList();
             return View(adminValues);
         }
+        
         public ActionResult AdminInfoTopMenu()
         {
             string p = (string)Session["AdminMail"];
             var adminInfo = adminManager.GetListInfoAdmin(p);
             return PartialView(adminInfo);
         }
-    
+       
         public ActionResult AdminProfile()
         {
             string p = (string)Session["AdminMail"];
@@ -41,19 +46,35 @@ namespace TechnicalServiceApp.Controllers
             return View(adminProfile);
         }
         [HttpGet]
+        public ActionResult AdminAdd()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult AdminAdd(Admin admin)
+        {
+            adminManager.AdminAddBL(admin);
+            
+            return RedirectToAction ("GetListAdmin");
+        }
+
+        [HttpGet]
         public ActionResult AdminEdit(int id)
         {
             var adminEdit = adminManager.GetById(id);
             return View(adminEdit);
         }
+        
         [HttpPost]
-        public ActionResult AdminEdit(Admin p)
+        
+        public ActionResult AdminEdit(Admin admin)
         {
 
-            ValidationResult results = validations.Validate(p);
+            ValidationResult results = validations.Validate(admin);
             if (results.IsValid)
             {
-                adminManager.AdminUpdate(p);
+                adminManager.AdminUpdate(admin);
                 return RedirectToAction("AdminProfile");
             }
             else
@@ -66,6 +87,7 @@ namespace TechnicalServiceApp.Controllers
             return View();
         }
 
+        
         [HttpGet]
         public ActionResult ChangePassword(int id)
         {
@@ -77,7 +99,9 @@ namespace TechnicalServiceApp.Controllers
 
         //x=>x.mail==admin.mail >> detail dan çıkarttım çünkü admin başkalarının maillerini ve şifrelerine
         //erişebiliyordu.
+      
         [HttpPost]
+      
         public ActionResult ChangePassword(Admin admin)
         {
             ValidationResult results = validations.Validate(admin);

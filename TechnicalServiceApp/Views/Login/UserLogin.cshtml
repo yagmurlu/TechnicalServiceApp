@@ -25,7 +25,7 @@
 
 </head>
 <body>
-  
+
     <div class="agile-wi">
 
         <!-- //logIn Form -->
@@ -48,8 +48,12 @@
                 </div>
                 <div class="clear"> </div>
                 <input type="submit" name="submit" value="GİRİŞ">
+                <p style="text-align:center">
+                    <a href="/Register/UserRegister/" style="color:wheat">Kayıt Ol</a>
+                </p>
             }
-            </div>
+
+        </div>
 
     </div>
 
@@ -59,33 +63,33 @@
     <!-- calendar -->
     <script type="text/javascript" src="~/Themes/UserLogin/web/js/monthly.js"></script>
     <script type="text/javascript">
-		$(window).load( function() {
+        $(window).load(function () {
 
-			$('#mycalendar').monthly({
-				mode: 'event',
+            $('#mycalendar').monthly({
+                mode: 'event',
 
-			});
+            });
 
-			$('#mycalendar2').monthly({
-				mode: 'picker',
-				target: '#mytarget',
-				setWidth: '250px',
-				startHidden: true,
-				showTrigger: '#mytarget',
-				stylePast: true,
-				disablePast: true
-			});
+            $('#mycalendar2').monthly({
+                mode: 'picker',
+                target: '#mytarget',
+                setWidth: '250px',
+                startHidden: true,
+                showTrigger: '#mytarget',
+                stylePast: true,
+                disablePast: true
+            });
 
-		switch(window.location.protocol) {
-		case 'http:':
-		case 'https:':
-		// running on a server, should be good.
-		break;
-		case 'file:':
-		alert('Just a heads-up, events will not work when run locally.');
-		}
+            switch (window.location.protocol) {
+                case 'http:':
+                case 'https:':
+                    // running on a server, should be good.
+                    break;
+                case 'file:':
+                    alert('Just a heads-up, events will not work when run locally.');
+            }
 
-		});
+        });
     </script>
     <!-- //calendar -->
     <!-- //js -->

@@ -1,0 +1,49 @@
+﻿@model EntityLayer.Concrete.Contact
+@{
+    ViewBag.Title = "NewMessage";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+    <!DOCTYPE HTML>
+    <html>
+
+    <body>
+
+        <div class="graphs">
+            <div class="xs">
+                <h3>Mesaj Gönder</h3>
+                @Html.Action("UserContactPartial", "UserContact")
+                <div class="col-md-8 inbox_right">
+                    @using (Html.BeginForm("NewMessage", "UserContact", FormMethod.Post))
+                    {
+                        <div class="Compose-Message">
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <label>Alıcı : </label>
+                                    @Html.TextBoxFor(x => x.RecevierMail, new { @class = "form-control1 control3" })
+                                    @Html.ValidationMessageFor(x => x.RecevierMail, "", new { @class = "text-danger " })
+                                    <br />
+                                    <label>Konu :  </label>
+                                    @Html.TextBoxFor(x => x.Heading, new { @class = "form-control1 control3" })
+                                    @Html.ValidationMessageFor(x => x.Heading, "", new { @class = "text-danger " })
+                                    <br />
+                                    <label>Mesajınız : </label>
+                                    <textarea name="Contents" rows="6" class="form-control1 control2"></textarea>
+                                    @Html.ValidationMessageFor(x => x.Contents, "", new { @class = "text-danger " })
+                                    <hr>
+
+                                    <button type="submit" name="menuName" value="send" class="btn btn-warning btn-warng1">
+                                        <i class="glyphicon glyphicon-envelope tag_02"> GÖNDER</i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+
+        </div>
+
+
+    </body>
+</html>

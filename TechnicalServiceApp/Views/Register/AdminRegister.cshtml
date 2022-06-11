@@ -1,0 +1,62 @@
+﻿@model EntityLayer.Concrete.Admin
+@{
+    ViewBag.Title = "AdminRegister";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Giriş</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- Custom Theme files -->
+    <link href="~/Themes/AdminLogin/web/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/Themes/AdminLogin/web/css/font-awesome.css" rel="stylesheet">		<!-- font-awesome icons -->
+    <!-- //Custom Theme files -->
+    <!-- web font -->
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'><!--web font-->
+    <!-- //web font -->
+    <style>
+        .ValidationColor {
+            color: red;
+        }
+    </style>
+</head>
+<body style="background: url(../images/.jpg)repeat 0px 0px;">
+    <!-- main -->
+    <div id="page-wrapper">
+        <div class="mainw3-agileinfo">
+            <div class="login-form" style="background-color:darkgray">
+                @using (Html.BeginForm("AdminAdd", "Admin", FormMethod.Post))
+                {
+
+                    <h1 style="color:black;font-size:30px;">Yeni Admin</h1>
+                    @Html.Label("İsim: ")
+                    @Html.TextBoxFor(x => x.AdminName, new { @class = "form-control" })
+                    @Html.Label("Soyisim: ")
+                    @Html.TextBoxFor(x => x.AdminSurname, new { @class = "form-control" })
+                    @Html.Label("Mail: ")
+                    @Html.TextBoxFor(x => x.AdminMail, new { @class = "form-control" })
+                    @Html.Label("Şifre: ")
+                    @Html.TextBoxFor(x => x.AdminPassword, new { @class = "form-control" })
+                    @*@Html.Label("Resim: ")
+                        @Html.TextBoxFor(x => x.AdminImage, new { @class = "form-control" })*@
+
+                    @Html.Label("Yetki:")
+                    <br />
+                    @Html.DropDownListFor(x => x.RoleId, new List<SelectListItem>() {
+                      new SelectListItem() {
+                          Text = "Admin",
+                          Value = "1"
+                      } })
+
+
+                    <input type="submit" value="Kaydet">
+                }
+            </div>
+        </div>
+    </div>
+</body>
+</html>

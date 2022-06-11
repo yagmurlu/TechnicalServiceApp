@@ -1,0 +1,115 @@
+﻿@using EntityLayer.Concrete
+@model List<Todo>
+@{
+    ViewBag.Title = "TodoReport";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Raporlar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.5.2/css/buttons.bootstrap4.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap4.min.css">
+
+</head>
+<body class="cbp-spmenu-push">
+    <div class="main-content">
+        <!-- main content start-->
+
+        <div id="page-wrapper">
+            <h3 class="title1"> </h3>
+            <div class="main-page compose">
+                <div class="panel-heading" style="text-align:center">
+                    <h3>RAPORLAR</h3>
+                </div>
+                <div class="col-md-12 compose widget-shadow">
+                    <div class="panel-default">
+                        <div class="inbox-page">
+                            <div class="card-body p-0">
+                                <table id="example" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                Konu
+                                            </th>
+                                            <th>
+                                                İçerik
+                                            </th>
+                                            <th>
+                                                Gönderen
+                                            </th>
+
+                                            <th>
+                                                Durum
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+
+                                            <td>@item.Contact.Heading</td>
+                                            <td>@item.Contact.Contents</td>
+                                            <td>@item.Contact.SenderMail</td>
+                                            @if (item.Wait == false)
+                                            {
+                                                <td>
+                                                    Tamamlanmadı
+                                                </td>
+                                            }
+                                            else
+                                            {
+                                                <td>
+                                                    Tamamlandı
+                                                </td>
+                                            }
+
+
+
+                                        </tr>
+                                    }
+                                </table>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.bootstrap4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.print.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap4.min.js"></script>
+    
+    <script>
+        $(document).ready(function () {
+            var table = $('#example').DataTable({
+                lengthChange: false,
+                buttons: ['copy', 'excel', 'csv', 'pdf', 'colvis']
+            });
+
+            table.buttons().container()
+                .appendTo('#example_wrapper .col-md-6:eq(0)');
+        });</script>
+</body>
+</html>

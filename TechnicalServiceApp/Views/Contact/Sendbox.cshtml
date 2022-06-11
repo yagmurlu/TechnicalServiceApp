@@ -30,7 +30,7 @@
                             <div class="inbox-row widget-shadow">
                                 @foreach (var item in Model)
                                 {
-                                    <div class="mail "> <input type="checkbox" class="checkbox"> </div>
+                                <div class="mail "><a href="/Contact/ContactDelete/@item.ContactId" style="color:black"><i class="fa fa fa-trash-o"></i></a> </div>
                                     <div class="mail"><img src="images/i4.png" alt="" /></div>
                                     <div class="mail mail-name"><h6>@item.RecevierMail</h6></div>
                                     <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="true" aria-controls="collapseFour">

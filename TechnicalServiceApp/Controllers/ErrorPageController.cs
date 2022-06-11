@@ -15,5 +15,11 @@ namespace TechnicalServiceApp.Controllers
             Response.TrySkipIisCustomErrors = true;
             return View();
         }
+        public ActionResult Page403()
+        {
+            Response.StatusCode = 403;
+            Response.TrySkipIisCustomErrors = true;
+            return View();
+        }
     }
 }

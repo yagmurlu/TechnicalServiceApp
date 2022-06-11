@@ -25,7 +25,10 @@ namespace BusinessLayer.Concrete
         {
             return _todoDal.List();
         }
-
+        public List<Todo> GetListTodo(string session)
+        {
+            return _todoDal.List(x => x.Contact.RecevierMail == session);//alıcı
+        }
         public void TodoAddBL(Todo todo)
         {
              _todoDal.Insert(todo);
@@ -40,5 +43,9 @@ namespace BusinessLayer.Concrete
         {
             _todoDal.Update(todo);
         }
+
+        
+
     }
+        
 }

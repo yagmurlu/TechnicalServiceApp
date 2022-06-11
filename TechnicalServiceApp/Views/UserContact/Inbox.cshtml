@@ -1,0 +1,51 @@
+﻿@using EntityLayer.Concrete
+@model List<Contact>
+@{
+    ViewBag.Title = "Inbox";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+<html>
+<body>
+    <div class="graphs">
+        <div class="xs">
+            <h3>Gelen Mesajlar</h3>
+            @Html.Action("UserContactPartial", "UserContact")
+            <div class="col-md-8 inbox_right">
+                
+                <div class="mailbox-content">
+                   
+                    <table class="table">
+                        @foreach (var item in Model)
+                        {
+                            <tbody>
+                                <tr class="unread checked">
+                                    <td class="hidden-xs">
+                                        <div class="mail "><a href="" style="color:black"><i class="fa fa fa-trash-o"></i></a> </div>
+                                    </td>
+                                    <td class="hidden-xs">
+                                        <i class="fa fa-star icon-state-warning"></i>
+                                    </td>
+                                    <td class="hidden-xs">
+                                        <a href="/UserContact/GetInboxMessageDetails/@item.ContactId">@item.SenderMail</a>
+                                    </td>
+                                    <td>
+                                        @item.Heading
+                                    </td>
+                                    <td>
+                                    </td>
+                                    <td>
+                                        @(((DateTime)item.ContactDate).ToString("dd-MMMM-yyyy"))
+                                    </td>
+                                </tr>
+                            </tbody>
+                        }
+                    </table>
+                    
+                    </div>
+                
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+</body>
+</html>

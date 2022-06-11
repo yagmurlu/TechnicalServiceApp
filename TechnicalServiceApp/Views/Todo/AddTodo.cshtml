@@ -1,0 +1,56 @@
+﻿@model EntityLayer.Concrete.Todo
+@{
+    ViewBag.Title = "AddTodo";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+<!DOCTYPE HTML>
+<link href="~/Themes/admin_panel/web/css/style.css" rel="stylesheet" />
+<html>
+<body class="cbp-spmenu-push">
+
+    <div class="main-content">
+        <!-- main content start-->
+
+        <div id="page-wrapper">
+            <h3 class="title1"> </h3>
+            <div class="main-page compose">
+                <h1>Yeni Kategori Ekleme Sayfası</h1>
+
+                @using (Html.BeginForm("AddTodo", "Todo", FormMethod.Post))
+                {
+            <div class="form-group">
+                @Html.Label("Gönderen Mail:")
+                @Html.TextBoxFor(x => x.Contact.SenderMail)
+                <br /><br />
+                @Html.Label("Alıcı Mail:")
+                @Html.TextBoxFor(x => x.Contact.RecevierMail)
+                <br /><br />
+                @Html.Label("Konu:")
+                @Html.TextBoxFor(x => x.Contact.Heading)
+                <br /><br />
+                @Html.Label("Mesaj:")
+                @Html.TextBoxFor(x => x.Contact.Contents)
+                <br /><br />
+                @Html.Label("Tarih")
+                @Html.TextBoxFor(x => x.Contact.ContactDate)
+                <br /><br />
+               
+                <br /><br />
+                @Html.Label("Durum")
+                @Html.CheckBoxFor(x => x.Done)
+                @Html.CheckBoxFor(x => x.Working)
+                @Html.CheckBoxFor(x => x.Wait)
+                <br /><br />
+
+                <br /><br />
+                <button class="btn btn-success">Ekle</button>
+            </div>
+                }
+            </div>
+        </div>
+        </div>
+</body>
+</html>

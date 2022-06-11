@@ -22,16 +22,13 @@
                             <form class="com-mail">
                                 <div class="form-group">
 
-                                    <h4 style="padding: 5px;background-color: white"><b>Konu:</b>@Html.DisplayFor(x => x.Heading)</h4>
+                                    <h4 style="padding: 5px;background-color: white"><b>Konu:  </b>@Html.DisplayFor(x => x.Heading)</h4>
                                 </div>
-                                <h4 style="padding: 5px; background-color: white"><b>Gönderen:</b>  @Html.DisplayFor(x => x.SenderMail)</h4>
+                                <h4 style="padding: 5px; background-color: white"><b>Gönderen:  </b>  @Html.DisplayFor(x => x.SenderMail)</h4>
                                 
-                                <div class="form-group">
+                                <div class="form-group" style="min-height: 300px; min-width: 750px; border: 0; padding: 5px; border:0; background-color:white">
 
-
-                                    <textarea style="min-height: 300px; min-width: 750px; border: 0; padding: 5px; border:0; background-color:white">
                                             @Html.DisplayFor(x => x.Contents)
-                                        </textarea>
 
                                 </div>
                             </form>

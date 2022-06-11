@@ -63,13 +63,13 @@ namespace TechnicalServiceApp.Controllers
         {
             FormsAuthentication.SignOut();
             Session.Abandon();
-            return RedirectToAction("AdminLogin", "Login");
+            return RedirectToAction("HomePage", "Home");
         }
         public ActionResult UserLogOut()
         {
             FormsAuthentication.SignOut();
             Session.Abandon();
-            return RedirectToAction("UserLogin", "Login");
+            return RedirectToAction("HomePage", "Home");
         }
 
     }

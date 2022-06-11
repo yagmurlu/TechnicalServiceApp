@@ -12,6 +12,7 @@ using System.Web.Mvc;
 
 namespace TechnicalServiceApp.Controllers
 {
+    [Authorize]
     public class UserController : Controller
     {
         // GET: User
@@ -21,6 +22,7 @@ namespace TechnicalServiceApp.Controllers
         {
             return View();
         }
+   
         public ActionResult GetListUser()// Admin panelinde tüm kullanıcıları gösterir.
         {
             var userValues = userManager.GetList();

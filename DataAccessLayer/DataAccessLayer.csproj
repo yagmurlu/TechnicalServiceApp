@@ -110,6 +110,14 @@
     <Compile Include="Migrations\202205261019021_newPassUpdate.designer.cs">
       <DependentUpon>202205261019021_newPassUpdate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202206042037596_roleTable_added.cs" />
+    <Compile Include="Migrations\202206042037596_roleTable_added.designer.cs">
+      <DependentUpon>202206042037596_roleTable_added.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202206060740123__roleId_Admin_User_added.cs" />
+    <Compile Include="Migrations\202206060740123__roleId_Admin_User_added.designer.cs">
+      <DependentUpon>202206060740123__roleId_Admin_User_added.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -159,6 +167,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202205261019021_newPassUpdate.resx">
       <DependentUpon>202205261019021_newPassUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202206042037596_roleTable_added.resx">
+      <DependentUpon>202206042037596_roleTable_added.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202206060740123__roleId_Admin_User_added.resx">
+      <DependentUpon>202206060740123__roleId_Admin_User_added.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

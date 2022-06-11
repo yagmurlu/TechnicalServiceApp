@@ -79,5 +79,10 @@ namespace BusinessLayer.Concrete
         {
             return _contactDal.List(x => x.IsSpam == true && x.RecevierMail == session);
         }
+
+        public List<Contact> GetListContent(string p)
+        {
+            return _contactDal.List(x => x.Contents.Contains(p));
+        }
     }
 }

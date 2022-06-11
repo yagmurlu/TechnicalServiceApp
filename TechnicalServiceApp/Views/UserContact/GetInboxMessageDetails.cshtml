@@ -1,0 +1,48 @@
+﻿@model EntityLayer.Concrete.Contact
+@{
+    ViewBag.Title = "GetInboxMessageDetails";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<!DOCTYPE HTML>
+<html>
+
+<body>
+
+    <div class="graphs">
+        <div class="xs">
+            <h3>Mesaj Gönder</h3>
+            @Html.Action("UserContactPartial", "UserContact")
+            <div class="col-md-8 inbox_right">
+
+                <div class="Compose-Message">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <label>Gönderen : </label>
+                            <div class="form-control1 control3">
+                                @Html.DisplayFor(x => x.SenderMail, new { @class = "form-control1 control3" })
+                            </div>
+                            <label>Konu :  </label>
+                            <div class="form-control1 control3">
+                                @Html.DisplayFor(x => x.Heading, new { @class = "form-control1 control3" })
+                            </div>
+                         
+                            <label>Mesajınız : </label>
+                            <div class="form-control1 control2">
+                                
+                                 @Html.DisplayFor(x => x.Contents)
+                        
+                            </div>
+                            </div>
+                        </div>
+                </div>
+
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+
+    </div>
+
+
+</body>
+</html>

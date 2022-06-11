@@ -1,0 +1,56 @@
+﻿@using EntityLayer.Concrete
+@model List<Contact>
+@{
+    ViewBag.Title = "Sendbox";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+    <!DOCTYPE HTML>
+    <html>
+    <body>
+        <div class="graphs">
+            <div class="xs">
+                <h3>Gönderilen Mesajlar</h3>
+                @Html.Action("UserContactPartial", "UserContact")
+
+                <div class="col-md-8 inbox_right">
+
+                    <div class="mailbox-content">
+
+                        <table class="table">
+
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr class="unread checked">
+                                        <td class="hidden-xs">
+                                            <input type="checkbox" class="checkbox">
+                                        </td>
+
+                                        <td class="hidden-xs">
+                                            @item.RecevierMail
+                                        </td>
+                                        <td>
+                                            <a href="/UserContact/GetSendboxMessageDetails/@item.ContactId">@item.Heading</a>
+                                        </td>
+                                        <td>
+                                        </td>
+                                        <td>
+                                            @(((DateTime)item.ContactDate).ToString("dd-MMMM-yyyy"))
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+                <div class="clearfix"> </div>
+
+            </div>
+        </div>
+    </body>
+</html>

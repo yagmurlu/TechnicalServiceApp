@@ -16,9 +16,14 @@
         <div id="page-wrapper">
             <h3 class="title1"> </h3>
             <div class="main-page compose">
-                <div class="panel-heading">
-                    Yapılacaklar
+                <div class="panel-heading" style="text-align:center">
+                    <h3>TALEPLER</h3>
                 </div>
+                <a class="btn btn-danger btn-sm" href="/Todo/AddTodo/">
+                    <i class="fas fa-pencil-alt">
+                    </i>
+                    Talep Oluştur
+                </a>
                 <div class="col-md-12 compose widget-shadow">
                     <div class="panel-default">
                         <div class="inbox-page">
@@ -69,20 +74,25 @@
                                             </td>
 
                                             <td class="project-actions text-right">
-                                                <a class="btn btn-success btn-sm" href="/Default/Headings/@item">
-                                                    <i class="fas fa-folder">
-                                                    </i>
-                                                    Yapıldı
-                                                </a>
-                                                <a class="btn btn-primary btn-sm" href="/WriterPanelContent/AddContent/@item">
+                                                @*<a class="btn btn-success btn-sm" type="submit" name="completed" value="comp">
+                                                        <i class="fas fa-folder">
+                                                        </i>
+                                                        Tamamlandı
+                                                    </a>*@
+                                                <button type="submit" name="completed" value="comp" class="btn btn-success">
+
+                                                    <i>Tamamlandı</i>
+
+                                                </button>
+                                                <a class="btn btn-primary btn-sm" href="">
                                                     <i class="fas fa-pencil-alt">
                                                     </i>
-                                                    Devam Ediyor
+                                                    Talep Alındı
                                                 </a>
-                                                <a class="btn btn-danger btn-sm" href="/WriterPanelContent/AddContent/@item">
+                                                <a class="btn btn-danger btn-sm" href="/Todo/TodoDelete/@item.TodoId">
                                                     <i class="fas fa-pencil-alt">
                                                     </i>
-                                                    İptal
+                                                    Sil
                                                 </a>
                                             </td>
 

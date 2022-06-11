@@ -1,5 +1,6 @@
 ﻿using BusinessLayer.Concrete;
 using BusinessLayer.ValidationRules;
+using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using FluentValidation.Results;
@@ -30,7 +31,7 @@ namespace TechnicalServiceApp.Controllers
         public ActionResult Sendbox()
         {
             string p = (string)Session["AdminMail"];
-            var messageList = contactManager.GetListInbox(p);
+            var messageList = contactManager.GetListSendbox(p);
             return View(messageList);
         }
       
@@ -168,5 +169,15 @@ namespace TechnicalServiceApp.Controllers
             var sendValues = contactManager.GetById(id);
             return PartialView(sendValues);
         }
+      
+     
+        public ActionResult GetAllContent(string p)// Sayfa içerisinde arama işlemi
+        {
+            
+            var values = contactManager.GetListContent(p);
+     
+            return PartialView(values.ToList());
+        }
+       
     }
 }

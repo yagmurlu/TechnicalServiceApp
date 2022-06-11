@@ -1,0 +1,51 @@
+﻿@model EntityLayer.Concrete.Contact
+@{
+    ViewBag.Title = "AddTodoContact";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+<!DOCTYPE HTML>
+<link href="~/Themes/admin_panel/web/css/style.css" rel="stylesheet" />
+<html>
+<body class="cbp-spmenu-push">
+
+    <div class="main-content">
+        <!-- main content start-->
+
+        <div id="page-wrapper">
+            <h3 class="title1"> </h3>
+            <div class="main-page compose">
+
+               
+                    <div class="form-group">
+                        
+                        @Html.DisplayFor(x => x.SenderMail)
+                        <br /><br />
+                       
+                        @Html.DisplayFor(x => x.RecevierMail)
+                        <br /><br />
+                       
+                        @Html.DisplayFor(x => x.Heading)
+                        <br /><br />
+                        @Html.DisplayFor(x => x.Contents)
+                        <br /><br />
+                       
+                        @Html.DisplayFor(x => x.ContactDate)
+                        <br /><br />
+                        
+                        @Html.DisplayFor(x=>x.ContactId)
+                        <br /><br />
+                       
+                        <br /><br />
+
+                        
+                       
+                    </div>
+               
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -7,16 +7,25 @@
 }
 
 <body class="cbp-spmenu-push">
+    
     <div class="main-content">
+       
         <div id="page-wrapper">
+            
             <div class="main-page">
+                <a class="btn btn-success btn-sm" href="/Register/AdminRegister/">
+                    <i class="fas fa-pencil-alt">
+                    </i>
+                    <h5>Yeni Admin Ekle</h5>
+                </a>
                 <div class="elements  row">
+
                     @foreach (var item in Model)
                     {
                         <div class="col-md-4 profile widget-shadow" style="margin-left: 5px; margin-bottom: 5px">
                             <h4 class="title3">Profile</h4>
                             <div class="profile-top">
-                                
+
                                 <img src=@item.AdminImage style="width:70px;height:70px" />
                                 <h4>@item.AdminName @item.AdminSurname</h4>
                                 <h5>Admin</h5>

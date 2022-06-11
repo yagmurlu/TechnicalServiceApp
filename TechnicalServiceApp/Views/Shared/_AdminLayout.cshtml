@@ -9,159 +9,156 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
-<!DOCTYPE HTML>
-<html>
-<head>
-    <title>NEÜ-Admin</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="keywords" content="" />
-    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-    <!-- Bootstrap Core CSS -->
-    <link href="~/Themes/admin_panel/web/css/bootstrap.css" rel='stylesheet' type='text/css' />
-    <!-- Custom CSS -->
-    <link href="~/Themes/admin_panel/web/css/style.css" rel='stylesheet' type='text/css' />
-    <!-- font CSS -->
-    <!-- font-awesome icons -->
-    <link href="~/Themes/admin_panel/web/css/font-awesome.css" rel="stylesheet">
-    <!-- //font-awesome icons -->
-    <!-- js-->
-    <script src="~/Themes/admin_panel/web/js/jquery-1.11.1.min.js"></script>
-    <script src="~/Themes/admin_panel/web/js/modernizr.custom.js"></script>
-    <!--webfonts-->
-    <link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
-    <!--//webfonts-->
-    <!--animate-->
-    <link href="~/Themes/admin_panel/web/css/animate.css" rel="stylesheet" type="text/css" media="all">
-    <script src="~/Themes/admin_panel/web/js/wow.min.js"></script>
-    <script>
-        new WOW().init();
-    </script>
-    <!--//end-animate-->
-    <!-- Metis Menu -->
-    <script src="~/Themes/admin_panel/web/js/metisMenu.min.js"></script>
-    <script src="~/Themes/admin_panel/web/js/custom.js"></script>
-    <link href="~/Themes/admin_panel/web/css/custom.css" rel="stylesheet">
-    <!--//Metis Menu -->
-</head>
-<body class="cbp-spmenu-push">
-    <div class="main-content">
-        <!--left-fixed -navigation-->
-        <div class=" sidebar" role="navigation">
-            <div class="navbar-collapse">
-                <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
-                    <ul class="nav" id="side-menu">
-                        <li>
-                            <a href="/Admin/AdminProfile/"><i class="fa fa-user nav_icon"></i>Profil</a>
-                        </li>
-                        <li>
-                            <a href="/Todo/Index/"><i class="fa fa-cogs nav_icon"></i>Yapılacaklar </a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-envelope nav_icon"></i>Mesajlar<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level collapse">
-                                <li>
-                                    <a href="/Contact/Inbox/">Gelen Mesaj <span class="nav-badge-btm"></span></a>
-                                </li>
-                                <li>
-                                    <a href="/Contact/NewMessage/">Mesaj Oluştur</a>
-                                </li>
-                            </ul>
-                            <!-- //nav-second-level -->
-                        </li>
-                        <li class="">
-                            <a href="/User/GetListUser/"><i class="fa fa-book nav_icon"></i>Kullanıcılar </a>
-                        </li>
-                        <li>
-                            <a href="/Admin/GetListAdmin/"><i class="fa fa-table nav_icon"></i>Adminler </a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-th-large nav_icon"></i>Rapor</a>
-                        </li>
-                        @Html.Action("AdminSettingsLayoutPartial", "Admin")
-                        <li>
-                            <a href="/Login/AdminLogOut/"><i class="fa fa-sign-out nav_icon"></i>Çıkış</a>
-                        </li>
-                    </ul>
-                    <div class="clearfix"> </div>
-                    <!-- //sidebar-collapse -->
-                </nav>
-            </div>
-        </div>
-        <!--left-fixed -navigation-->
-        <!-- header-starts -->
-        <div class="sticky-header header-section ">
-            <div class="header-left">
-                <!--toggle button start-->
-                <button id="showLeftPush"><i class="fa fa-bars"></i></button>
-                <!--toggle button end-->
-                <!--logo -->
-                <div class="logo">
-                    <a href="#">
-                        <h1>NEÜ</h1>
-                        <span>Admin</span>
-                    </a>
+    <!DOCTYPE HTML>
+    <html>
+    <head>
+        <title>NEÜ-Admin</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="keywords" content="" />
+        <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+        <!-- Bootstrap Core CSS -->
+        <link href="~/Themes/admin_panel/web/css/bootstrap.css" rel='stylesheet' type='text/css' />
+        <!-- Custom CSS -->
+        <link href="~/Themes/admin_panel/web/css/style.css" rel='stylesheet' type='text/css' />
+        <!-- font CSS -->
+        <!-- font-awesome icons -->
+        <link href="~/Themes/admin_panel/web/css/font-awesome.css" rel="stylesheet">
+        <!-- //font-awesome icons -->
+        <!-- js-->
+        <script src="~/Themes/admin_panel/web/js/jquery-1.11.1.min.js"></script>
+        <script src="~/Themes/admin_panel/web/js/modernizr.custom.js"></script>
+        <!--webfonts-->
+        <link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
+        <!--//webfonts-->
+        <!--animate-->
+        <link href="~/Themes/admin_panel/web/css/animate.css" rel="stylesheet" type="text/css" media="all">
+        <script src="~/Themes/admin_panel/web/js/wow.min.js"></script>
+        <script>
+            new WOW().init();
+        </script>
+        <!--//end-animate-->
+        <!-- Metis Menu -->
+        <script src="~/Themes/admin_panel/web/js/metisMenu.min.js"></script>
+        <script src="~/Themes/admin_panel/web/js/custom.js"></script>
+        <link href="~/Themes/admin_panel/web/css/custom.css" rel="stylesheet">
+        <!--//Metis Menu -->
+    </head>
+@if (User.IsInRole("Admin"))
+{
+
+
+    <body class="cbp-spmenu-push">
+        <div class="main-content">
+            <!--left-fixed -navigation-->
+            <div class=" sidebar" role="navigation">
+                <div class="navbar-collapse">
+                    <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
+                        <ul class="nav" id="side-menu">
+                            <li>
+                                <a href="/Admin/AdminProfile/"><i class="fa fa-user nav_icon"></i>Profil</a>
+                            </li>
+                            <li>
+                                <a href="/Todo/Index/"><i class="fa fa-cogs nav_icon"></i>Yapılacaklar </a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-envelope nav_icon"></i>Mesajlar<span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level collapse">
+                                    <li>
+                                        <a href="/Contact/Inbox/">Gelen Mesaj <span class="nav-badge-btm"></span></a>
+                                    </li>
+                                    <li>
+                                        <a href="/Contact/NewMessage/">Mesaj Oluştur</a>
+                                    </li>
+                                </ul>
+                                <!-- //nav-second-level -->
+                            </li>
+                            <li class="">
+                                <a href="/User/GetListUser/"><i class="fa fa-book nav_icon"></i>Kullanıcılar </a>
+                            </li>
+                            <li>
+                                <a href="/Admin/GetListAdmin/"><i class="fa fa-table nav_icon"></i>Adminler </a>
+                            </li>
+                            <li>
+                                <a href="/Todo/TodoReport/"><i class="fa fa-th-large nav_icon"></i>Rapor</a>
+                            </li>
+                            @Html.Action("AdminSettingsLayoutPartial", "Admin")
+                            <li>
+                                <a href="/Login/AdminLogOut/"><i class="fa fa-sign-out nav_icon"></i>Çıkış</a>
+                            </li>
+                        </ul>
+                        <div class="clearfix"> </div>
+                        <!-- //sidebar-collapse -->
+                    </nav>
                 </div>
-                <!--//logo-->
-                <!--search-box-->
-                <div class="search-box">
-                    <form class="input">
-                        <input class="sb-search-input input__field--madoka" placeholder="Ara..." type="search" id="input-31" />
-                        <label class="input__label" for="input-31">
-                            <svg class="graphic" width="100%" height="100%" viewBox="0 0 404 77" preserveAspectRatio="none">
-                                <path d="m0,0l404,0l0,77l-404,0l0,-77z" />
-                            </svg>
-                        </label>
-                    </form>
-                </div><!--//end-search-box-->
+            </div>
+            <!--left-fixed -navigation-->
+            <!-- header-starts -->
+            <div class="sticky-header header-section ">
+                <div class="header-left">
+                    <!--toggle button start-->
+                    <button id="showLeftPush"><i class="fa fa-bars"></i></button>
+                    <!--toggle button end-->
+                    <!--logo -->
+                    <div class="logo">
+                        <a href="#">
+                            <h1>NEÜ</h1>
+                            <span>Admin</span>
+                        </a>
+                    </div>
+                    <!--//logo-->
+                    <!--search-box-->
+                    @*@Html.Action("GetAllContent", "Contact")*@
+                    <!--//end-search-box-->
+                    <div class="clearfix"> </div>
+                </div>
+                <div class="header-right">
+
+
+                    @Html.Action("AdminContactTopMenu", "Contact")
+
+                    <!--notification menu end -->
+                    @Html.Action("AdminInfoTopMenu", "Admin")
+                    <div class="clearfix"> </div>
+                </div>
                 <div class="clearfix"> </div>
             </div>
-            <div class="header-right">
+            <!-- //header-ends -->
+            <!-- main content start-->
 
-
-                @Html.Action("AdminContactTopMenu", "Contact")
-
-                <!--notification menu end -->
-                @Html.Action("AdminInfoTopMenu", "Admin")
-                <div class="clearfix"> </div>
+            @RenderBody()
+            <!--footer-->
+            <div class="footer">
+                <p>&copy;@DateTime.Now.Year Tüm Hakları Saklıdır.</p>
             </div>
-            <div class="clearfix"> </div>
+            <!--//footer-->
         </div>
-        <!-- //header-ends -->
-        <!-- main content start-->
+        <!-- Classie -->
+        <script src="~/Themes/admin_panel/web/js/classie.js"></script>
+        <script>
+            var menuLeft = document.getElementById('cbp-spmenu-s1'),
+                showLeftPush = document.getElementById('showLeftPush'),
+                body = document.body;
 
-        @RenderBody()
-        <!--footer-->
-        <div class="footer">
-            <p>&copy;@DateTime.Now.Year Tüm Hakları Saklıdır.</p>
-        </div>
-        <!--//footer-->
-    </div>
-    <!-- Classie -->
-    <script src="~/Themes/admin_panel/web/js/classie.js"></script>
-    <script>
-        var menuLeft = document.getElementById('cbp-spmenu-s1'),
-            showLeftPush = document.getElementById('showLeftPush'),
-            body = document.body;
+            showLeftPush.onclick = function () {
+                classie.toggle(this, 'active');
+                classie.toggle(body, 'cbp-spmenu-push-toright');
+                classie.toggle(menuLeft, 'cbp-spmenu-open');
+                disableOther('showLeftPush');
+            };
 
-        showLeftPush.onclick = function () {
-            classie.toggle(this, 'active');
-            classie.toggle(body, 'cbp-spmenu-push-toright');
-            classie.toggle(menuLeft, 'cbp-spmenu-open');
-            disableOther('showLeftPush');
-        };
-
-        function disableOther(button) {
-            if (button !== 'showLeftPush') {
-                classie.toggle(showLeftPush, 'disabled');
+            function disableOther(button) {
+                if (button !== 'showLeftPush') {
+                    classie.toggle(showLeftPush, 'disabled');
+                }
             }
-        }
-    </script>
-    <!--scrolling js-->
-    <script src="~/Themes/admin_panel/web/js/jquery.nicescroll.js"></script>
-    <script src="~/Themes/admin_panel/web/js/scripts.js"></script>
-    <!--//scrolling js-->
-    <!-- Bootstrap Core JavaScript -->
-    <script src="~/Themes/admin_panel/web/js/bootstrap.js"></script>
-</body>
+        </script>
+        <!--scrolling js-->
+        <script src="~/Themes/admin_panel/web/js/jquery.nicescroll.js"></script>
+        <script src="~/Themes/admin_panel/web/js/scripts.js"></script>
+        <!--//scrolling js-->
+        <!-- Bootstrap Core JavaScript -->
+        <script src="~/Themes/admin_panel/web/js/bootstrap.js"></script>
+    </body>
+}
 </html>
