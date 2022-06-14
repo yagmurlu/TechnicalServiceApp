@@ -45,6 +45,8 @@
                 <input type="text" name="UserName" required="" />
                 <p>Soyisim</p>
                 <input type="text" name="UserSurname" required="" />
+                <p>Hakkında</p>
+                <input type="text" name="UserAbout" required="" />
                 <p>Kullanıcı Mail</p>
                 <input type="text" name="UserMail" placeholder="ornek@mail.com" required="" />
                 <p>Şifre</p>
@@ -55,13 +57,10 @@
                 <br />
                 <div class="Color">
 
-                    @Html.Label("Yetki:", new { @class = "Color" })
                     
-                    @Html.DropDownListFor(x => x.RoleId, new List<SelectListItem>() {
-                      new SelectListItem() {
-                          Text = "Kullanıcı",
-                          Value = "2"
-                      } })
+
+                    @Html.HiddenFor(x => x.RoleId, new { @Value = "2" })
+                   
                 </div>
                 <br />
                 <br />

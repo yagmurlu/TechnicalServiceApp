@@ -1,11 +1,12 @@
 ﻿@using EntityLayer.Concrete
 @using PagedList
 @using PagedList.Mvc
-@model PagedList.IPagedList<User>
+@model PagedList.IPagedList<Admin>
 @{
-    ViewBag.Title = "GetListUser";
+    ViewBag.Title = "PasifAdminList";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
+
 @{
 
     string checkStatus = "";
@@ -13,47 +14,45 @@
 <body class="cbp-spmenu-push">
 
     <div class="main-content">
-        <div id="page-wrapper">
-            <div class="main-page">
-                <a class="btn btn-success btn-sm" href="/User/UserAdd/">
-                    <i class="fas fa-pencil-alt">
-                    </i>
-                    <h5>Yeni Kullanıcı Ekle</h5>
-                </a>
 
-                <a class="btn btn-primary btn-sm" href="/User/ActiveUserList/">
+        <div id="page-wrapper">
+
+            <div class="main-page">
+                <a class="btn btn-primary btn-sm" href="/Admin/GetListAdmin/">
                     <i class="fas fa-pencil-alt">
                     </i>
-                    <h5>Aktif Kullanıcılar</h5>
+                    <h5>Tüm Adminler</h5>
                 </a>
-                <a class="btn btn-primary btn-sm" href="/User/PasifUserList/">
+                <a class="btn btn-primary btn-sm" href="/Admin/ActiveAdminList/">
                     <i class="fas fa-pencil-alt">
                     </i>
-                    <h5>Pasif Kullanıcılar</h5>
+                    <h5>Aktif Adminler</h5>
                 </a>
-              
+                <a class="btn btn-success btn-sm" style="margin-left:770px" href="/Register/AdminRegister/">
+                    <i class="fas fa-pencil-alt">
+                    </i>
+                    <h5>Yeni Admin Ekle</h5>
+                </a>
                 <div class="elements  row">
 
                     @foreach (var item in Model)
                     {
-                        <div class="col-md-4 profile widget-shadow" style="margin-left:5px ;margin-bottom:5px">
-                            <!--<div class="profile-left" style="margin-left:15px ;margin-bottom:15px">-->
-                            @*<a href="" style="color:white ; font-size:18px"> <i class="fa fa-edit"> </i></a>*@
-                            <!--</div>-->
+                        <div class="col-md-4 profile widget-shadow" style="margin-left: 5px; margin-bottom: 5px">
 
                             <div class="profile-top">
 
-                                <img src=@item.UserImage style="width:70px;height:70px" />
-                                <h4>@item.UserName @item.UserSurname</h4>
-                                <h5>@item.UserAbout</h5>
+                                <img src=@item.AdminImage style="width:70px;height:70px" />
+                                <h4>@item.AdminName @item.AdminSurname</h4>
+                                <h5>Admin</h5>
                             </div>
                             <div class="profile-text">
                                 <div class="profile-row">
-                                    @*<div class="profile-left">
-                                <i class="fa fa-envelope profile-icon"></i>
-                            </div>*@
+                                    <div class="profile-left">
+                                        <i class="fa fa-envelope profile-icon"></i>
+                                    </div>
                                     <div class="profile-right">
-                                        <h4><i class="fa fa-envelope profile-icon"></i> @item.UserMail</h4>
+                                        <h4>@item.AdminMail</h4>
+                                        <p>Email</p>
                                     </div>
                                     <div class="clearfix"> </div>
                                 </div>
@@ -62,7 +61,7 @@
                                     <div class="profile-right">
 
                                         <b>Durum: </b>
-                                        @if (item.UserStatus == true)
+                                        @if (item.AdminStatus == true)
                                         {
                                             <i>Aktif Kullanıcı</i>
 
@@ -78,9 +77,9 @@
                                 <div class="profile-row">
 
                                     <div class="profile-right">
-                                        <a class="btn btn-danger btn-sm" href="/User/UserStatus/@item.UserId">
+                                        <a class="btn btn-danger btn-sm" href="/Admin/AdminStatus/@item.AdminId">
 
-                                            @if (item.UserStatus == true)
+                                            @if (item.AdminStatus == true)
                                             {
                                                 checkStatus = "Pasif Yap";
 
@@ -94,7 +93,7 @@
                                             @checkStatus
                                         </a>
 
-                                        <a class="btn btn-primary btn-sm" href="/User/AdminPageUserEdit/@item.UserId">
+                                        <a class="btn btn-primary btn-sm" href="/Admin/AdminPageAdminEdit/@item.AdminId">
 
                                             Düzenle
                                         </a>
@@ -107,16 +106,14 @@
                             </div>
                         </div>
                     }
-
                 </div>
-
             </div>
-            @Html.PagedListPager((IPagedList)Model, p => Url.Action("GetListUser", new { p }), new PagedListRenderOptions
+            @Html.PagedListPager((IPagedList)Model, p => Url.Action("GetListAdmin", new { p }), new PagedListRenderOptions
 {
-LiElementClasses = new List<string>
-{
-   {"page-link"}
-}
+    LiElementClasses = new List<string>
+    {
+        {"page-link"}
+    }
 })
         </div>
     </div>

@@ -1,0 +1,78 @@
+﻿@model EntityLayer.Concrete.Admin
+@{
+    ViewBag.Title = "AdminPageAdminEdit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div id="page-wrapper">
+    <div class="main-page">
+        <div class="tables">
+            <div class="panel-body widget-shadow">
+                <h4>Kullanıcı Düzenleme Sayfası</h4>
+                @using (Html.BeginForm("AdminPageAdminEdit", "Admin", FormMethod.Post))
+                {
+
+                    <div class="form-group">
+                        @Html.HiddenFor(x => x.AdminId, new { @class = "form-control" })
+                        @Html.Label("Adı")
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <i class="fa fa-user"></i>
+                            </span>
+                            @Html.TextBoxFor(x => x.AdminName, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.AdminName, "", new { @style = "color: red " })
+                        </div>
+                        <br />
+                        @Html.Label("Soyadı")
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <i class="fa fa-user"></i>
+                            </span>
+                            @Html.TextBoxFor(x => x.AdminSurname, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.AdminSurname, "", new { @style = "color: red " })
+                        </div>
+                        <br />
+                        @Html.Label("Mail")
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <i class="fa fa-envelope"></i>
+                            </span>
+                            @Html.TextBoxFor(x => x.AdminMail, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.AdminMail, "", new { @style = "color: red " })
+                        </div>
+                       
+                        
+                        <br />
+                        @*@Html.HiddenFor("Mevcut Parola: ")*@
+                        @Html.HiddenFor(x => x.AdminPassword, new { @class = "form-control" })
+                        @Html.HiddenFor(x => x.AdminNewPassword, new { @Value = "1" })
+
+                        @Html.HiddenFor(x => x.RoleId)
+                        @Html.HiddenFor(x => x.AdminStatus)
+                        @*@Html.ValidationMessageFor(x => x.AdminPassword, "", new { @style = "color: red " })
+                            <br />
+                            @Html.Label("Yeni Parola: ")
+                            @Html.PasswordFor(x => x.AdminPassword, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.AdminPassword, "", new { @style = "color: red " })*@
+
+                        @Html.Label("Profil Fotoğrafı")
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <i class="fa fa-picture-o"></i>
+                            </span>
+                            @Html.TextBoxFor(x => x.AdminImage, new { @class = "form-control" })
+                        </div>
+                        <br />
+                        <div class="btn btn-default btn-file">
+                            <input type="file" name="attachment">
+                        </div>
+                        <br />
+                        <br />
+                        <button class="btn btn-success">Güncelle</button>
+                    </div>
+
+                }
+            </div>
+        </div>
+    </div>
+</div>

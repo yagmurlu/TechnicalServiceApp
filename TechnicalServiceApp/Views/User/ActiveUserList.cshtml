@@ -3,9 +3,10 @@
 @using PagedList.Mvc
 @model PagedList.IPagedList<User>
 @{
-    ViewBag.Title = "GetListUser";
+    ViewBag.Title = "ActiveUserList";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
+
 @{
 
     string checkStatus = "";
@@ -15,23 +16,22 @@
     <div class="main-content">
         <div id="page-wrapper">
             <div class="main-page">
-                <a class="btn btn-success btn-sm" href="/User/UserAdd/">
+                <a class="btn btn-success btn-sm"href="/User/UserAdd/">
                     <i class="fas fa-pencil-alt">
                     </i>
                     <h5>Yeni Kullanıcı Ekle</h5>
                 </a>
-
-                <a class="btn btn-primary btn-sm" href="/User/ActiveUserList/">
+                <a class="btn btn-primary btn-sm" href="/User/GetListUser/">
                     <i class="fas fa-pencil-alt">
                     </i>
-                    <h5>Aktif Kullanıcılar</h5>
+                    <h5>Tüm Kullanıcılar</h5>
                 </a>
                 <a class="btn btn-primary btn-sm" href="/User/PasifUserList/">
                     <i class="fas fa-pencil-alt">
                     </i>
                     <h5>Pasif Kullanıcılar</h5>
                 </a>
-              
+
                 <div class="elements  row">
 
                     @foreach (var item in Model)

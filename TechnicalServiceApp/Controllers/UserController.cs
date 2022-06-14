@@ -4,6 +4,7 @@ using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using FluentValidation.Results;
+using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,9 +24,9 @@ namespace TechnicalServiceApp.Controllers
             return View();
         }
    
-        public ActionResult GetListUser()// Admin panelinde tüm kullanıcıları gösterir.
+        public ActionResult GetListUser(int p=1)// Admin panelinde tüm kullanıcıları gösterir.
         {
-            var userValues = userManager.GetList();
+            var userValues = userManager.GetList().ToPagedList(p, 6);
             return View(userValues);
         }
         public ActionResult UserInfoTopMenu()
@@ -109,6 +110,69 @@ namespace TechnicalServiceApp.Controllers
                 }
             }
             return View(user);
+        }
+        public ActionResult UserStatus(int id)
+        {
+            var userStatus = userManager.GetById(id);
+            if (userStatus.UserStatus == false)
+            {
+                userStatus.UserStatus = true;
+                userManager.UserDelete(userStatus);
+                return RedirectToAction("GetListUser");
+            }
+            else
+            {
+                userStatus.UserStatus = false;
+                userManager.UserDelete(userStatus);
+                return RedirectToAction("GetListUser");
+            }
+          
+        }
+        [HttpGet]
+        public ActionResult AdminPageUserEdit(int id)
+        {
+            var userEdit = userManager.GetById(id);
+            return View(userEdit);
+        }
+        [HttpPost]
+        public ActionResult AdminPageUserEdit(User p)
+        {
+
+            ValidationResult results = userValidator.Validate(p);
+            if (results.IsValid)
+            {
+                userManager.UserUpdate(p);
+                return RedirectToAction("GetListUser");
+            }
+            else
+            {
+                foreach (var item in results.Errors)
+                {
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                }
+            }
+            return View();
+        }
+        [HttpGet]
+        public ActionResult UserAdd()
+        {
+            return View();
+        }      
+        [HttpPost]
+        public ActionResult UserAdd(User user)
+        {
+            userManager.UserAddBL(user);
+            return RedirectToAction("GetListUser");
+        }
+        public ActionResult ActiveUserList(int p = 1)
+        {
+            var active = userManager.GetUserStatusTrue().ToPagedList(p, 10);
+            return View(active);
+        }
+        public ActionResult PasifUserList(int p = 1)
+        {
+            var active = userManager.GetUserStatusFalse().ToPagedList(p, 10);
+            return View(active);
         }
     }
 }

@@ -21,8 +21,9 @@ namespace TechnicalServiceApp.Controllers
         AdminManager adminManager = new AdminManager(new EfAdminDal());
         public ActionResult Index()
         {
+           
             string p = (string)Session["AdminMail"];
-            var todoList = todoManager.GetListTodo(p);
+            var todoList = todoManager.GetListTodo(p);        
             return View(todoList);
             //var todoValues = todoManager.GetList();
             //return View(todoValues);
@@ -68,10 +69,15 @@ namespace TechnicalServiceApp.Controllers
             var todoValues = todoManager.GetList();
             return View(todoValues);
         }
-        public ActionResult TodoDelete(int id)
+        public ActionResult TodoDelete(int id) //Aslında statu değiştirme olacak
         {
             var delete = todoManager.GetById(id);
-            todoManager.TodoDelete(delete);
+            if(delete.TodoStatus == true)
+            {
+                delete.TodoStatus = false;
+                todoManager.TodoDelete(delete);
+                return RedirectToAction("Index");
+            }
             return RedirectToAction("Index");
         }
         //[HttpGet]
@@ -80,12 +86,12 @@ namespace TechnicalServiceApp.Controllers
         //    return View();
         //}
         [HttpGet]
-        public ActionResult AddTodoContact(int id) // Contact dan todo ya mesaj ekleme
+        public ActionResult AddTodoContact(Todo todo,int id) // Contact dan todo ya mesaj ekleme
         {
             
-            var value = contactManager.GetList().Find(x => x.ContactId == id);
-            
-            return View(value);
+            todo = todoManager.GetList().Find(x => x.ContactId == id);
+            todoManager.TodoAddBL(todo);
+            return RedirectToAction("Todo","Index");
         }
 
         [HttpGet]

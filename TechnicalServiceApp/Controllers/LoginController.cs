@@ -23,7 +23,7 @@ namespace TechnicalServiceApp.Controllers
         {
             Context context = new Context();
             var adminUserInfo = context.Admins.FirstOrDefault(x => x.AdminMail == login.AdminMail
-              && x.AdminPassword == login.AdminPassword);
+              && x.AdminPassword == login.AdminPassword && x.AdminStatus==true);
             if (adminUserInfo!=null)
             {
                 FormsAuthentication.SetAuthCookie(adminUserInfo.AdminMail,false);
@@ -46,7 +46,7 @@ namespace TechnicalServiceApp.Controllers
         {
             Context context = new Context();
             var userInfo = context.Users.FirstOrDefault(x => x.UserMail == login.UserMail
-              && x.UserPassword == login.UserPassword);
+              && x.UserPassword == login.UserPassword && x.UserStatus==true);
             if (userInfo != null)
             {
                 FormsAuthentication.SetAuthCookie(userInfo.UserMail, false);

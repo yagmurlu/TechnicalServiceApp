@@ -24,7 +24,9 @@ namespace EntityLayer.Concrete
         public bool IsDraft { get; set; }
         public bool Trash { get; set; }
         public bool IsRead { get; set; }
-        public bool IsSpam { get; set; } 
+        public bool ContactStatus { get; set; } // Admin veye kullanıcı mesajı silmek istedğinde 
+        //mesaj tamamen silinmesin. Tablolarda yalnızca true olan mesajlar listelensin.
+
         public ICollection<Todo> Todos { get; set; } // İlişkilendirme
 
     }

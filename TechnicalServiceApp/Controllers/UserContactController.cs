@@ -1,5 +1,6 @@
 ﻿using BusinessLayer.Concrete;
 using BusinessLayer.ValidationRules;
+using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using FluentValidation.Results;
@@ -19,7 +20,7 @@ namespace TechnicalServiceApp.Controllers
         ContactValidator contactValidator = new ContactValidator();
 
         public ActionResult Inbox()
-        {
+        {           
             string p = (string)Session["UserMail"];
             var messageList = contactManager.GetListInbox(p);
             return View(messageList);
@@ -29,6 +30,12 @@ namespace TechnicalServiceApp.Controllers
         {
             string p = (string)Session["UserMail"];
             var messageList = contactManager.GetListSendbox(p);
+            return View(messageList);
+        }
+        public ActionResult Trash() //Çöp Kutusu
+        {
+            string p = (string)Session["UserMail"];
+            var messageList = contactManager.GetListTrash(p);
             return View(messageList);
         }
 
@@ -54,8 +61,8 @@ namespace TechnicalServiceApp.Controllers
 
             var unreadMessage = contactManager.GetUnReadList(p).Count();
             ViewBag.unreadMessage = unreadMessage;
-            var spamMail = contactManager.GetListSpam(p).Count();//spam
-            ViewBag.spamMail = spamMail;
+            //var spamMail = contactManager.GetListSpam(p).Count();//spam
+            //ViewBag.spamMail = spamMail;
 
             return PartialView();
         }
@@ -114,7 +121,7 @@ namespace TechnicalServiceApp.Controllers
             return View();
         }
 
-        public ActionResult DraftMessages()
+        public ActionResult DraftMessages() // Taslak
         {
             string session = (string)Session["UserMail"];
             var result = contactManager.IsDraft(session);
@@ -123,6 +130,7 @@ namespace TechnicalServiceApp.Controllers
         public ActionResult GetDraftDetails(int id)
         {
             var result = contactManager.GetById(id);
+           
             return View(result);
         }
         public ActionResult IsRead(int id)
@@ -149,6 +157,17 @@ namespace TechnicalServiceApp.Controllers
         {
             var sendValues = contactManager.GetById(id);
             return PartialView(sendValues);
+        }
+        public ActionResult UserContactDelete(int id) //Aslında statu değiştirme olacak
+        {
+            var delete = contactManager.GetById(id);
+            if (delete.ContactStatus == true)
+            {
+                delete.ContactStatus = false;
+                contactManager.ContactDelete(delete);
+                return RedirectToAction("Inbox");
+            }
+            return RedirectToAction("Inbox");
         }
     }
 }

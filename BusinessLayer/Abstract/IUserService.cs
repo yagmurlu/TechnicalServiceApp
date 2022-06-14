@@ -15,5 +15,7 @@ namespace BusinessLayer.Abstract
         void UserDelete(User user);
         void UserUpdate(User user);
         List<User> GetListInfoUser(string session);
+        List<User> GetUserStatusTrue();
+        List<User> GetUserStatusFalse();
     }
 }

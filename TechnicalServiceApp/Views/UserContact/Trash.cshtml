@@ -1,37 +1,42 @@
 ﻿@using EntityLayer.Concrete
 @model List<Contact>
+
 @{
-    ViewBag.Title = "Sendbox";
+    ViewBag.Title = "Trash";
     Layout = "~/Views/Shared/_UserLayout.cshtml";
 }
 
-    <!DOCTYPE HTML>
-    <html>
-    <body>
-        <div class="graphs">
-            <div class="xs">
-                <h3>Gönderilen Mesajlar</h3>
-                @Html.Action("UserContactPartial", "UserContact")
 
-                <div class="col-md-8 inbox_right">
+<!DOCTYPE HTML>
+<html>
+<body>
+    <div class="graphs">
+        <div class="xs">
+            <h3>Gönderilen Mesajlar</h3>
+            @Html.Action("UserContactPartial", "UserContact")
 
-                    <div class="mailbox-content">
+            <div class="col-md-8 inbox_right">
 
-                        <table class="table">
+                <div class="mailbox-content">
 
+                    <table class="table">
+
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
                             <tbody>
-                                @foreach (var item in Model)
-                                {
                                 <tr class="unread checked">
-                                    <td class="hidden-xs">
+                                    @*<td class="hidden-xs">
                                         <div class="mail "><a href="/UserContact/UserContactDelete/@item.ContactId" style="color:black"><i class="fa fa fa-trash-o"></i></a> </div>
-                                    </td>
-
+                                    </td>*@
+                                    @*<td class="hidden-xs">
+                                            <i class="fa fa-star icon-state-warning"></i>
+                                        </td>*@
                                     <td class="hidden-xs">
-                                        <a href="/UserContact/GetSendboxMessageDetails/@item.ContactId">@item.RecevierMail</a>
-</td>
+                                        <a href="/UserContact/GetInboxMessageDetails/@item.ContactId">@item.SenderMail</a>
+                                    </td>
                                     <td>
-                                        <a href="/UserContact/GetSendboxMessageDetails/@item.ContactId">@item.Heading</a>
+                                        @item.Heading
                                     </td>
                                     <td>
                                     </td>
@@ -39,8 +44,8 @@
                                         @(((DateTime)item.ContactDate).ToString("dd-MMMM-yyyy"))
                                     </td>
                                 </tr>
-                                }
                             </tbody>
+                        }
 
                         </table>
 

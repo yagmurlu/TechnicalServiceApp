@@ -1,0 +1,85 @@
+﻿@model EntityLayer.Concrete.User
+@{
+    ViewBag.Title = "AdminPageUserEdit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div id="page-wrapper">
+    <div class="main-page">
+        <div class="tables">
+            <div class="panel-body widget-shadow">
+                <h4>Kullanıcı Düzenleme Sayfası</h4>
+                @using (Html.BeginForm("AdminPageUserEdit", "User", FormMethod.Post))
+                {
+
+                    <div class="form-group">
+                        @Html.HiddenFor(x => x.UserId, new { @class = "form-control" })
+                        @Html.Label("Adı")
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <i class="fa fa-user"></i>
+                            </span>
+                            @Html.TextBoxFor(x => x.UserName, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.UserName, "", new { @style = "color: red " })
+                        </div>
+                        <br />
+                        @Html.Label("Soyadı")
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <i class="fa fa-user"></i>
+                            </span>
+                            @Html.TextBoxFor(x => x.UserSurname, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.UserSurname, "", new { @style = "color: red " })
+                        </div>
+                        <br />
+                        @Html.Label("Mail")
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <i class="fa fa-envelope"></i>
+                            </span>
+                            @Html.TextBoxFor(x => x.UserMail, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.UserMail, "", new { @style = "color: red " })
+                        </div>
+                        <br />
+                        @Html.Label("Hakkında")
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <i class="fa fa-envelope"></i>
+                            </span>
+                            @Html.TextBoxFor(x => x.UserAbout, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.UserAbout, "", new { @style = "color: red " })
+                        </div>
+                        <br />
+                        @*@Html.HiddenFor("Mevcut Parola: ")*@
+                        @Html.HiddenFor(x => x.UserPassword, new { @class = "form-control" })
+                        @Html.HiddenFor(x => x.UserNewPassword, new { @Value="1" })
+                       
+                        @Html.HiddenFor(x => x.RoleId)
+                        @Html.HiddenFor(x => x.UserStatus)
+                        @*@Html.ValidationMessageFor(x => x.AdminPassword, "", new { @style = "color: red " })
+                            <br />
+                            @Html.Label("Yeni Parola: ")
+                            @Html.PasswordFor(x => x.AdminPassword, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.AdminPassword, "", new { @style = "color: red " })*@
+
+                        @Html.Label("Profil Fotoğrafı")
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <i class="fa fa-picture-o"></i>
+                            </span>
+                            @Html.TextBoxFor(x => x.UserImage, new { @class = "form-control" })
+                        </div>
+                        <br />
+                        <div class="btn btn-default btn-file">
+                            <input type="file" name="attachment">
+                        </div>
+                        <br />
+                        <br />
+                        <button class="btn btn-success">Güncelle</button>
+                    </div>
+
+                }
+            </div>
+        </div>
+    </div>
+</div>

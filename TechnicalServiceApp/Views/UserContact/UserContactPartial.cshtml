@@ -1,26 +1,26 @@
 ﻿<div class="col-md-4 email-list1">
     <ul class="collection">
         <li class="collection-item avatar email-unread">
-            <i class="fa fa-users icon_1"></i>
+            <i class="fa fa-users icon_2"></i>
             <div class="avatar_left">
                 <span class="email-title"><a href="/UserContact/Inbox/" style="color:black">Gelen Mesaj</a></span>
             </div>
-            <a href="/UserContact/Inbox/" class="secondary-content"><span class="new badge blue">@ViewBag.receiverMail</span></a>
+            <a href="/UserContact/Inbox/" class="secondary-content"><span class="new badge red">@ViewBag.receiverMail</span></a>
             <div class="clearfix"> </div>
         </li>
         <li class="collection-item avatar email-unread">
-            <i class="fa fa-exclamation-circle icon_2"></i>
+            <i class="fa fa-users icon_3"></i>
             <div class="avatar_left">
                 <a href="/UserContact/Sendbox/"style="color:black"><span class="email-title">Gönderilen Mesaj </span></a>
             </div>
-            <a href="/UserContact/Sendbox/" class="secondary-content"><span class="new badge red">@ViewBag.sendMail</span></a>
+            <a href="/UserContact/Sendbox/" class="secondary-content"><span class="new badge pull-right">@ViewBag.sendMail</span></a>
             <div class="clearfix"> </div>
         </li>
 
         <li class="collection-item avatar email-unread">
-            <i class="fa fa-exclamation-circle icon_2"></i>
+            <i class="fa fa-trash-o icon_2"></i>
             <div class="avatar_left">
-                <span class="email-title">Çöp Kutusu</span>
+                <a href="/UserContact/Trash/" style="color:black"> <span class="email-title">Çöp Kutusu</span> </a>
 
             </div>
             <a href="#!" class="secondary-content">

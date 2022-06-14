@@ -27,6 +27,8 @@ namespace EntityLayer.Concrete
         [StringLength(20)]
 
         public string UserNewPassword { get; set; }
+
+        public bool UserStatus { get; set; }
         public int RoleId { get; set; }
         public virtual Role Role { get; set; }
 

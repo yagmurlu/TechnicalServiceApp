@@ -45,5 +45,13 @@ namespace BusinessLayer.Concrete
         {
             return _adminDal.List(x => x.AdminMail == session);
         }
+        public List<Admin> GetUserStatusTrue()
+        {
+            return _adminDal.List(x => x.AdminStatus == true);
+        }
+        public List<Admin> GetUserStatusFalse()
+        {
+            return _adminDal.List(x => x.AdminStatus == false);
+        }
     }
 }

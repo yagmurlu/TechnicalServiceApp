@@ -118,6 +118,18 @@
     <Compile Include="Migrations\202206060740123__roleId_Admin_User_added.designer.cs">
       <DependentUpon>202206060740123__roleId_Admin_User_added.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202206111628516__admin_user_status.cs" />
+    <Compile Include="Migrations\202206111628516__admin_user_status.designer.cs">
+      <DependentUpon>202206111628516__admin_user_status.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202206141651314_todo_status.cs" />
+    <Compile Include="Migrations\202206141651314_todo_status.designer.cs">
+      <DependentUpon>202206141651314_todo_status.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202206141743495_contact_status.cs" />
+    <Compile Include="Migrations\202206141743495_contact_status.designer.cs">
+      <DependentUpon>202206141743495_contact_status.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -173,6 +185,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202206060740123__roleId_Admin_User_added.resx">
       <DependentUpon>202206060740123__roleId_Admin_User_added.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202206111628516__admin_user_status.resx">
+      <DependentUpon>202206111628516__admin_user_status.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202206141651314_todo_status.resx">
+      <DependentUpon>202206141651314_todo_status.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202206141743495_contact_status.resx">
+      <DependentUpon>202206141743495_contact_status.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

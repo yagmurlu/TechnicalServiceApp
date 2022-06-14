@@ -33,7 +33,7 @@ namespace BusinessLayer.Concrete
 
         public void UserDelete(User user)
         {
-            _userDal.Delete(user);
+            _userDal.Update(user);
         }
 
         public void UserUpdate(User user)
@@ -43,6 +43,14 @@ namespace BusinessLayer.Concrete
         public List<User> GetListInfoUser(string session)
         {
             return _userDal.List(x => x.UserMail == session);
+        }
+        public List<User> GetUserStatusTrue()
+        {
+            return _userDal.List(x => x.UserStatus == true);
+        }
+        public List<User> GetUserStatusFalse()
+        {
+            return _userDal.List(x => x.UserStatus == false);
         }
     }
 }

@@ -17,34 +17,35 @@
         <div id="page-wrapper">
             <h3 class="title1"> </h3>
             <div class="main-page compose">
+                @using (Html.BeginForm("AddTodoContact", "Todo", FormMethod.Post))
+                {
 
-               
                     <div class="form-group">
-                        
+
                         @Html.DisplayFor(x => x.SenderMail)
                         <br /><br />
-                       
+
                         @Html.DisplayFor(x => x.RecevierMail)
                         <br /><br />
-                       
+
                         @Html.DisplayFor(x => x.Heading)
                         <br /><br />
                         @Html.DisplayFor(x => x.Contents)
                         <br /><br />
-                       
+
                         @Html.DisplayFor(x => x.ContactDate)
                         <br /><br />
-                        
-                        @Html.DisplayFor(x=>x.ContactId)
-                        <br /><br />
-                       
+
+                        @Html.DisplayFor(x => x.ContactId)
                         <br /><br />
 
-                        
-                       
+                        <br /><br />
+
+
+
                     </div>
-               
-            </div>
+                }
+                </div>
         </div>
     </div>
 </body>

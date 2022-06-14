@@ -13,28 +13,28 @@ using System.Web.Mvc;
 namespace TechnicalServiceApp.Controllers
 {
     [Authorize]
-   
+
     public class ContactController : Controller
     {
         // GET: Contact
         ContactManager contactManager = new ContactManager(new EfContactDal());
-        
+
         ContactValidator contactValidator = new ContactValidator();
-      
+
         public ActionResult Inbox()
         {
             string p = (string)Session["AdminMail"];
             var messageList = contactManager.GetListInbox(p);
             return View(messageList);
         }
-     
+
         public ActionResult Sendbox()
         {
             string p = (string)Session["AdminMail"];
             var messageList = contactManager.GetListSendbox(p);
             return View(messageList);
         }
-      
+
         public PartialViewResult ContactPartial()
         {
             string p = (string)Session["AdminMail"];
@@ -57,17 +57,17 @@ namespace TechnicalServiceApp.Controllers
 
             var unreadMessage = contactManager.GetUnReadList(p).Count();
             ViewBag.unreadMessage = unreadMessage;
-            var spamMail = contactManager.GetListSpam(p).Count();//spam
-            ViewBag.spamMail = spamMail;
+            //var spamMail = contactManager.GetListSpam(p).Count();//spam
+            //ViewBag.spamMail = spamMail;
 
             return PartialView();
         }
-  
+
         public ActionResult AdminContactTopMenu()
         {
             string p = (string)Session["AdminMail"];
             var messageList = contactManager.GetListInbox(p);
-            
+
             ViewBag.messageList = messageList.Count();
             return PartialView(messageList);
         }
@@ -86,11 +86,11 @@ namespace TechnicalServiceApp.Controllers
             return View();
         }
         [HttpPost]
-  
+
         public ActionResult NewMessage(Contact p, string menuName)
         {
             string session = (string)Session["AdminMail"];
-            ValidationResult results =contactValidator.Validate(p);
+            ValidationResult results = contactValidator.Validate(p);
             if (menuName == "send")
             {
                 if (results.IsValid)
@@ -158,7 +158,7 @@ namespace TechnicalServiceApp.Controllers
             contactManager.ContactUpdate(contactValue);
             return RedirectToAction("Inbox");
         }
-        
+
         public ActionResult GetInboxMessageDetails(int id) //Inbox Details
         {
             var contactValues = contactManager.GetById(id);
@@ -169,15 +169,35 @@ namespace TechnicalServiceApp.Controllers
             var sendValues = contactManager.GetById(id);
             return PartialView(sendValues);
         }
-      
+
      
-        public ActionResult GetAllContent(string p)// Sayfa içerisinde arama işlemi
+        //public ActionResult GetAllContent(string p)// Sayfa içerisinde arama işlemi
+        //{
+        //    //Context db = new Context();
+        //    //var ara = from s in db.Contacts
+        //    //          select s;
+        //    //if (!String.IsNullOrEmpty(searchString))
+        //    //{
+        //    //    ara = ara.Where(s => s.RecevierMail.Contains(searchString)
+        //    //    || s.SenderMail.Contains(searchString)
+        //    //                           || s.Contents.Contains(searchString));
+        //    //}
+        //    //return View(ara);
+        //    var values = contactManager.GetListContent(p);
+
+        //    return PartialView(values.ToList());
+        //}
+
+        public ActionResult ContactDelete(int id) //Aslında statu değiştirme olacak
         {
-            
-            var values = contactManager.GetListContent(p);
-     
-            return PartialView(values.ToList());
+            var delete = contactManager.GetById(id);
+            if (delete.ContactStatus == true)
+            {
+                delete.ContactStatus = false;
+                contactManager.ContactDelete(delete);
+                return RedirectToAction("Inbox");
+            }
+            return RedirectToAction("Inbox");
         }
-       
     }
 }

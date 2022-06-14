@@ -24,16 +24,20 @@ namespace BusinessLayer.Concrete
         public List<Contact> GetList()
         {
             return _contactDal.List();
-        }
-
+        }  
+      
         public List<Contact> GetListInbox(string session)
         {
-            return _contactDal.List(x => x.RecevierMail == session);//alıcı
+            return _contactDal.List(x => x.RecevierMail == session && x.ContactStatus == true);//alıcı
         }
 
         public List<Contact> GetListSendbox(string session)
         {
-            return _contactDal.List(x => x.SenderMail == session); //gönderen
+            return _contactDal.List(x => x.SenderMail == session && x.ContactStatus == true); //gönderen
+        }
+        public List<Contact> GetListTrash(string session) //Çöp Kutusundaki mesajları listele
+        {
+            return _contactDal.List(x => x.RecevierMail== session  && x.ContactStatus == false); //Alıcı çöp kutusu
         }
         public void ContactAddBL(Contact contact)
         {
@@ -42,7 +46,7 @@ namespace BusinessLayer.Concrete
 
         public void ContactDelete(Contact contact)
         {
-            _contactDal.Delete(contact);
+            _contactDal.Update(contact);
         }
 
         public void ContactUpdate(Contact contact)
@@ -75,10 +79,7 @@ namespace BusinessLayer.Concrete
             return _contactDal.List(x => x.Trash == true);
         }
 
-        public List<Contact> GetListSpam(string session)
-        {
-            return _contactDal.List(x => x.IsSpam == true && x.RecevierMail == session);
-        }
+       
 
         public List<Contact> GetListContent(string p)
         {
