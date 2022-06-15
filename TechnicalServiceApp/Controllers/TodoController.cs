@@ -21,50 +21,60 @@ namespace TechnicalServiceApp.Controllers
         AdminManager adminManager = new AdminManager(new EfAdminDal());
         public ActionResult Index()
         {
-           
+
             string p = (string)Session["AdminMail"];
-            var todoList = todoManager.GetListTodo(p);        
+            var todoList = todoManager.GetListTodo(p);
             return View(todoList);
             //var todoValues = todoManager.GetList();
             //return View(todoValues);
         }
-        [HttpPost]
-        public ActionResult Completed(Todo todo) // Tamamlandı
+        [HttpGet]
+        public ActionResult Completed(Contact p, int id) // Tamamlandı 
         {
-
-            //string session = (string)Session["AdminMail"];
-            //var value = todoManager.GetById(id);
-            //if (todo.Done)
-            //{
-
-            //    value.Done = true;
-            //    value.Contact.Contents = "iletildi";
-            //    todoManager.TodoDone(todo, session);
-            //}
-
-            //return RedirectToAction("Index"); // Go to INDEX
-
-
-            //var result = contactManager.GetById(id);
-            //
-            //if (completed=="comp")
-            //{
-            //    contact.SenderMail = session;
-            //    contact.RecevierMail = result.ToString();
-            //    contact.ContactDate = DateTime.Parse(DateTime.Now.ToShortDateString());
-            //    contact.Contents = "İşlemeniz Tamamlanmıştır. İyi Günler Dileriz";
-
-            //    contactManager.ContactAddBL(contact);
-            //}
-
-            return View();
+            string session = (string)Session["AdminMail"];
+            var value = todoManager.GetById(id);
+            if (value.Done == false)
+            {
+                if (true)
+                {
+                    p.SenderMail = session;
+                    p.RecevierMail = value.Contact.SenderMail;
+                    p.Heading = "Tamamlandı";
+                    p.Contents = "iletildi";
+                    p.ContactDate = DateTime.Parse(DateTime.Now.ToShortDateString());
+                    p.ContactStatus = true;
+                    contactManager.ContactAddBL(p);
+                    value.Done = true;
+                    todoManager.TodoUpdate(value);
+                    return RedirectToAction("Index");
+                }
+            }
+            return View("Index"); // Go to INDEX
         }
-        [HttpPost]
-        public ActionResult RequestReceived() //Talep Alındı
+        [HttpGet]
+        public ActionResult RequestReceived(Contact p, int id) //Talep Alındı
         {
-            return View();
+            string session = (string)Session["AdminMail"];
+            var value = todoManager.GetById(id);
+            if (value.Done == false)
+            {
+                if (true)
+                {
+                    p.SenderMail = session;
+                    p.RecevierMail = value.Contact.SenderMail;
+                    p.Heading = "Talep Alındı";
+                    p.Contents = "Talebiniz Üzerinde Çalışıyoruz";
+                    p.ContactDate = DateTime.Parse(DateTime.Now.ToShortDateString());
+                    p.ContactStatus = true;
+                    contactManager.ContactAddBL(p);
+                    value.Done = true;
+                    todoManager.TodoUpdate(value);
+                    return RedirectToAction("Index");
+                }
+            }
+            return View("Index"); // Go to INDEX
         }
-        public ActionResult TodoReport()
+        public ActionResult TodoReport() // Rapor Sayfası
         {
             var todoValues = todoManager.GetList();
             return View(todoValues);
@@ -72,7 +82,7 @@ namespace TechnicalServiceApp.Controllers
         public ActionResult TodoDelete(int id) //Aslında statu değiştirme olacak
         {
             var delete = todoManager.GetById(id);
-            if(delete.TodoStatus == true)
+            if (delete.TodoStatus == true)
             {
                 delete.TodoStatus = false;
                 todoManager.TodoDelete(delete);
@@ -80,31 +90,31 @@ namespace TechnicalServiceApp.Controllers
             }
             return RedirectToAction("Index");
         }
+
+        [HttpGet]
+        public ActionResult AddTodoContact(Todo todo, int id) // Contact dan todo ya mesaj ekleme
+        {
+            todo.Done = false;
+            todo.Working = false;
+            todo.TodoStatus = true;
+            todo.ContactId = id;
+            todoManager.TodoAddBL(todo);
+            //todo = todoManager.GetList().Find(x => x.ContactId == id);
+            //todoManager.TodoAddBL(todo);
+            return RedirectToAction("Index", "Todo");
+        }
+
         //[HttpGet]
-        //public ActionResult AddTodoContact() // Contact dan todo ya mesaj ekleme
+        //public ActionResult AddTodo()
         //{
         //    return View();
+
         //}
-        [HttpGet]
-        public ActionResult AddTodoContact(Todo todo,int id) // Contact dan todo ya mesaj ekleme
-        {
-            
-            todo = todoManager.GetList().Find(x => x.ContactId == id);
-            todoManager.TodoAddBL(todo);
-            return RedirectToAction("Todo","Index");
-        }
-
-        [HttpGet]
-        public ActionResult AddTodo()
-        {
-            return View();
-
-        }
-        [HttpPost]
-        public ActionResult AddTodo(Todo todo)
-        {
-            todoManager.TodoAddBL(todo);
-            return RedirectToAction("Index");
-        }
+        //[HttpPost]
+        //public ActionResult AddTodo(Todo todo)
+        //{
+        //    todoManager.TodoAddBL(todo);
+        //    return RedirectToAction("Index");
+        //}
     }
 }

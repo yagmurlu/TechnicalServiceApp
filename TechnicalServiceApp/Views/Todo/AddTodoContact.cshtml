@@ -1,4 +1,4 @@
-﻿@model EntityLayer.Concrete.Contact
+﻿@model EntityLayer.Concrete.Todo
 @{
     ViewBag.Title = "AddTodoContact";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -22,20 +22,22 @@
 
                     <div class="form-group">
 
-                        @Html.DisplayFor(x => x.SenderMail)
+                        @Html.DisplayFor(x => x.Contact.SenderMail)
                         <br /><br />
 
-                        @Html.DisplayFor(x => x.RecevierMail)
+                        @Html.DisplayFor(x => x.Contact.RecevierMail)
                         <br /><br />
 
-                        @Html.DisplayFor(x => x.Heading)
+                        @Html.DisplayFor(x => x.Contact.Heading)
                         <br /><br />
-                        @Html.DisplayFor(x => x.Contents)
-                        <br /><br />
-
-                        @Html.DisplayFor(x => x.ContactDate)
+                        @Html.DisplayFor(x => x.Contact.Contents)
                         <br /><br />
 
+                        @Html.DisplayFor(x => x.Contact.ContactDate)
+                        <br /><br />
+                        @Html.DisplayFor(x=>x.Done)
+                        @Html.DisplayFor(x=>x.Working)
+                        @Html.DisplayFor(x=>x.TodoStatus)
                         @Html.DisplayFor(x => x.ContactId)
                         <br /><br />
 
