@@ -11,9 +11,9 @@
             <h3>Gelen Mesajlar</h3>
             @Html.Action("UserContactPartial", "UserContact")
             <div class="col-md-8 inbox_right">
-                
+
                 <div class="mailbox-content">
-                   
+
                     <table class="table">
                         @foreach (var item in Model)
                         {
@@ -23,13 +23,15 @@
                                         <div class="mail "><a href="/UserContact/UserContactDelete/@item.ContactId" style="color:black"><i class="fa fa fa-trash-o"></i></a> </div>
                                     </td>
                                     @*<td class="hidden-xs">
-                                        <i class="fa fa-star icon-state-warning"></i>
-                                    </td>*@
+                                            <i class="fa fa-star icon-state-warning"></i>
+                                        </td>*@
                                     <td class="hidden-xs">
                                         <a href="/UserContact/GetInboxMessageDetails/@item.ContactId">@item.SenderMail</a>
                                     </td>
                                     <td>
-                                        @item.Heading
+                                        <a href="/UserContact/GetInboxMessageDetails/@item.ContactId">
+                                            @item.Heading
+                                        </a>
                                     </td>
                                     <td>
                                     </td>
@@ -40,9 +42,9 @@
                             </tbody>
                         }
                     </table>
-                    
-                    </div>
-                
+
+                </div>
+
             </div>
             <div class="clearfix"> </div>
         </div>

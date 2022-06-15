@@ -59,7 +59,9 @@
                                             </td>
                                             <td style="position:absolute" ;class="text-align:center">
                                                 <b>
-                                                    @item.Contact.Heading
+                                                    <a href="/Contact/GetInboxMessageDetails/@item.ContactId" style="color:black">
+                                                        @item.Contact.Heading
+                                                    </a>
                                                 </b>
                                                 <br />
                                                 <small>
@@ -67,16 +69,15 @@
                                                 </small>
                                             </td>
                                             <td>
-                                                @item.Contact.Contents
+                                                <a href="/Contact/GetInboxMessageDetails/@item.ContactId" style="color:black">
+                                                    @item.Contact.Contents
+                                                </a>
                                             </td>
                                             @{
-                                                if (item.Working == true)
+                                                if (item.Working == true && item.Done == true)
                                                 {
                                                     <td class="project-actions text-right">
-                                                        <a class="btn btn-success btn-sm" href="/Todo/Completed/@item.TodoId">
 
-                                                            Tamamlandı
-                                                        </a>
                                                         <a class="btn btn-danger btn-sm" href="/Todo/TodoDelete/@item.TodoId">
 
                                                             Sil
@@ -86,6 +87,19 @@
                                                 else if (item.Done == true)
                                                 {
                                                     <td class="project-actions text-right">
+                                                        <a class="btn btn-danger btn-sm" href="/Todo/TodoDelete/@item.TodoId">
+
+                                                            Sil
+                                                        </a>
+                                                    </td>
+                                                }
+                                                else if (item.Working == true)
+                                                {
+                                                    <td class="project-actions text-right">
+                                                        <a class="btn btn-success btn-sm" href="/Todo/Completed/@item.TodoId">
+
+                                                            Tamamlandı
+                                                        </a>
                                                         <a class="btn btn-danger btn-sm" href="/Todo/TodoDelete/@item.TodoId">
 
                                                             Sil

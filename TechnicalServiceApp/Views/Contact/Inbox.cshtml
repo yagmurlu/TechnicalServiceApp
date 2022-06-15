@@ -18,7 +18,7 @@
             <div class="main-page compose">
                 @Html.Action("ContactPartial", "Contact")
                 @*@Html.AntiForgeryToken()*@
-                <div class="col-md-12 compose-right widget-shadow"style="background-color: #6164C1; text-align: center;padding-bottom:50px">
+                <div class="col-md-12 compose-right widget-shadow" style="background-color: #6164C1; text-align: center;padding-bottom:50px">
                     <div class="panel-default">
 
 
@@ -31,12 +31,13 @@
                                 @foreach (var item in Model)
                                 {
                                     <div class="mail "><a href="/Contact/ContactDelete/@item.ContactId" style="color:black"><i class="fa fa fa-trash-o"></i></a> </div>
-                                   <div class="mail "> <a href="/Todo/AddTodoContact/@item.ContactId" style="color:black"><i class="fa fa fa-futbol-o">Todo Ekle </i></a></div>
+                                    <div class="mail "> <a href="/Todo/AddTodoContact/@item.ContactId" style="color:black"><i class="fa fa fa-futbol-o">Todo Ekle </i></a></div>
                                     <div class="mail mail-name"><h6>@item.SenderMail</h6></div>
                                     <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
                                         <div class="mail">
                                             <a href="/Contact/GetInboxMessageDetails/@item.ContactId">
                                                 <p>@item.Heading </p>
+                                            </a>
                                         </div>
                                     </a>
                                     <div class="mail-right">
@@ -72,14 +73,14 @@
                                 }
                                 @*<div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
 
-                <div class="mail-body">
-                    <p>@item.Contents</p>
-                    <form>
-                        <input type="text" placeholder="Cevap yaz..." required="">
-                        <input type="submit" value="Gönder">
-                    </form>
-                </div>
-            </div>*@
+                                        <div class="mail-body">
+                                            <p>@item.Contents</p>
+                                            <form>
+                                                <input type="text" placeholder="Cevap yaz..." required="">
+                                                <input type="submit" value="Gönder">
+                                            </form>
+                                        </div>
+                                    </div>*@
 
 
                             </div>

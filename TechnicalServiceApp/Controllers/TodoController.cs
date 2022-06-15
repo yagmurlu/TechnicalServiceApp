@@ -67,7 +67,7 @@ namespace TechnicalServiceApp.Controllers
                     p.ContactDate = DateTime.Parse(DateTime.Now.ToShortDateString());
                     p.ContactStatus = true;
                     contactManager.ContactAddBL(p);
-                    value.Done = true;
+                    value.Working = true;
                     todoManager.TodoUpdate(value);
                     return RedirectToAction("Index");
                 }
