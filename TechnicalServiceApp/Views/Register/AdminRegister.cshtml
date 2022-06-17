@@ -44,14 +44,7 @@
                     @*@Html.Label("Resim: ")
                         @Html.TextBoxFor(x => x.AdminImage, new { @class = "form-control" })*@
 
-                    @Html.Label("Yetki:")
-                    <br />
-                    @Html.DropDownListFor(x => x.RoleId, new List<SelectListItem>() {
-                      new SelectListItem() {
-                          Text = "Admin",
-                          Value = "1"
-                      } })
-
+                    @Html.HiddenFor(x => x.RoleId, new{@Value="1" })
 
                     <input type="submit" value="Kaydet">
                 }

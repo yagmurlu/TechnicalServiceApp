@@ -11,8 +11,9 @@
                 <h4>Kullanıcı Düzenleme Sayfası</h4>
                 @using (Html.BeginForm("AdminPageAdminEdit", "Admin", FormMethod.Post))
                 {
-
+                    @Html.AntiForgeryToken()
                     <div class="form-group">
+
                         @Html.HiddenFor(x => x.AdminId, new { @class = "form-control" })
                         @Html.Label("Adı")
                         <div class="input-group">
@@ -40,8 +41,8 @@
                             @Html.TextBoxFor(x => x.AdminMail, new { @class = "form-control" })
                             @Html.ValidationMessageFor(x => x.AdminMail, "", new { @style = "color: red " })
                         </div>
-                       
-                        
+
+
                         <br />
                         @*@Html.HiddenFor("Mevcut Parola: ")*@
                         @Html.HiddenFor(x => x.AdminPassword, new { @class = "form-control" })
@@ -50,24 +51,24 @@
                         @Html.HiddenFor(x => x.RoleId)
                         @Html.HiddenFor(x => x.AdminStatus)
                         @*@Html.ValidationMessageFor(x => x.AdminPassword, "", new { @style = "color: red " })
-                            <br />
-                            @Html.Label("Yeni Parola: ")
-                            @Html.PasswordFor(x => x.AdminPassword, new { @class = "form-control" })
-                            @Html.ValidationMessageFor(x => x.AdminPassword, "", new { @style = "color: red " })*@
+                <br />
+                @Html.Label("Yeni Parola: ")
+                @Html.PasswordFor(x => x.AdminPassword, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.AdminPassword, "", new { @style = "color: red " })*@
 
-                        @Html.Label("Profil Fotoğrafı")
-                        <div class="input-group">
-                            <span class="input-group-addon">
-                                <i class="fa fa-picture-o"></i>
-                            </span>
-                            @Html.TextBoxFor(x => x.AdminImage, new { @class = "form-control" })
-                        </div>
-                        <br />
-                        <div class="btn btn-default btn-file">
-                            <input type="file" name="attachment">
-                        </div>
-                        <br />
-                        <br />
+                        @*@Html.Label("Profil Fotoğrafı")
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        <i class="fa fa-picture-o"></i>
+                    </span>
+                    @Html.TextBoxFor(x => x.AdminImage, new { @class = "form-control" })
+                </div>
+                <br />
+                <div class="btn btn-default btn-file">
+                    <input type="file" name="attachment">
+                </div>
+                <br />
+                <br />*@
                         <button class="btn btn-success">Güncelle</button>
                     </div>
 

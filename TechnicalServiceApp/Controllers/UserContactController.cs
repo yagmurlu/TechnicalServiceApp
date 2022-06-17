@@ -84,7 +84,9 @@ namespace TechnicalServiceApp.Controllers
                 if (results.IsValid)
                 {
                     p.SenderMail = session;
+                    p.RecevierMail = "admin@gmail.com";
                     p.ContactDate = DateTime.Parse(DateTime.Now.ToShortDateString());
+                    p.ContactStatus = true;
                     contactManager.ContactAddBL(p);
                     return RedirectToAction("SendBox");
                 }

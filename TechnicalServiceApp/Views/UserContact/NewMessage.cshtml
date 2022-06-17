@@ -10,7 +10,7 @@
 
         <div class="graphs">
             <div class="xs">
-                <h3>Mesaj Gönder</h3>
+                <h3 style="text-align:center"><b>TALEP OLUŞTUR</b></h3>
                 @Html.Action("UserContactPartial", "UserContact")
                 <div class="col-md-8 inbox_right">
                     @using (Html.BeginForm("NewMessage", "UserContact", FormMethod.Post))
@@ -18,9 +18,9 @@
                         <div class="Compose-Message">
                             <div class="panel panel-default">
                                 <div class="panel-body">
-                                    <label>Alıcı : </label>
-                                    @Html.TextBoxFor(x => x.RecevierMail, new { @class = "form-control1 control3" })
-                                    @Html.ValidationMessageFor(x => x.RecevierMail, "", new { @class = "text-danger " })
+                                   
+                                    @Html.HiddenFor(x => x.RecevierMail, new { @Value="aleyna@gmail.com"})
+                                    @*@Html.ValidationMessageFor(x => x.RecevierMail, "", new { @class = "text-danger " })*@
                                     <br />
                                     <label>Konu :  </label>
                                     @Html.TextBoxFor(x => x.Heading, new { @class = "form-control1 control3" })

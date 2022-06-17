@@ -199,5 +199,11 @@ namespace TechnicalServiceApp.Controllers
             }
             return RedirectToAction("Inbox");
         }
+        public ActionResult Trash() //Çöp Kutusu
+        {
+            string p = (string)Session["AdminMail"];
+            var messageList = contactManager.GetListTrash(p);
+            return View(messageList);
+        }
     }
 }

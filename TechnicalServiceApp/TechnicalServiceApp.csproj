@@ -163,7 +163,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\PagedList.css" />
+    <Content Include="Images\adminprofil.png" />
     <Content Include="Images\NEU.png" />
+    <Content Include="Images\userprofil.png" />
     <Content Include="Themes\AdminLogin\web\css\font-awesome.css" />
     <Content Include="Themes\AdminLogin\web\css\style.css" />
     <Content Include="Themes\AdminLogin\web\fonts\fontawesome-webfont.svg" />
@@ -414,6 +416,7 @@
     <Content Include="Views\User\PasifUserList.cshtml" />
     <Content Include="Views\Admin\PasifAdminList.cshtml" />
     <Content Include="Views\UserContact\Trash.cshtml" />
+    <Content Include="Views\Contact\Trash.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

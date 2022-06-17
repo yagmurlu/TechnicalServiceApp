@@ -3,7 +3,9 @@
 <li class="dropdown">
     @foreach (var item in Model)
     {
-        <a href="#" class="dropdown-toggle avatar" data-toggle="dropdown"><img src=@item.UserImage></a>
+        <a href="#" class="dropdown-toggle avatar" data-toggle="dropdown">
+            <img src="~/Images/userprofil.png" />
+        </a>
         <ul class="dropdown-menu">
 
             <li class="dropdown-menu-header text-center">
@@ -14,4 +16,4 @@
             <li class="m_2"><a href="/Login/UserLogOut/"><i class="fa fa-lock"></i> Çıkış Yap</a></li>
         </ul>
     }
-    </li>
+</li>

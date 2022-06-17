@@ -130,6 +130,10 @@
     <Compile Include="Migrations\202206141743495_contact_status.designer.cs">
       <DependentUpon>202206141743495_contact_status.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202206162237081_guid-delete.cs" />
+    <Compile Include="Migrations\202206162237081_guid-delete.designer.cs">
+      <DependentUpon>202206162237081_guid-delete.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -194,6 +198,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202206141743495_contact_status.resx">
       <DependentUpon>202206141743495_contact_status.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202206162237081_guid-delete.resx">
+      <DependentUpon>202206162237081_guid-delete.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

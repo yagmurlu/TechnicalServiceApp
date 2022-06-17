@@ -39,8 +39,8 @@ namespace TechnicalServiceApp.Controllers
                 {
                     p.SenderMail = session;
                     p.RecevierMail = value.Contact.SenderMail;
-                    p.Heading = "Tamamlandı";
-                    p.Contents = "iletildi";
+                    p.Heading = value.Contact.Heading + " Hk.";
+                    p.Contents = value.Contact.Contents+ " =>talebiniz gerçekleştirilmiştir.";
                     p.ContactDate = DateTime.Parse(DateTime.Now.ToShortDateString());
                     p.ContactStatus = true;
                     contactManager.ContactAddBL(p);
@@ -62,8 +62,8 @@ namespace TechnicalServiceApp.Controllers
                 {
                     p.SenderMail = session;
                     p.RecevierMail = value.Contact.SenderMail;
-                    p.Heading = "Talep Alındı";
-                    p.Contents = "Talebiniz Üzerinde Çalışıyoruz";
+                    p.Heading = value.Contact.Heading +" Hk.";
+                    p.Contents = value.Contact.Contents+ " => Talebiniz Üzerinde Çalışıyoruz";
                     p.ContactDate = DateTime.Parse(DateTime.Now.ToShortDateString());
                     p.ContactStatus = true;
                     contactManager.ContactAddBL(p);

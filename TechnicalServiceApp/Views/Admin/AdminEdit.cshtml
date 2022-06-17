@@ -11,7 +11,7 @@
                 <h4>AYARLAR</h4>
                 @using (Html.BeginForm("AdminEdit", "Admin", FormMethod.Post))
                 {
-                   
+                   @Html.AntiForgeryToken()
                     <div class="form-group">
                         @Html.HiddenFor(x => x.AdminId, new { @class = "form-control" })
                         @Html.Label("Adı")
@@ -42,15 +42,18 @@
                         </div>
                         <br />
                         @*@Html.HiddenFor("Mevcut Parola: ")*@
-                        @Html.HiddenFor(x => x.AdminMail, new { @class = "form-control" })
+                        @Html.HiddenFor(x => x.AdminPassword, new { @class = "form-control" })
                         @Html.HiddenFor(x => x.AdminNewPassword, new { @class = "form-control" })
+                        @Html.HiddenFor(x => x.AdminStatus, new { @class = "form-control" })
+                        @Html.HiddenFor(x => x.RoleId, new { @class = "form-control" })
+                       
                         @*@Html.ValidationMessageFor(x => x.AdminPassword, "", new { @style = "color: red " })
                             <br />
                             @Html.Label("Yeni Parola: ")
                             @Html.PasswordFor(x => x.AdminPassword, new { @class = "form-control" })
                             @Html.ValidationMessageFor(x => x.AdminPassword, "", new { @style = "color: red " })*@
 
-                        @Html.Label("Profil Fotoğrafı")
+                        @*@Html.Label("Profil Fotoğrafı")
                         <div class="input-group">
                             <span class="input-group-addon">
                                 <i class="fa fa-picture-o"></i>
@@ -61,7 +64,7 @@
                         <div class="btn btn-default btn-file">
                             <input type="file" name="attachment">
                         </div>
-                        <br />
+                        <br />*@
                         <br />
                         <button class="btn btn-success">Güncelle</button>
                     </div>

@@ -57,6 +57,7 @@ namespace TechnicalServiceApp.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult AdminAdd(Admin admin)
         {
             adminManager.AdminAddBL(admin);
@@ -65,6 +66,7 @@ namespace TechnicalServiceApp.Controllers
         }
 
         [HttpGet]
+      
         public ActionResult AdminEdit(int id)
         {
             var adminEdit = adminManager.GetById(id);
@@ -72,7 +74,7 @@ namespace TechnicalServiceApp.Controllers
         }
         
         [HttpPost]
-        
+        [ValidateAntiForgeryToken]
         public ActionResult AdminEdit(Admin admin)
         {
 
@@ -94,6 +96,7 @@ namespace TechnicalServiceApp.Controllers
 
         
         [HttpGet]
+        
         public ActionResult ChangePassword(int id)
         {
             var pass = adminManager.GetById(id);
@@ -106,7 +109,7 @@ namespace TechnicalServiceApp.Controllers
         //erişebiliyordu.
       
         [HttpPost]
-      
+        [ValidateAntiForgeryToken]
         public ActionResult ChangePassword(Admin admin)
         {
             ValidationResult results = validations.Validate(admin);
@@ -149,6 +152,7 @@ namespace TechnicalServiceApp.Controllers
             return View(adminEdit);
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult AdminPageAdminEdit(Admin p)
         {
 
