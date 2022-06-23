@@ -7,13 +7,14 @@
             <strong>Mesajlar</strong>
         </li>
         <li class="avatar">
-            <a href="#">
-                @foreach (var item in Model)
-                {
+
+            @foreach (var item in Model)
+            {
+                <a href="/UserContact/GetInboxMessageDetails/@item.ContactId">
                     <div>@item.Heading</div>
                     <small>@item.SenderMail</small>
-                }
                 </a>
+            }
         </li>
         <li class="dropdown-menu-footer text-center">
             <a href="/UserContact/Inbox/">Tüm Mesajlar</a>

@@ -33,8 +33,7 @@ namespace TechnicalServiceApp.Controllers
             else
             {
                 return RedirectToAction("AdminLogin","Login");     
-            }
-            
+            }    
         }
         [HttpGet]
         public ActionResult UserLogin()

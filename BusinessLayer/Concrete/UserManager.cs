@@ -25,7 +25,7 @@ namespace BusinessLayer.Concrete
         {
             return _userDal.List();
         }
-
+       
         public void UserAddBL(User user)
         {
             _userDal.Insert(user);
@@ -51,6 +51,6 @@ namespace BusinessLayer.Concrete
         public List<User> GetUserStatusFalse()
         {
             return _userDal.List(x => x.UserStatus == false);
-        }
+        }  
     }
 }

@@ -16,6 +16,11 @@ namespace BusinessLayer.Abstract
         void TodoDelete(Todo todo);
         void TodoUpdate(Todo todo);
         List<Todo> GetTodoStatusTrue();    
+        List<Todo> GetTodoStatusFalse();    
+        List<Todo> GetTodoDoneTrue();    
+        List<Todo> GetTodoDoneFalse();    
+        List<Todo> GetTodoWorkingTrue();    
+        List<Todo> GetTodoWorkingFalse();    
 
     }
 }

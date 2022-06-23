@@ -13,19 +13,21 @@
                         <h3 style="font-size: 15px; text-align: center;color:white ">Mesajlar</h3>
                     </div>
                 </li>
-        
-                <li>
-                    <a href="#">
 
-                        <div class="notification_desc">
-                            @foreach (var item in Model)
-                            {
+                <li>
+
+
+                    <div class="notification_desc">
+                        @foreach (var item in Model)
+                        {
+                            <a href="/Contact/GetInboxMessageDetails/@item.ContactId">
                                 <p><b>@item.Heading</b></p>
                                 <p><span>@item.SenderMail</span></p>
-                            }
-                        </div>
-                        <div class="clearfix"></div>
-                    </a>
+                            </a>
+                        }
+                    </div>
+                    <div class="clearfix"></div>
+
                 </li>
 
                 <li>

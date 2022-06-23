@@ -25,6 +25,7 @@ namespace BusinessLayer.Concrete
         {
             return _todoDal.List();
         }
+        
         public List<Todo> GetListTodo(string session)
         {
             return _todoDal.List(x => x.Contact.RecevierMail == session && x.TodoStatus == true);//alıcı
@@ -48,7 +49,26 @@ namespace BusinessLayer.Concrete
         {
             return _todoDal.List(x => x.TodoStatus == true);
         }
-
+        public List<Todo> GetTodoStatusFalse()
+        {
+            return _todoDal.List(x => x.TodoStatus == false);
+        }
+        public List<Todo> GetTodoDoneTrue()
+        {
+            return _todoDal.List(x => x.Done == true);
+        }
+        public List<Todo> GetTodoDoneFalse()
+        {
+            return _todoDal.List(x => x.Done == false);
+        }
+        public List<Todo> GetTodoWorkingTrue()
+        {
+            return _todoDal.List(x => x.Working == true);
+        }
+        public List<Todo> GetTodoWorkingFalse()
+        {
+            return _todoDal.List(x => x.Working == false);
+        }
     }
         
 }

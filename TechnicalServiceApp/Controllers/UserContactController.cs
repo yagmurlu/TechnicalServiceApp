@@ -56,10 +56,10 @@ namespace TechnicalServiceApp.Controllers
             var trashMail = contactManager.GetListTrash().Count();//çöp
             ViewBag.trashMail = trashMail;
 
-            var readMessage = contactManager.GetReadList(p).Count();
+            var readMessage = contactManager.GetReadList(p).Count(); // Gerekli değil
             ViewBag.readMessage = readMessage;
 
-            var unreadMessage = contactManager.GetUnReadList(p).Count();
+            var unreadMessage = contactManager.GetUnReadList(p).Count(); //Gerekli değil
             ViewBag.unreadMessage = unreadMessage;
             //var spamMail = contactManager.GetListSpam(p).Count();//spam
             //ViewBag.spamMail = spamMail;

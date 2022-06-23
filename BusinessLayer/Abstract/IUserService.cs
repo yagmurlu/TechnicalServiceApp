@@ -11,6 +11,7 @@ namespace BusinessLayer.Abstract
     {
         List<User> GetList();
         User GetById(int id);
+       
         void UserAddBL(User user);
         void UserDelete(User user);
         void UserUpdate(User user);

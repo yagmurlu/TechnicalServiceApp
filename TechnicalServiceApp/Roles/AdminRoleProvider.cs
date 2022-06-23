@@ -42,17 +42,7 @@ namespace TechnicalServiceApp.Roles
 
         public override string[] GetRolesForUser(string username)
         {
-            //using (var userContext = new Context())
-            //{
-            //    var user = userContext.Roles.FirstOrDefault(u => u.RoleName == username);
-            //    var userRoles = userContext.Roles.Select(r => r.RoleName);
-
-            //    if (user == null)
-            //        return new string[] { };
-            //    return user.RoleName == null ? new string[] { } :
-            //        userRoles.ToArray();
-            //}
-            // deneme 2
+            
             Context c = new Context();
             var admin = c.Admins.FirstOrDefault(a => a.AdminMail == username);
             return new string[] { admin.Role.RoleName };
@@ -79,9 +69,20 @@ namespace TechnicalServiceApp.Roles
 
             //    return userRoles && adminRoles;
             //}
-           
+            //using (var userContext = new Context())
+            //{
+            //    var user = userContext.Roles.FirstOrDefault(u => u.RoleName == username);
+            //    var userRoles = userContext.Roles.Select(r => r.RoleName);
+
+            //    if (user == null)
+            //        return new string[] { };
+            //    return user.RoleName == null ? new string[] { } :
+            //        userRoles.ToArray();
+            //}
+            // deneme 2
+
         }
-        
+
         public override string[] GetUsersInRole(string roleName)
         {
             throw new NotImplementedException();

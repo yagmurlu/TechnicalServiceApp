@@ -1,0 +1,155 @@
+﻿
+@{
+    ViewBag.Title = "Statistic";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<!DOCTYPE HTML>
+<html>
+<head>
+
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- Bootstrap Core CSS -->
+    <link href="~/Themes/admin_panel/web/css/bootstrap.css" rel="stylesheet" type='text/css' />
+    <!-- Custom CSS -->
+
+    <link href="~/Themes/admin_panel/web/css/style.css" rel="stylesheet" type='text/css' />
+    <!-- font CSS -->
+    <!-- font-awesome icons -->
+    <link href="~/Themes/admin_panel/web/css/font-awesome.css" rel="stylesheet" />
+
+    <!-- //font-awesome icons -->
+    <!-- js-->
+    <script src="~/Themes/admin_panel/web/js/jquery-1.11.1.min.js"></script>
+
+    <script src="~/Themes/admin_panel/web/js/modernizr.custom.js"></script>
+
+    <!--webfonts-->
+    <link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
+
+    <!--//webfonts-->
+    <!-- chart -->
+    <script src="~/Themes/admin_panel/web/js/Chart.js"></script>
+
+    <!-- //chart -->
+    <!--animate-->
+    <link href="~/Themes/admin_panel/web/css/animate.css" rel="stylesheet" type="text/css" media="all" />
+
+    <script src="~/Themes/admin_panel/web/js/wow.min.js"></script>
+
+    <script>
+        new WOW().init();
+    </script>
+    <!--//end-animate-->
+    <!-- Metis Menu -->
+    <script src="~/Themes/admin_panel/web/js/metisMenu.min.js"></script>
+    <script src="~/Themes/admin_panel/web/js/custom.js"></script>
+    <link href="~/Themes/admin_panel/web/css/custom.css" rel="stylesheet" />
+
+    <!--//Metis Menu -->
+</head>
+<body class="cbp-spmenu-push">
+
+    <!-- main content start-->
+    <div id="page-wrapper">
+        <div class="main-page charts-page">
+
+            <div class="charts">
+
+                <div class="col-md-2 charts chrt-page-grids chrt-left">
+                    <h4 class="title">Aktif - Pasif Kullanıcı </h4>
+                    <div class="pie-grid">
+                        <canvas id="pie" height="25" width="25" style="width: 200px; height: 100px;"></canvas>
+                    </div>
+                </div>
+
+                <div class="col-md-2 charts chrt-page-grids chrt-right">
+                    <h4 class="title"> Talep Durumuları </h4>
+                    <div class="doughnut-grid">
+                        <canvas id="pie2" style="width: 200px; height: 95px;"></canvas>
+                    </div>
+
+                </div>
+                <div class="clearfix"> </div>
+                <script>
+
+                        var pieData = [
+
+                            {
+
+                                value: @ViewBag.active,
+                                label:  "Aktif Kullanıcılar",
+
+                                color: "#009933"
+                            },
+
+                            {
+                                value: @ViewBag.passive,
+                                label: "Pasif Kullanıcılar",
+                                color: "#c83349"
+                            }
+
+                        ]
+                         var pieData2 = [
+
+                            {
+
+                                value: @ViewBag.doneTrue,
+                                label: "Tamamlandı",
+
+                                 color: "#00e673"
+                            },
+
+                             {
+
+                                value: @ViewBag.workTrue,
+                                label: "Talep Alındı",
+
+                                 color: "#7300e6"
+                            },
+                            {
+                                value: @ViewBag.todoFalse,
+                                label: "Tamamlanmadı",
+                                color: "#e67300"
+                            }
+
+                        ]
+
+                        new Chart(document.getElementById("pie").getContext("2d")).Pie(pieData);
+                        new Chart(document.getElementById("pie2").getContext("2d")).Doughnut(pieData2);
+                </script>
+
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Classie -->
+    <script src="~/Themes/admin_panel/web/js/classie.js"></script>
+
+    <script>
+        var menuLeft = document.getElementById('cbp-spmenu-s1'),
+            showLeftPush = document.getElementById('showLeftPush'),
+            body = document.body;
+
+        showLeftPush.onclick = function () {
+            classie.toggle(this, 'active');
+            classie.toggle(body, 'cbp-spmenu-push-toright');
+            classie.toggle(menuLeft, 'cbp-spmenu-open');
+            disableOther('showLeftPush');
+        };
+
+        function disableOther(button) {
+            if (button !== 'showLeftPush') {
+                classie.toggle(showLeftPush, 'disabled');
+            }
+        }
+    </script>
+    <!--scrolling js-->
+    <script src="~/Themes/admin_panel/web/js/jquery.nicescroll.js"></script>
+    <script src="~/Themes/admin_panel/web/js/scripts.js"></script>
+    <script src="~/Themes/admin_panel/web/js/bootstrap.js"></script>
+
+</body>
+</html>

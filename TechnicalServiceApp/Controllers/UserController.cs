@@ -80,8 +80,6 @@ namespace TechnicalServiceApp.Controllers
             return View(pass);
 
         }
-
-
         //x=>x.mail==admin.mail >> detail dan çıkarttım çünkü admin başkalarının maillerini ve şifrelerine
         //erişebiliyordu.
         [HttpPost]
@@ -90,9 +88,8 @@ namespace TechnicalServiceApp.Controllers
             ValidationResult results = userValidator.Validate(user);
             using (Context db = new Context())
             {
-                var detail = db.Users.Where(x => x.UserPassword == user.UserPassword && x.UserMail == user.UserMail && x.UserNewPassword != user.UserNewPassword && user.UserNewPassword!=null).FirstOrDefault();
-
-
+                var detail = db.Users.Where(x => x.UserPassword == user.UserPassword && x.UserMail == user.UserMail && 
+                x.UserNewPassword != user.UserNewPassword && user.UserNewPassword!=null).FirstOrDefault();
                 if (detail != null)
                 {
                     detail.UserPassword = user.UserNewPassword;

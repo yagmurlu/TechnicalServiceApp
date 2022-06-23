@@ -79,6 +79,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Concrete\Admin.cs" />
+    <Compile Include="Concrete\Class1.cs" />
     <Compile Include="Concrete\Contact.cs" />
     <Compile Include="Concrete\Mail.cs" />
     <Compile Include="Concrete\Role.cs" />

@@ -1,0 +1,117 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Result Visualization</title>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src=" https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.2/Chart.js&nbsp"></script>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"> </script>
+<script>
+        $(document).ready(function () {
+            $.ajax({
+                type: "POST",
+                dataType: "json",
+                contentType: "application/json",
+                url: '@Url.Action("VisualizeTodoResult", "Chart")',
+                success: function (result) {
+                    google.charts.load('current', {
+                        'packages': ['corechart']
+                    });
+                    google.charts.setOnLoadCallback(function () {
+                        drawChart(result);
+                    });
+                }
+            });
+        });
+
+        function drawChart(result) {
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'num1');
+            data.addColumn('number', 'number');
+            var dataArray = [];
+
+            $.each(result, function (i, obj) {
+                dataArray.push([obj.name, obj.number]);
+            });
+            data.addRows(dataArray);
+
+            var columnChartOptions = {
+                title: "Ürün - Stok Grafiği",
+                width: 1000,
+                height: 400,
+                bar: { groupWidth: "20%" },
+            };
+
+            var columnChart = new google.visualization.PieChart(document
+                .getElementById('Piechart_div'));
+
+            columnChart.draw(data, columnChartOptions);
+        }
+    </script>
+</head>
+<body>
+
+<div id="Piechart_div"></div>
+</body>
+</html>
+
+
+
+
+
+@*<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Chart View</title>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js">
+    </script>
+
+    <script type="text/javascript">
+
+        window.onload = function () {
+            var chart = new CanvasJS.Chart("chartContainer", {
+                theme: "theme2",
+                animationEnabled: true,
+                title: {
+                    text: "My Sample Column Chart Created in ASP.NET"
+                        
+                },
+                subtitles: [
+                    { text: "Resize the Browser" }
+                ],
+                data: [
+                    {
+                        // change type to bar, line, area, pie, etc.
+                        type: "pie",
+                        dataPoints: [
+                            { x: 10, y: 71 },
+                            { x: 20, y: 55 },
+                            { x: 30, y: 50 },
+                            { x: 40, y: 65 },
+                            { x: 50, y: 95 },
+                            { x: 60, y: 68 },
+                            { x: 70, y: 28 },
+                            { x: 80, y: 34 },
+                            { x: 90, y: 14 }
+                        ]
+                    }
+                ]
+            });
+            chart.render();
+        };
+    </script>
+</head>
+<body>
+    <div id="chartContainer">
+    </div>
+
+</body>
+</html>*@
