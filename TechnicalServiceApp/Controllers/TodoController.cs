@@ -74,23 +74,43 @@ namespace TechnicalServiceApp.Controllers
             }
             return View("Index"); // Go to INDEX
         }
+        
         public ActionResult TodoReport() // Rapor Sayfası
         {
             var todoValues = todoManager.GetList();
             return View(todoValues);
         }
-        public ActionResult TodoDelete(int id) //Aslında statu değiştirme olacak
+        public ActionResult TodoStatus(Contact p, int id) //Todo statu değiştirme olacak-işlem iptal
+        {
+            string session = (string)Session["AdminMail"];
+            var statu = todoManager.GetById(id);
+            if (statu.TodoStatus == true)
+            {
+                p.SenderMail = session;
+                p.RecevierMail = statu.Contact.SenderMail;
+                p.Heading = statu.Contact.Heading + " Hk.";
+                p.Contents = statu.Contact.Contents + " => Üzgünüz, talebiniz gerçekleştiremiyoruz:(";
+                p.ContactDate = DateTime.Parse(DateTime.Now.ToShortDateString());
+                p.ContactStatus = true;
+                contactManager.ContactAddBL(p);
+               
+                statu.TodoStatus = false;
+                todoManager.TodoDelete(statu);
+                return RedirectToAction("Index");
+            }
+            return RedirectToAction("Index");
+        }
+        public ActionResult TodoDelete(int id) // Todo tablosunda silme ama true-false olarak
         {
             var delete = todoManager.GetById(id);
-            if (delete.TodoStatus == true)
+            if (delete.TodoDelete == false)
             {
-                delete.TodoStatus = false;
+                delete.TodoDelete = true;
                 todoManager.TodoDelete(delete);
                 return RedirectToAction("Index");
             }
             return RedirectToAction("Index");
         }
-
         [HttpGet]
         public ActionResult AddTodoContact(Todo todo, int id) // Contact dan todo ya mesaj ekleme
         {

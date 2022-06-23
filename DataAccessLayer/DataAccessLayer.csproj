@@ -134,6 +134,10 @@
     <Compile Include="Migrations\202206162237081_guid-delete.designer.cs">
       <DependentUpon>202206162237081_guid-delete.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202206231213033_todoDelete.cs" />
+    <Compile Include="Migrations\202206231213033_todoDelete.designer.cs">
+      <DependentUpon>202206231213033_todoDelete.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -201,6 +205,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202206162237081_guid-delete.resx">
       <DependentUpon>202206162237081_guid-delete.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202206231213033_todoDelete.resx">
+      <DependentUpon>202206231213033_todoDelete.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

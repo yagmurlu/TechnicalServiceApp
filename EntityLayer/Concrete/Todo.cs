@@ -11,9 +11,10 @@ namespace EntityLayer.Concrete
     {
         [Key]
         public int TodoId { get; set; }
-        public bool Done { get; set; } //yapıldı
+        public bool Done { get; set; } //tamamlandı
         public bool Working { get; set; } // çalışıyor
-        public bool TodoStatus { get; set; } // beklemede ve ya silme olabilir.
+        public bool TodoStatus { get; set; } // tamamlanmadı olabilir.
+        public bool TodoDelete { get; set; } // todo tablosunda kaldırma.
         public int ContactId { get; set; }
         public virtual Contact Contact { get; set; }
 

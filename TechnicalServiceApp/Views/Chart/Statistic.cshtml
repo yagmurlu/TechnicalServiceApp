@@ -62,15 +62,47 @@
                     <div class="pie-grid">
                         <canvas id="pie" height="25" width="25" style="width: 200px; height: 100px;"></canvas>
                     </div>
+                    <div style="width: 20px; height: 20px; background-color: #6600cc; float: left">
+                        <div style="padding-left:30px">Aktif_Kullanıcı</div>
+                    </div>
+                    <div style="width: 20px; height: 20px; background-color: #bf80ff; margin-left: 160px">
+                        <div style="padding-left:30px">Pasif_Kullanıcı</div>
+                    </div>
                 </div>
 
                 <div class="col-md-2 charts chrt-page-grids chrt-right">
-                    <h4 class="title"> Talep Durumuları </h4>
+                    <h4 class="title">Genel Talep Durumları </h4>
                     <div class="doughnut-grid">
                         <canvas id="pie2" style="width: 200px; height: 95px;"></canvas>
                     </div>
-
+                    <div style="width: 20px; height: 20px; background-color: #669900; float: left">
+                        <div style="padding-left:30px">Tamamlandı</div>
+                    </div>
+                    <div style="width: 20px; height: 20px; background-color: #ffcc66; margin-left: 120px">
+                        <div style="padding-left:30px">Tamamlanmadı</div>
+                    </div>
+                    <div style="width: 20px; height: 20px; background-color: #6699ff; margin-left: 260px; margin-top: -20px ">
+                        <div style="padding-left:30px">Talep_Alındı</div>
+                    </div>
                 </div>
+                @*<div class="col-md-2 charts chrt-page-grids chrt-left ">
+                    <h4 class="title">Aylık Görev Sayısı</h4>
+                    <canvas id="bar" height="200" width="500" style="width: 500px; height: 200px;"></canvas>
+                </div>*@
+            <div class="col-md-2 charts chrt-page-grids chrt-left">
+                <h4 class="title">Aylık Görev Durum Grafiği</h4>
+                <canvas id="bar" height="200" width="500" style="width: 500px; height: 200px;"></canvas>
+
+                <div style="width: 20px; height: 20px; background-color: rgb(0, 138, 230); float: left">
+                    <div style="padding-left:30px">Tamamlanan</div>
+                </div>
+                <div style="width: 20px; height: 20px; background-color: rgb(204, 0, 102); margin-left: 120px">
+                    <div style="padding-left:30px">Tamamlanmayan</div>
+                </div>
+                <div style="width: 20px; height: 20px; background-color: rgb(0, 153, 0); margin-left: 270px; margin-top: -20px">
+                    <div style="padding-left:30px">Görev_Sayısı</div>
+                </div>
+            </div>
                 <div class="clearfix"> </div>
                 <script>
 
@@ -81,13 +113,13 @@
                                 value: @ViewBag.active,
                                 label:  "Aktif Kullanıcılar",
 
-                                color: "#009933"
+                                color: "#6600cc"
                             },
 
                             {
                                 value: @ViewBag.passive,
                                 label: "Pasif Kullanıcılar",
-                                color: "#c83349"
+                                color: "#bf80ff"
                             }
 
                         ]
@@ -98,7 +130,7 @@
                                 value: @ViewBag.doneTrue,
                                 label: "Tamamlandı",
 
-                                 color: "#00e673"
+                                 color: "#669900"
                             },
 
                              {
@@ -106,18 +138,80 @@
                                 value: @ViewBag.workTrue,
                                 label: "Talep Alındı",
 
-                                 color: "#7300e6"
+                                 color: "#6699ff"
                             },
                             {
                                 value: @ViewBag.todoFalse,
                                 label: "Tamamlanmadı",
-                                color: "#e67300"
+                                color: "#ffcc66"
+                            }
+
+                    ]
+                    @*var barChartData = {
+                        labels: ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"],
+                        datasets: [
+                            {
+
+                                fillColor: "rgba(233, 78, 2, 0.83)",
+                                strokeColor: "#ef553a",
+                                highlightFill: "#ef553a",
+
+                                data: [@ViewBag.ocakAyı, @ViewBag.subatAyı,@ViewBag.martAyı, @ViewBag.nisanAyı,
+                                    @ViewBag.mayısAyı, @ViewBag.haziranAyı, @ViewBag.temmuzAyı,@ViewBag.agustosAyı,@ViewBag.eylülAyı,
+                                @ViewBag.ekimAyı,@ViewBag.kasımAyı,@ViewBag.aralıkAyı]
+
                             }
 
                         ]
 
-                        new Chart(document.getElementById("pie").getContext("2d")).Pie(pieData);
-                        new Chart(document.getElementById("pie2").getContext("2d")).Doughnut(pieData2);
+                    };*@
+                    var barChartData = {
+                        labels: ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"],
+                        datasets: [
+                            {
+                                /*Gelen görev sayısı aylık*/
+                                fillColor: "rgb(0, 153, 0)",
+                                strokeColor: "#00e600",
+                                highlightFill: "#00e600",
+
+                                data: [@ViewBag.ocakAyı, @ViewBag.subatAyı,@ViewBag.martAyı, @ViewBag.nisanAyı,
+                                    @ViewBag.mayısAyı, @ViewBag.haziranAyı, @ViewBag.temmuzAyı,@ViewBag.agustosAyı,@ViewBag.eylülAyı,
+                                @ViewBag.ekimAyı,@ViewBag.kasımAyı,@ViewBag.aralıkAyı]
+
+                            },
+                            {
+                                /*aylık tamamlanan görev sayısı*/
+                                fillColor: "rgb(0, 138, 230)",
+                                strokeColor: "#4db8ff",
+                                highlightFill: "#4db8ff",
+
+                                data: [@ViewBag.ocakTamamAyı,@ViewBag.subatTamamAyı,@ViewBag.martTamamAyı,
+                                @ViewBag.nisanTamamAyı, @ViewBag.mayısTamamAyı, @ViewBag.haziranTamamAyı,
+                                @ViewBag.temmuzTamamAyı,@ViewBag.agustosTamamAyı, @ViewBag.eylülTamamAyı,
+                                @ViewBag.ekimTamamAyı,@ViewBag.kasımTamamAyı,@ViewBag.aralıkTamamAyı],
+
+                            },
+                             {
+                                /*aylık tamamlanmayan görev sayısı*/
+                                 fillColor: "rgb(204, 0, 102)",
+                                 strokeColor: "#ff4da6",
+                                 highlightFill: "#ff4da6",
+
+                                data: [@ViewBag.ocakDont,@ViewBag.subatDont,@ViewBag.martDont,
+                                @ViewBag.nisanDont, @ViewBag.mayısDont, @ViewBag.haziranDont,
+                                @ViewBag.temmuzDont,@ViewBag.agustosDont, @ViewBag.eylülDont,
+                                @ViewBag.ekimDont,@ViewBag.kasımDont,@ViewBag.aralıkDont],
+
+                            },
+
+                        ]
+
+                    };
+
+                    new Chart(document.getElementById("pie").getContext("2d")).Pie(pieData);
+                    new Chart(document.getElementById("pie2").getContext("2d")).Doughnut(pieData2);
+                   new Chart(document.getElementById("bar").getContext("2d")).Bar(barChartData);
+                    /*new Chart(document.getElementById("bar2").getContext("2d")).Bar(barChartData2);*/
                 </script>
 
 
